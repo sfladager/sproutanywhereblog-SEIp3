@@ -8,11 +8,18 @@ const router = express.Router()
 
 router.route('/blogs')
   .get(getAllBlogs)
+  .post(addBlog)
 
-router.route('/register')
-  .post(registerUser)
+router.route('/blogs/:id')
+  .get(getSingleBlog)
+  .put(updateBlog)
+  .delete(deleteBlog)
+
 router.route('/blogs/:category')
   .get(getSucculentBlogs)  
+  
+router.route('/register')
+  .post(registerUser)
 
 router.route('/login')
   .post(loginUser)
