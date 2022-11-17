@@ -42,7 +42,7 @@ export const getBlogsCategoryAndTags = async (req, res) => {
   try {
     const { category, tags } = req.params
     const blog = await Blog.find({ category: category, tags: tags })
-    if (!blog) throw new NotFound('No blogs exist in this category')
+    if (!blog || blog.length === 0) throw new NotFound('No blogs with these filter options')
     return res.json(blog)
   } catch (err) {
     sendErrors(res, err)
