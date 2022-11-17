@@ -13,7 +13,7 @@ const router = express.Router()
 
 router.route('/blogs')
   .get(getAllBlogs)
-  .post(addBlog)
+  .post(secureRoute, addBlog)
 
 router.route('/blogs/:id')
   .get(getSingleBlog)

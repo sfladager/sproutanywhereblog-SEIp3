@@ -12,7 +12,7 @@ import { NotFound } from '../config/errors.js'
 // Description: Query the entire blogs collection, to return all blogs
 export const getAllBlogs = async (req, res) => {
   try {
-    const blogs = await Blog.find()
+    const blogs = await Blog.find().populate('owner')
     return res.json(blogs)
   } catch (err) {
     sendErrors(res, err)
@@ -26,7 +26,7 @@ export const getAllBlogs = async (req, res) => {
 export const getBlogsCategory = async (req, res) => {
   try {
     const { category } = req.params
-    const blog = await Blog.find({ category: category })
+    const blog = await Blog.find({ category: category }).populate('owner')
     if (!blog) throw new NotFound('No blogs exist in this category')
     return res.json(blog)
   } catch (err) {
@@ -41,7 +41,7 @@ export const getBlogsCategory = async (req, res) => {
 export const getBlogsCategoryAndTags = async (req, res) => {
   try {
     const { category, tags } = req.params
-    const blog = await Blog.find({ category: category, tags: tags })
+    const blog = await Blog.find({ category: category, tags: tags }).populate('owner')
     if (!blog || blog.length === 0) throw new NotFound('No blogs with these filter options')
     return res.json(blog)
   } catch (err) {
@@ -49,14 +49,14 @@ export const getBlogsCategoryAndTags = async (req, res) => {
   }
 }
 
-
 // * Add Blog route
 // Method: Post
 // Endpoint: /blogs
 // Description: add a blog to the collection with create method
 export const addBlog = async (req, res) => {
   try {
-    const blog = await Blog.create({ ...req.body })
+    const blogWithOwner = { ...req.body, owner: req.currentUser._id }
+    const blog = await Blog.create(blogWithOwner)
     return res.status(201).json(blog)
   } catch (err) {
     sendErrors(res, err)
@@ -69,7 +69,7 @@ export const addBlog = async (req, res) => {
 // Description: return a single blog that matches the id from params and using the helper function to findById
 export const getSingleBlog = async (req, res) => {
   try {
-    const blog = await findBlog(req, res)
+    const blog = await findBlog(req, res).populate('owner')
     return res.json(blog)
   } catch (err) {
     sendErrors(res, err)
@@ -82,7 +82,7 @@ export const getSingleBlog = async (req, res) => {
 // Description: Find a specific blog with helper function, and assign req.body with Object.assign and save blog with save method
 export const updateBlog = async (req, res) => {
   try {
-    const blog = await findBlog(req, res)
+    const blog = await findBlog(req, res).populate('owner')
     if (blog) {
       Object.assign(blog, req.body)
       blog.save()
