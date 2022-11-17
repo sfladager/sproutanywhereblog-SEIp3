@@ -6,6 +6,8 @@ import plantData from './data/plants.js'
 // import blogData from './data/blogs.js'
 import User from '../models/user.js'
 import userData from './data/users.js'
+import Blog from '../models/blog.js'
+import blogData from './data/blogs.js'
 
 const seedDatabase = async () => {
   try {
@@ -22,13 +24,18 @@ const seedDatabase = async () => {
       return { ...plant, owner: users[0]._id }
     })
 
+    const blogsWithOwners = blogData.map(blog => {
+      return { ...blog, owner: users[1]._id }
+    })
+
     const plants = await Plant.create(plantsWithOwners)
     console.log(plants)
     console.log(`🌱 Plants collection seeded with ${plants.length} plants`)
 
 
-
-
+    const blogs = await Blog.create(blogsWithOwners)
+    console.log(blogsWithOwners)
+    console.log(`Blogs collection seeded with ${blogs.length} users!`)
 
     await mongoose.connection.close()
     console.log('👋 Goodbye!')

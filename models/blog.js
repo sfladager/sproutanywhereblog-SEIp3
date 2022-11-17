@@ -8,7 +8,7 @@ const blogSchema = new mongoose.Schema({
   description: { type: String, required: true },
   thumbnail: { type: String, requied: true },
   article: { type: String, required: true },
-  // Owner Reference
+  owner: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
 }, {
   timestamps: true,
 })

@@ -14,12 +14,12 @@ const router = express.Router()
 
 router.route('/blogs')
   .get(getAllBlogs)
-  .post(addBlog)
+  .post(secureRoute, addBlog)
 
 router.route('/blogs/:id')
   .get(getSingleBlog)
-  .put(updateBlog)
-  .delete(deleteBlog)
+  .put(secureRoute, updateBlog)
+  .delete(secureRoute, deleteBlog)
 
 router.route('/blogs/category/:category')
   .get(getBlogsCategory)
