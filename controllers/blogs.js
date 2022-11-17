@@ -1,6 +1,7 @@
 
 import Blog from '../models/blog.js'
 import { sendErrors, findBlog } from '../config/helpers.js'
+import { NotFound } from '../config/errors.js'
 
 
 
@@ -18,12 +19,18 @@ export const getAllBlogs = async (req, res) => {
   }
 }
 
-export const getSucculentBlogs = async (req, res) => {
+// * Blog category Index route
+// Method: GET
+// Endpoint: /blogs/category/:id
+// Description: Query a specific blog category index, to return all blogs under the specific category.
+export const getBlogsCategory = async (req, res) => {
   try {
-    console.log('GET ALL SUCCULENTS INDEX')
-    console.log('PARAMS', req.params)
-    // const blog = await Blog.find({ category: 'succulents' })
-    // console.log(blog)
+    
+    const { category } = req.params
+    console.log(category)
+    const blog = await Blog.find({ category: category })
+    if (!blog) throw new NotFound('No blogs exist in this category')
+    return res.json(blog)
   } catch (err) {
     sendErrors(res, err)
   }

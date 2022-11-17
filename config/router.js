@@ -1,5 +1,5 @@
 import express from 'express'
-import { getAllBlogs, addBlog, getSingleBlog, updateBlog, deleteBlog, getSucculentBlogs } from '../controllers/blogs.js'
+import { getAllBlogs, addBlog, getSingleBlog, updateBlog, deleteBlog, getBlogsCategory } from '../controllers/blogs.js'
 import { registerUser, loginUser } from '../controllers/auth.js'
 
 
@@ -15,8 +15,8 @@ router.route('/blogs/:id')
   .put(updateBlog)
   .delete(deleteBlog)
 
-router.route('/blogs/:category')
-  .get(getSucculentBlogs)  
+router.route('/blogs/category/:category')
+  .get(getBlogsCategory)  
   
 router.route('/register')
   .post(registerUser)
