@@ -1,7 +1,7 @@
 
 import Blog from '../models/blog.js'
 import { sendErrors, findBlog } from '../config/helpers.js'
-import { NotFound } from '../config/errors.js'
+import { NotFound, Unauthorised } from '../config/errors.js'
 
 
 
@@ -82,12 +82,14 @@ export const getSingleBlog = async (req, res) => {
 // Description: Find a specific blog with helper function, and assign req.body with Object.assign and save blog with save method
 export const updateBlog = async (req, res) => {
   try {
-    const blog = await findBlog(req, res).populate('owner')
-    if (blog) {
+    const blog = await findBlog(req, res)
+    console.log(blog)
+    if (blog && req.currentUser._id.equals(blog.owner)) {
       Object.assign(blog, req.body)
       blog.save()
       return res.status(202).json(blog)
     }
+    throw new Unauthorised()
   } catch (err) {
     sendErrors(res, err)
   }
@@ -103,6 +105,7 @@ export const deleteBlog = async (req, res) => {
       await blog.remove()
       return res.sendStatus(204)
     }
+    throw new Unauthorised()
   } catch (err) {
     sendErrors(res, err)
   }

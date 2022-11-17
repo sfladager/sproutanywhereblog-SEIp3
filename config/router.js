@@ -17,8 +17,8 @@ router.route('/blogs')
 
 router.route('/blogs/:id')
   .get(getSingleBlog)
-  .put(updateBlog)
-  .delete(deleteBlog)
+  .put(secureRoute, updateBlog)
+  .delete(secureRoute, deleteBlog)
 
 router.route('/blogs/category/:category')
   .get(getBlogsCategory)
