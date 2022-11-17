@@ -11,8 +11,8 @@ const app = express()
 const startServer = async () => {
   try {
     await mongoose.connect(dbURI)
-    console.log('Database running!')
-    
+    console.log('🚀Database running!')
+
     // ! Middleware
     // * Parser
     app.use(express.json())
@@ -30,8 +30,8 @@ const startServer = async () => {
     app.use((_req, res) => res.status(404).json('Page Not Found'))
 
     // ! Start server
-    app.listen(port, console.log(`Sever running on port ${port}`))
-    
+    app.listen(port, console.log(`🚀Sever running on port ${port}`))
+
   } catch (err) {
     console.log(err)
   }
