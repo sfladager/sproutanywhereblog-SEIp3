@@ -1,5 +1,5 @@
 import express from 'express'
-import { getAllBlogs, addBlog, getSingleBlog, updateBlog, deleteBlog, getBlogsCategory } from '../controllers/blogs.js'
+import { getAllBlogs, addBlog, getSingleBlog, updateBlog, deleteBlog, getBlogsCategory, getBlogsCategoryAndTags } from '../controllers/blogs.js'
 import { registerUser, loginUser } from '../controllers/auth.js'
 
 
@@ -16,8 +16,11 @@ router.route('/blogs/:id')
   .delete(deleteBlog)
 
 router.route('/blogs/category/:category')
-  .get(getBlogsCategory)  
-  
+  .get(getBlogsCategory)
+
+router.route('/blogs/category/:category/:tags')
+  .get(getBlogsCategoryAndTags)
+
 router.route('/register')
   .post(registerUser)
 

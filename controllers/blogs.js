@@ -25,9 +25,7 @@ export const getAllBlogs = async (req, res) => {
 // Description: Query a specific blog category index, to return all blogs under the specific category.
 export const getBlogsCategory = async (req, res) => {
   try {
-    
     const { category } = req.params
-    console.log(category)
     const blog = await Blog.find({ category: category })
     if (!blog) throw new NotFound('No blogs exist in this category')
     return res.json(blog)
@@ -35,6 +33,22 @@ export const getBlogsCategory = async (req, res) => {
     sendErrors(res, err)
   }
 }
+
+// * Blog category Index route
+// Method: GET
+// Endpoint: /blogs/category/:category/:tags
+// Description: Query a specific blog category index, to return all blogs under the specific category.
+export const getBlogsCategoryAndTags = async (req, res) => {
+  try {
+    const { category, tags } = req.params
+    const blog = await Blog.find({ category: category, tags: tags })
+    if (!blog) throw new NotFound('No blogs exist in this category')
+    return res.json(blog)
+  } catch (err) {
+    sendErrors(res, err)
+  }
+}
+
 
 // * Add Blog route
 // Method: Post
