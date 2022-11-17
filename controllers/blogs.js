@@ -1,20 +1,8 @@
 
 import Blog from '../models/blog.js'
+import { sendErrors, findBlog } from '../config/helpers.js'
 
-// Helper Function
-// Selects blog by Id with findById(id) and reuse when need to find by id
-// async function
-// destructure id with params
-// find blog with 
-// export const findBlog = async (req, res) => {
-//   try {
-//     const { id } = req.params
-//     const blog = await Blog.findById(id)
-//     return blog
-//   } catch (err) {
-//     console.log(err)
-//   }
-// }
+
 
 
 // * Index route
@@ -23,23 +11,21 @@ import Blog from '../models/blog.js'
 // Description: Query the entire blogs collection, to return all blogs
 export const getAllBlogs = async (req, res) => {
   try {
-    console.log('PARAMS', req)
     const blogs = await Blog.find()
     return res.json(blogs)
   } catch (err) {
-    console.log(err)
+    sendErrors(res, err)
   }
 }
 
 export const getSucculentBlogs = async (req, res) => {
   try {
-    console.log('GET ALL SUCCULENTS INDEX', req)
+    console.log('GET ALL SUCCULENTS INDEX')
+    console.log('PARAMS', req.params)
     // const blog = await Blog.find({ category: 'succulents' })
     // console.log(blog)
   } catch (err) {
-    console.log(err)
-    console.log(err.name)
-    console.log(err.message)
+    sendErrors(res, err)
   }
 }
 
@@ -52,7 +38,7 @@ export const addBlog = async (req, res) => {
     const blog = await Blog.create({ ...req.body })
     return res.status(201).json(blog)
   } catch (err) {
-    console.log(err)
+    sendErrors(res, err)
   }
 }
 
@@ -62,11 +48,10 @@ export const addBlog = async (req, res) => {
 // Description: return a single blog that matches the id from params and using the helper function to findById
 export const getSingleBlog = async (req, res) => {
   try {
-    const { id } = req.params
-    const blog = await Blog.findById(id)
+    const blog = await findBlog(req, res)
     return res.json(blog)
   } catch (err) {
-    console.log(err)
+    sendErrors(res, err)
   }
 }
 
@@ -76,15 +61,14 @@ export const getSingleBlog = async (req, res) => {
 // Description: Find a specific blog with helper function, and assign req.body with Object.assign and save blog with save method
 export const updateBlog = async (req, res) => {
   try {
-    const { id } = req.params
-    const blog = await Blog.findById(id)
+    const blog = await findBlog(req, res)
     if (blog) {
       Object.assign(blog, req.body)
       blog.save()
       return res.status(202).json(blog)
     }
   } catch (err) {
-    console.log(err)
+    sendErrors(res, err)
   }
 }
 // * Delete Blog Route
@@ -93,13 +77,12 @@ export const updateBlog = async (req, res) => {
 // Description: Locates the correct blog and removes it from the collection
 export const deleteBlog = async (req, res) => {
   try {
-    const { id } = req.params
-    const blog = await Blog.findById(id)
+    const blog = await findBlog(req, res)
     if (blog) {
       await blog.remove()
       return res.sendStatus(204)
     }
   } catch (err) {
-    console.log(err)
+    sendErrors(res, err)
   }
 }
