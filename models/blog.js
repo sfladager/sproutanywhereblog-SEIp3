@@ -3,12 +3,12 @@ import mongoose from 'mongoose'
 // ! Blog Schema
 const blogSchema = new mongoose.Schema({
   title: { type: String, required: true, unique: true },
-  // category
-  // tags
-  // Article
+  category: { type: String, required: true },
+  tags: { type: String, required: true },
+  description: { type: String, required: true },
+  thumbnail: { type: String, requied: true },
+  article: { type: String, required: true },
   // Owner Reference
-  // desciption
-  // Thumbnail link
 }, {
   timestamps: true,
 })
