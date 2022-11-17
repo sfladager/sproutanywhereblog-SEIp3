@@ -15,12 +15,20 @@ const seedDatabase = async () => {
     await mongoose.connection.db.dropDatabase()
     console.log('👍 Database dropped!')
 
-    const plants = await Plant.create(plantData)
+    const users = await User.create(userData)
+    console.log(`👤 Users collection seeded with ${users.length} users!`)
+
+    const plantsWithOwners = plantData.map(plant => {
+      return { ...plant, owner: users[0]._id }
+    })
+
+    const plants = await Plant.create(plantsWithOwners)
     console.log(plants)
     console.log(`🌱 Plants collection seeded with ${plants.length} plants`)
 
-    const users = await User.create(userData)
-    console.log(`👤 Users collection seeded with ${users.length} users!`)
+
+
+
 
     await mongoose.connection.close()
     console.log('👋 Goodbye!')

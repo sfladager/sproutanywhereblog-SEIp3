@@ -7,6 +7,18 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
 })
 
+userSchema.set('toJSON', {
+  // First argument passed into the transform method is the document we just queried, which means we can actually manipulate the document stored in the collection
+  // Secondly, in this instance we don't want to update the document itself, because those changes are permanent. So we'll use second argument which is a json version of the document we queried. Any changes made to this would not be permanent and simply would apply to the json being returned to the user
+  transform(_doc, json) {
+    // json is a javascript object that we want to remove the password key of
+    // We can do that as below, 
+    delete json.password
+    return json
+  },
+  virtuals: true,
+})
+
 // We set passwordConfirmation as a virtual field in userSchema, as we will use it but won't store it.
 // We set it equal to the value of the field filled by the user.
 // The '_' is for avoiding an infinite loop. It asks the setter to set the value of the key 'passwordConfirmation' only once.
