@@ -19,6 +19,7 @@ const plantSchema = new mongoose.Schema({
   plantSkill: { type: Boolean, required: true }, // yes(skilled) no(unskilled)
   toxicToPetsOrChildren: { type: Boolean, required: true }, // yes no
   // owner: { type: mongoose.Schema.OnjectId, ref: 'User', required: true }
+  owner: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
 })
 
 export default mongoose.model('Plant', plantSchema)

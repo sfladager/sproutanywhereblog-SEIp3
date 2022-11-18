@@ -9,7 +9,7 @@ import User from '../models/user.js'
 
 export default async (req, res, next) => {
   try {
-    // 1. Ensure the authorization header was sent with the request
+    // 1. Ensure the authorization header was sent with the requests
     const auth = req.headers.authorization
     // 2. If it's not, we'll throw an unauthorised error
     if (!auth) {
