@@ -4,7 +4,7 @@ import axios from 'axios'
 
 // Chakra imports
 import { Container, Box, SimpleGrid } from '@chakra-ui/react'
-import { Card, CardBody, CardFooter, Image, Heading, Divider, ButtonGroup, Button } from '@chakra-ui/react'
+import { Card, CardBody, Image, Heading, Button } from '@chakra-ui/react'
 
 
 const SucculentsBlogs = () => {
@@ -24,33 +24,28 @@ const SucculentsBlogs = () => {
     getData()
   }, [])
 
-  useEffect(() => {
-    console.log(blogs)
-  }, [blogs])
-
   // ! JSX
   return (
     <main className="succulents-blog-index">
       <Container m={2} maxW="997px">
         <Box p={1} mb={2} className="blog-index-filter-box">
-          <h3>I want to read about<span className="blog-index-filter-selector">
+          <h2>I want to read about<span className="blog-index-filter-selector">
             <select className="filter-blog-by-tag" id="filter-blog-by-tag" placeholder="Pick One">
               <option id="all" value="all">All</option>
               <option id="facts" value="facts">Facts</option>
             </select>
-          </span></h3> 
+          </span></h2> 
         </Box>
         <SimpleGrid minChildWidth="250px" spacing='30px'>
           {blogs.length > 0 &&
             blogs.map(b => {
               const { _id, title, createdAt, thumbnail, description } = b
-              console.log(_id, title)
               return (
                 <Link key={_id} to={`/blogs/${_id}`}>
                   <Card className="blog-index-cards">
                     <CardBody>
                       <Image src={thumbnail} alt={title} />
-                      <Heading mt="2" size='sm'>{title}</Heading>
+                      <Heading mt="2" size='md'>{title}</Heading>
                       <p className="blog-card-p">{createdAt}</p>
                       <p className="description-card-p">{description}</p>
                       <Button variant='ghost' p="0">

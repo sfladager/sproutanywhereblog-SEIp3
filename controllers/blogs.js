@@ -21,7 +21,7 @@ export const getAllBlogs = async (req, res) => {
 
 // * Blog category Index route
 // Method: GET
-// Endpoint: /blogs/category/:id
+// Endpoint: /blogs/category/:category
 // Description: Query a specific blog category index, to return all blogs under the specific category.
 export const getBlogsCategory = async (req, res) => {
   try {
@@ -69,7 +69,7 @@ export const addBlog = async (req, res) => {
 // Description: return a single blog that matches the id from params and using the helper function to findById
 export const getSingleBlog = async (req, res) => {
   try {
-    const blog = await findBlog(req, res).populate('owner')
+    const blog = await findBlog(req, res)
     return res.json(blog)
   } catch (err) {
     sendErrors(res, err)
@@ -83,7 +83,6 @@ export const getSingleBlog = async (req, res) => {
 export const updateBlog = async (req, res) => {
   try {
     const blog = await findBlog(req, res)
-    console.log(blog)
     if (blog && req.currentUser._id.equals(blog.owner)) {
       Object.assign(blog, req.body)
       blog.save()

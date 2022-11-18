@@ -4,8 +4,8 @@ import axios from 'axios'
 import { ChakraProvider } from '@chakra-ui/react'
 
 // Imported Components
-// import Home from './components/pages/Home'
 import SucculentsBlogs from './components/pages/blogs/SucculentsBlogs'
+import BlogSingle from './components/pages/blogs/BlogSingle'
 
 const App = () => {
 
@@ -16,8 +16,9 @@ const App = () => {
         <BrowserRouter>
 
           <Routes>
-            {/* <Route path="/" element={<Home />} /> */}
+            
             <Route path="/blogs/category/succulents" element={<SucculentsBlogs />} />
+            <Route path="/blogs/:blogsId" element={<BlogSingle />} />
           </Routes>
         </BrowserRouter>
       </div>
