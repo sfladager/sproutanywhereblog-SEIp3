@@ -12,6 +12,7 @@ $body-font: 'Baloo Thambi 2';
 body {
   margin: 0;
   font-size: 15px;
+  font-family: $body-font;
 }
 
 .blog-index-filter-box {
@@ -24,7 +25,7 @@ body {
   }
 }
 
-.succulents-blog-index {
+.succulents-blog-index, .single-blog {
   display: flex;
   justify-content: center;
 }
@@ -43,5 +44,13 @@ body {
   }
   button {
     color: $accent;
+  }
+}
+
+.single-blog {
+  h1 {
+    font-size: 2rem;
+    font-family: $header-font;
+    color: $primary;
   }
 }

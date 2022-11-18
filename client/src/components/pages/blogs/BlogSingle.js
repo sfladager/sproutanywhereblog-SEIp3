@@ -4,11 +4,12 @@ import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
 
 // Chakra imports
-import { Container, Box, SimpleGrid } from '@chakra-ui/react'
+import { Container, Box, Image, Button } from '@chakra-ui/react'
 
 const BlogSingle = () => {
   // ! State
-  const [ blogs, setBlogs ] = useState([])
+  const [ blog, setBlog ] = useState([])
+  const [ errors, setErrors ] = useState(false)
 
   const { blogsId } = useParams()
 
@@ -17,7 +18,7 @@ const BlogSingle = () => {
     const getData = async () => {
       try {
         const { data } = await axios.get(`/api/blogs/${blogsId}`)
-        setBlogs(data)
+        setBlog(data)
       } catch (err) {
         console.log(err)
       }
@@ -26,9 +27,31 @@ const BlogSingle = () => {
   }, [blogsId])
 
   return (
-    <main className="succulents-blog-index">
+    <main className="single-blog">
       <Container m={2} maxW="997px">
-        <h1>Single Bread PAGE!</h1>
+        <Button variant='ghost' m="0" p="1">Back</Button>
+        {blog ?
+          <>
+            <Box mt={1}>
+              <h1>{ blog.title }</h1>
+              <p>{ blog.createdAt } | Written by: </p>
+            </Box>
+            <Box>
+              <Image src={blog.thumbnail} alt={blog.title}/>
+            </Box>
+            <Box>
+              <h3>{blog.description}</h3>
+            </Box>
+            <Box className="social-icons">
+              <p>FB, Twtter, Whatsapp, pinterst share links go here</p>
+            </Box>
+            <Box className="blog-article">
+              {blog.article}
+            </Box>
+          </>  
+          :
+          errors ? <h2>Something went wrong!</h2> : <h2>Loading...</h2>
+        }
       </Container>
     </main>
   )
