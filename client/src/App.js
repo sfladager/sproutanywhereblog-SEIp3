@@ -1,5 +1,11 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { useEffect } from 'react'
 import axios from 'axios'
+import { ChakraProvider } from '@chakra-ui/react'
+
+// Imported Components
+import Home from './components/pages/Home'
+import SucculentsBlogs from './components/pages/blogs/SucculentsBlogs'
 
 const App = () => {
   useEffect(() => {
@@ -10,7 +16,19 @@ const App = () => {
     getData()
   })
 
-  return <h1>Hello World</h1>
+  return (
+    <ChakraProvider>
+      <div className="site-wrapper">
+        <BrowserRouter>
+
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/blogs/category/succulents" element={<SucculentsBlogs />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </ChakraProvider>
+  )
 }
 
 export default App
