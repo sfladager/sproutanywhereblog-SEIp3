@@ -13,3 +13,35 @@ body {
   margin: 0;
   font-size: 15px;
 }
+
+.blog-index-filter-box {
+  text-align: center;
+  select {
+    text-align: right;
+    text-decoration: underline;
+    color: $primary;
+    padding-left: 10px;
+  }
+}
+
+.succulents-blog-index {
+  display: flex;
+  justify-content: center;
+}
+
+.blog-index-cards {
+  .blog-card-p {
+    font-size: 0.7rem;
+    color:#98999a;
+  }
+  .blog-read-more{
+    background-color: $primary;
+    color: $secondary;
+  }
+  .description-card-p {
+    margin-top: 5px;
+  }
+  button {
+    color: $accent;
+  }
+}
