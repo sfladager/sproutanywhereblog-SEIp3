@@ -83,7 +83,8 @@ export const getSingleBlog = async (req, res) => {
 export const updateBlog = async (req, res) => {
   try {
     const blog = await findBlog(req, res)
-    if (blog && req.currentUser._id.equals(blog.owner)) {
+    if (!blog) throw new NotFound('Blog not found')
+    if (blog && req.currentUser._id.equals(blog.owner._id)) {
       Object.assign(blog, req.body)
       blog.save()
       return res.status(202).json(blog)

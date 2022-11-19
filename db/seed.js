@@ -2,8 +2,6 @@ import mongoose from 'mongoose'
 import { dbURI } from '../config/environment.js'
 import Plant from '../models/plant.js'
 import plantData from './data/plants.js'
-// import Blog from '../models/blog.js'
-// import blogData from './data/blogs.js'
 import User from '../models/user.js'
 import userData from './data/users.js'
 import Blog from '../models/blog.js'
@@ -34,7 +32,6 @@ const seedDatabase = async () => {
 
 
     const blogs = await Blog.create(blogsWithOwners)
-    console.log(blogsWithOwners)
     console.log(`Blogs collection seeded with ${blogs.length} users!`)
 
     await mongoose.connection.close()

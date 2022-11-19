@@ -1,17 +1,18 @@
 
 import { useState, useEffect } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 // Chakra imports
-import { Container, Box, Image, Button } from '@chakra-ui/react'
+import { Container, Box, Image, Button, ButtonGroup } from '@chakra-ui/react'
 
 const BlogSingle = () => {
   // ! State
   const [ blog, setBlog ] = useState([])
   const [ errors, setErrors ] = useState(false)
 
-  const { blogsId } = useParams()
+  const { blogsId, category } = useParams()
+  const navigate = useNavigate()
 
   // ! Execution
   useEffect(() => {
@@ -26,10 +27,21 @@ const BlogSingle = () => {
     getData()
   }, [blogsId])
 
+  const deleteBlog = async (e) => {
+    try {
+      await axios.delete(`/api/blogs/${blogsId}`)
+      navigate(`/blogs/category/${blog.category}`)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   return (
     <main className="single-blog">
       <Container m={2} maxW="997px">
-        <Button variant='ghost' m="0" p="1">Back</Button>
+        <Link to={`/blogs/category/${blog.category}`}>
+          <Button variant='ghost' m="0" p="1">Back</Button>
+        </Link>
         {blog ?
           <>
             <Box mt={1}>
@@ -47,6 +59,12 @@ const BlogSingle = () => {
             </Box>
             <Box className="blog-article">
               {blog.article}
+            </Box>
+            <Box>
+              <ButtonGroup gap='2'>
+                <Button className="btn-green">Edit</Button>
+                <Button onClick={deleteBlog} colorScheme='red'>Delete</Button>
+              </ButtonGroup>
             </Box>
           </>  
           :

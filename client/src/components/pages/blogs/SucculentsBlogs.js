@@ -11,6 +11,8 @@ const SucculentsBlogs = () => {
   // ! State
   const [ blogs, setBlogs ] = useState([])
 
+
+
   // ! Execution
   useEffect(() => {
     const getData = async () => {
