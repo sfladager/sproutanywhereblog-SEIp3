@@ -13,3 +13,36 @@ body {
   margin: 0;
   font-size: 15px;
 }
+
+.btn-main {
+  background-color: darken($primary, 15%);
+
+  &:hover {
+    background-color: darken($primary, 20%);
+  }
+}
+
+// Form Page
+.form-page {
+  form {
+    background: #ffeed9;
+    padding: 40px;
+    border-radius: 18px;
+
+    label {
+      font-size: 0.9rem;
+    }
+
+    input {
+      width: 100%;
+      margin-bottom: 15px;
+      border: none;
+      padding: 5px;
+    }
+
+    small {
+      display: block;
+      margin-bottom: 15px;
+    }
+  }
+}

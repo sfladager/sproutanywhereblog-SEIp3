@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { useEffect } from 'react'
 import axios from 'axios'
 import { ChakraProvider } from '@chakra-ui/react'
-
 // Imported Components
 import Home from './components/pages/Home'
 import SucculentsBlogs from './components/pages/blogs/SucculentsBlogs'
