@@ -3,14 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@chakra-ui/icons": "^2.0.12",
     "@chakra-ui/react": "^2.4.1",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@vscode/codicons": "^0.0.32",
     "axios": "^0.25.0",
     "eslint-plugin-react": "^7.31.10",
     "framer-motion": "^7.6.7",
+    "hamburger-react": "^2.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.6.0",
     "react-router-dom": "^6.4.3",
     "react-scripts": "^5.0.1",
     "sass": "^1.56.1"
