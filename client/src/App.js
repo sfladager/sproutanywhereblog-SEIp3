@@ -7,6 +7,7 @@ import { ChakraProvider } from '@chakra-ui/react'
 import SucculentsBlogs from './components/pages/blogs/SucculentsBlogs'
 import BlogSingle from './components/pages/blogs/BlogSingle'
 import BlogNew from './components/pages/blogs/BlogNew'
+import BlogEdit from './components/pages/blogs/BlogEdit'
 
 const App = () => {
 
@@ -20,6 +21,7 @@ const App = () => {
             
             <Route path="/blogs/category/succulents" element={<SucculentsBlogs />} />
             <Route path="/blogs/:blogsId" element={<BlogSingle />} />
+            <Route path="/blogs/:blogsId/edit" element={<BlogEdit />} />
             <Route path="/blogs/new" element={<BlogNew />} />
           </Routes>
         </BrowserRouter>

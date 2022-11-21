@@ -62,7 +62,7 @@ const BlogSingle = () => {
             </Box>
             <Box>
               <ButtonGroup gap='2'>
-                <Button className="btn-green">Edit</Button>
+                <Link to={`/blogs/${blogsId}/edit`}><Button className="btn-green">Edit</Button></Link>
                 <Button onClick={deleteBlog} colorScheme='red'>Delete</Button>
               </ButtonGroup>
             </Box>

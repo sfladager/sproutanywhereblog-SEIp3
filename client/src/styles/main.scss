@@ -61,3 +61,49 @@ body {
     }
   }
 }
+
+.blog-form-page{
+  display: flex;
+  justify-content: center;
+}
+
+.blog-form-title {
+  font-family: $header-font;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h1 {
+    font-size: 1.5rem;
+    padding-right: 3rem;
+  }
+}
+
+.blog-form {
+  margin-top: 20px;
+  .required {
+    color: red;
+  } 
+  label {
+    font-family: $header-font;
+    font-size: 1.2rem;
+  }
+  input {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 15px;
+    border: 1px solid $accent;
+    border-radius: 5px;
+    font-family: $body-font;
+  }
+  .btn-green {
+    background-color: $primary;
+    color: $secondary;
+    &:hover {
+      background-color: $accent;
+    }
+  .blog-form-select {
+    border-color: $accent;
+    background-color: $primary;
+  }
+  }
+}
