@@ -10,6 +10,7 @@ import BlogEdit from './components/pages/blogs/BlogEdit'
 import Login from './components/pages/auth/Login'
 import Register from './components/pages/auth/Register'
 
+
 const App = () => {
 
   return (

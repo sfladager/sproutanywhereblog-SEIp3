@@ -3,6 +3,8 @@ import { useNavigate, Link } from 'react-router-dom'
 import axios from 'axios'
 
 import ImageUpload from '../../ImageUpload'
+import Editor from '../../editor/Editor'
+import '../../../styles/editor.scss'
 
 // Chakra imports
 import { Container, Box, Image, Button, Select, Input } from '@chakra-ui/react'
@@ -78,7 +80,7 @@ const BlogNew = () => {
 
   return (
     <main className="blog-form-page">
-      <Container w={[350, null, 500, null, 997]} m={2} maxW="997px">
+      <Container w={[350, 500, 768, 997]} m={2} maxW="997px">
         <Box className="blog-form-title">
           <Link to={'/blogs'}>
             <Button variant='ghost' m="0" p="1">Back</Button>
@@ -128,12 +130,17 @@ const BlogNew = () => {
               />
               {/* Article */}
               <label htmlFor="article">Article <span className="required">*</span></label>
-              <Input 
+              {/* <Input 
                 type='text'
                 name="article"
                 onChange={handleChange}
                 placeholder="Article"
                 required 
+              /> */}
+              <Editor
+                name="article"
+                onChange={handleChange}
+                required
               />
               <Button className="btn-green">Add Blog</Button>
             </Box>
