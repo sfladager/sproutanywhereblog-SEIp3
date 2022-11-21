@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import axios from 'axios'
 
+import ImageUpload from '../../ImageUpload'
+
 // Chakra imports
 import { Container, Box, Image, Button, Select, Input } from '@chakra-ui/react'
 
@@ -119,12 +121,9 @@ const BlogNew = () => {
                 required 
               />
               {/* Thumbnail */}
-              <label htmlFor="thumbnail">Thumbnail <span className="required">*</span></label>
-              <Input 
-                type='text'
-                name="thumbnail"
-                onChange={handleChange}
-                placeholder="Thumbnail"
+              <ImageUpload
+                formFields={formFields}
+                setFormFields={setFormFields}
                 required 
               />
               {/* Article */}
