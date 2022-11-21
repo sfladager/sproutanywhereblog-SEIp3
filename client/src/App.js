@@ -9,6 +9,7 @@ import Navbar from './components/navbar/Navbar'
 import Home from './components/pages/Home'
 import SucculentsBlogs from './components/pages/blogs/SucculentsBlogs'
 import PlantsIndex from './components/pages/plants/PlantsIndex'
+import PlantSingle from './components/pages/plants/PlantSingle'
 
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
           <Navbar />
           <Routes>
             <Route path="/plants" element={<PlantsIndex />} />
+            <Route path="/plants/:id" element={<PlantSingle />} />
             <Route path="/" element={<Home />} />
             <Route path="/blogs/category/succulents" element={<SucculentsBlogs />} />
           </Routes>

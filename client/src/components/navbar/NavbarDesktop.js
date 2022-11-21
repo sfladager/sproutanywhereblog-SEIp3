@@ -65,7 +65,7 @@ const NavbarDesktop = () => {
               onClick={handleMenuClick}
             >plants<ChevronDownIcon />
               <Flex>
-                {open && <NavPlants className="nav-plants-drop" isOpen={true} closeDropdown={closeDropdown}/>}
+                {open && <NavPlants className="nav-plants-dropdown" isOpen={true} closeDropdown={closeDropdown}/>}
               </Flex>
             </div>
           </div>

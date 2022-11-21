@@ -44,6 +44,7 @@ body {
   left: 0;
   width: 100%;
   background-color: rgba(241, 234, 234, 0.5);
+  z-index: 20;
 }
 .nav-drop-plants{
   position: relative;
@@ -71,6 +72,7 @@ body {
   left: 0;
   width: 100%;
   background-color: rgba(241, 234, 234, 0.5);
+  z-index: 20;
 }
 .nav-drop-link{
   margin: 10px 0 10px 25px;
@@ -87,6 +89,7 @@ body {
 .nav-drop-link:last-child{
   margin-bottom: 20px;
 }
+
 
 
 
@@ -119,4 +122,35 @@ body {
 //     }
 //   }
 
+.plant-single{
+  font-family: $body-font;
+  h1{
+    font-family: $header-font;
+    font-size: 1.4rem;
+  }
+  .plant-info-guide-title-container{
+    border-bottom: 0.5px solid #818181;
+  }
+  .plant-info-guide-title{
+    font-weight: bolder;
+    font-size: 1.2rem;
+    margin: 10px auto 0 auto; 
+  }
+}
+.plant-info-container{
+  flex-direction: column;
   
+  .plant-info{
+    flex-direction: column;
+
+    img{
+      width: 60px;
+      margin: 0 auto;
+    }
+
+    .plant-info-subtitle{
+      font-weight: bolder;
+      margin: 0 auto;
+    }
+  }
+}
