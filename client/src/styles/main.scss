@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: 'Baloo Thambi 2';
 }
 
 // Variables
@@ -14,20 +15,48 @@ body {
   font-size: 15px;
 }
 
-.btn-main {
-  background-color: darken($primary, 15%);
-
-  &:hover {
-    background-color: darken($primary, 20%);
-  }
+.form-page-wrapper {
+  display: flex;
+  min-height: 100vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  background-color: #F3F5F8;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 // Form Page
 .form-page {
+  width: 100%;
+  text-align: center;
+
+  .btn-main {
+    background-color: darken(#467A43, 15%);
+    color: white;
+    width: 33%;
+    border-radius: 5px;
+    height: 2em;
+    margin-top: 1em;
+
+    &:hover {
+      background-color: darken(#467A43, 20%);
+    }
+  }
+
+  h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+
   form {
-    background: #ffeed9;
+    background: #9CB42F;
     padding: 40px;
     border-radius: 18px;
+    width: 30%;
+    display: inline-block;
 
     label {
       font-size: 0.9rem;

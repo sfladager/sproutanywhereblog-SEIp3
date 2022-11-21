@@ -56,61 +56,63 @@ const Register = () => {
   }
 
   return (
-    <main className="form-page">
-      <Container className='mt-4'>
-        <Row>
-          <div className='col-10 offset-1 col-md-6 offset-md-3 col-lg-4 offset-lg-4'>
-            <form onSubmit={handleSubmit}>
-              <h1>Register</h1>
-              {/* Username */}
-              <label htmlFor="username">Username <span>*</span></label>
-              <input
-                type="text"
-                name="username"
-                onChange={handleChange}
-                value={formFields.username}
-                placeholder="Username"
-                required
-              />
-              {/* Email */}
-              <label htmlFor="email">Email <span>*</span></label>
-              <input
-                type="email"
-                name="email"
-                onChange={handleChange}
-                value={formFields.email}
-                placeholder="Email Address"
-                required
-              />
-              {/* Password */}
-              <label htmlFor="password">Password <span>*</span></label>
-              <input
-                type="password"
-                name="password"
-                onChange={handleChange}
-                value={formFields.password}
-                placeholder="Password"
-                required
-              />
-              {/* PasswordConfirmation */}
-              <label htmlFor="passwordConfirmation">Confirm Password <span>*</span></label>
-              <input
-                type="password"
-                name="passwordConfirmation"
-                onChange={handleChange}
-                value={formFields.passwordConfirmation}
-                placeholder="Confirm Password"
-                required
-              />
-              {/* Error Message */}
-              {error && <small className='text-danger'>{error}</small>}
-              {/* Submit */}
-              <button className='btn btn-main w-100'>Register</button>
-            </form>
-          </div>
-        </Row>
-      </Container>
-    </main>
+    <div className='form-page-wrapper'>
+      <main className="form-page">
+        <Container className='mt-4'>
+          <Row>
+            <div className='col-10 offset-1 col-md-6 offset-md-3 col-lg-4 offset-lg-4'>
+              <form onSubmit={handleSubmit}>
+                <h1>Register</h1>
+                {/* Username */}
+                <label htmlFor="username">Username <span>*</span></label>
+                <input
+                  type="text"
+                  name="username"
+                  onChange={handleChange}
+                  value={formFields.username}
+                  placeholder="Username"
+                  required
+                />
+                {/* Email */}
+                <label htmlFor="email">Email <span>*</span></label>
+                <input
+                  type="email"
+                  name="email"
+                  onChange={handleChange}
+                  value={formFields.email}
+                  placeholder="Email Address"
+                  required
+                />
+                {/* Password */}
+                <label htmlFor="password">Password <span>*</span></label>
+                <input
+                  type="password"
+                  name="password"
+                  onChange={handleChange}
+                  value={formFields.password}
+                  placeholder="Password"
+                  required
+                />
+                {/* PasswordConfirmation */}
+                <label htmlFor="passwordConfirmation">Confirm Password <span>*</span></label>
+                <input
+                  type="password"
+                  name="passwordConfirmation"
+                  onChange={handleChange}
+                  value={formFields.passwordConfirmation}
+                  placeholder="Confirm Password"
+                  required
+                />
+                {/* Error Message */}
+                {error && <small className='text-danger'>{error}</small>}
+                {/* Submit */}
+                <button className='btn btn-main w-100'>Register</button>
+              </form>
+            </div>
+          </Row>
+        </Container>
+      </main>
+    </div>
   )
 }
 
