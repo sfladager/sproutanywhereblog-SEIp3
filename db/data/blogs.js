@@ -9,7 +9,7 @@ export default [
   },
   {
     title: 'Growing Grass Seeds: How long does it take?',
-    category: 'plant care',
+    category: 'plant-care',
     tags: 'science',
     description: 'A comprehensive blog on how to grow grass and maintain it.',
     thumbnail: 'https://sproutanywhere.com/wp-content/uploads/2022/09/sprout-anywhere-18.jpg',
@@ -17,7 +17,7 @@ export default [
   },
   {
     title: 'Creating A Living Succulent Christmas Tree',
-    category: 'house plants',
+    category: 'house-plants',
     tags: 'inspiration',
     description: 'Bring some holiday spirit this season with your succulents!',
     thumbnail: 'https://sproutanywhere.com/wp-content/uploads/2022/10/sprout-anywhere-21.jpg',

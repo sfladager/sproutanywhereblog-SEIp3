@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: 'Baloo Thambi 2';
 }
 
 // Variables
@@ -12,6 +13,7 @@ $body-font: 'Baloo Thambi 2';
 body {
   margin: 0;
   font-size: 15px;
+  font-family: $body-font;
 }
 
 .sprout-logo {
@@ -153,6 +155,158 @@ body {
     .plant-info-subtitle{
       font-weight: bolder;
       margin: 0 auto;
+    }
+  }
+}
+.blog-index-filter-box {
+  text-align: center;
+  select {
+    text-align: right;
+    text-decoration: underline;
+    color: $primary;
+    padding-left: 10px;
+  }
+}
+
+.succulents-blog-index, .single-blog {
+  display: flex;
+  justify-content: center;
+}
+
+.blog-index-cards {
+  .blog-card-p {
+    font-size: 0.7rem;
+    color:#98999a;
+  }
+  .blog-read-more{
+    background-color: $primary;
+    color: $secondary;
+  }
+  .description-card-p {
+    margin-top: 5px;
+  }
+  button {
+    color: $accent;
+  }
+}
+
+.single-blog {
+  h1 {
+    font-size: 2rem;
+    font-family: $header-font;
+    color: $primary;
+  }
+  .btn-green {
+    background-color: $primary;
+    color: $secondary;
+    &:hover {
+      background-color: $accent;
+    }
+  }
+}
+
+.blog-form-page{
+  display: flex;
+  justify-content: center;
+}
+
+.blog-form-title {
+  font-family: $header-font;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h1 {
+    font-size: 1.5rem;
+    padding-right: 3rem;
+  }
+}
+// Blog form page
+.blog-form {
+  margin-top: 20px;
+  .required {
+    color: red;
+  } 
+  label {
+    font-family: $header-font;
+    font-size: 1.2rem;
+  }
+  input {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 15px;
+    border: 1px solid $accent;
+    border-radius: 5px;
+    font-family: $body-font;
+  }
+  .btn-green {
+    background-color: $primary;
+    color: $secondary;
+    &:hover {
+      background-color: $accent;
+    }
+  } 
+  .blog-form-select {
+    border-color: $accent;
+    background-color: $primary;
+  }
+}
+.form-page-wrapper {
+  display: flex;
+  min-height: 100vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  background-color: #F3F5F8;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+// Form Page
+.form-page {
+  width: 100%;
+  text-align: center;
+
+  .btn-main {
+    background-color: darken(#467A43, 15%);
+    color: white;
+    width: 33%;
+    border-radius: 5px;
+    height: 2em;
+    margin-top: 1em;
+
+    &:hover {
+      background-color: darken(#467A43, 20%);
+    }
+  }
+
+  h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+
+  form {
+    background: #9CB42F;
+    padding: 40px;
+    border-radius: 18px;
+    width: 30%;
+    display: inline-block;
+
+    label {
+      font-size: 0.9rem;
+    }
+
+    input {
+      width: 100%;
+      margin-bottom: 15px;
+      border: none;
+      padding: 5px;
+    }
+
+    small {
+      display: block;
+      margin-bottom: 15px;
     }
   }
 }

@@ -27,7 +27,7 @@ export const sendErrors = (res, err) => {
 export const findBlog = async (req, res) => {
   try {
     const { id } = req.params
-    const blog = await Blog.findById(id)
+    const blog = await Blog.findById(id).populate('owner')
     if (!blog) throw new NotFound('Blog not found')
     return blog
   } catch (err) {
