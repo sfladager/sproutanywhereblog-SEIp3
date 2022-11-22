@@ -269,222 +269,231 @@ body {
   }
 
   input {
+
+    input,
+    select {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 15px;
+      border: 1px solid $accent;
+      border-radius: 5px;
+      font-family: $body-font;
+    }
+
+    .btn-green {
+      background-color: $primary;
+      color: $secondary;
+
+      &:hover {
+        background-color: $accent;
+      }
+    }
+
+    // editor on blog forms
+    .rdw-editor-wrapper {
+      border: 1px solid $accent;
+      margin-bottom: 15px;
+    }
+
+    .blog-form-select {
+      border-color: $accent;
+      background-color: $primary;
+    }
+  }
+
+  .form-page-wrapper {
+    display: flex;
+    min-height: 100vh;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    background-color: #F3F5F8;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  // Form Page
+  .form-page {
     width: 100%;
-    padding: 5px;
-    margin-bottom: 15px;
-    border: 1px solid $accent;
-    border-radius: 5px;
-    font-family: $body-font;
-  }
+    text-align: center;
 
-  .btn-green {
-    background-color: $primary;
-    color: $secondary;
+    .btn-main {
+      background-color: darken(#467A43, 15%);
+      color: white;
+      width: 33%;
+      border-radius: 5px;
+      height: 2em;
+      margin-top: 1em;
 
-    &:hover {
-      background-color: $accent;
+      &:hover {
+        background-color: darken(#467A43, 20%);
+      }
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    form {
+      background: #9CB42F;
+      padding: 40px;
+      border-radius: 18px;
+      width: 30%;
+      display: inline-block;
+
+      label {
+        font-size: 0.9rem;
+      }
+
+      input {
+        width: 100%;
+        margin-bottom: 15px;
+        border: none;
+        padding: 5px;
+      }
+
+      small {
+        display: block;
+        margin-bottom: 15px;
+      }
     }
   }
 
-  .blog-form-select {
-    border-color: $accent;
-    background-color: $primary;
-  }
-}
+  .profile-page-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #467A43;
 
-.form-page-wrapper {
-  display: flex;
-  min-height: 100vh;
-  width: 100vw;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
-  background-color: #F3F5F8;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
+    span {
+      color: black;
+      font-size: .9em;
+      font-weight: normal;
+    }
 
-// Form Page
-.form-page {
-  width: 100%;
-  text-align: center;
-
-  .btn-main {
-    background-color: darken(#467A43, 15%);
-    color: white;
-    width: 33%;
-    border-radius: 5px;
-    height: 2em;
-    margin-top: 1em;
-
-    &:hover {
-      background-color: darken(#467A43, 20%);
+    h1 {
+      font-size: 40px;
+      text-align: center;
+      margin-top: 20px;
+      font-weight: bolder;
     }
   }
 
-  h1 {
-    font-size: 40px;
+  .profile-page-wrapper {
+    margin-left: 20px;
+  }
+
+  .profile-title {
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 10px;
+  }
+
+  .plant-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 0 15px;
+  }
+
+  .plant-card-image {
+    height: 20vh;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+
+  .profile-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 300px;
+    margin: 10px;
+    border: 7px solid $primary;
+    border-radius: 10px;
+  }
+
+  .profile-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 0 15px;
+  }
+
+  .profile-card-image {
+    height: 20vh;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+
+  .profile-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 300px;
+    margin: 10px;
+    border: 7px solid $primary;
+    border-radius: 10px;
+  }
+
+
+  .profile-card-title {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .buffer {
+    padding: 0 10px;
+  }
+
+  .buffer h2 {
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .no-blogs-yet {
+    display: flex;
+    align-items: center;
     margin-bottom: 20px;
   }
 
-  form {
-    background: #9CB42F;
-    padding: 40px;
-    border-radius: 18px;
-    width: 30%;
-    display: inline-block;
-
-    label {
-      font-size: 0.9rem;
-    }
-
-    input {
-      width: 100%;
-      margin-bottom: 15px;
-      border: none;
-      padding: 5px;
-    }
-
-    small {
-      display: block;
-      margin-bottom: 15px;
-    }
+  .no-plants-yet {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
   }
-}
 
-.profile-page-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  color: #467A43;
+  .btn-post {
+    border: 1px solid $primary;
+    background-color: #467A43;
+    color: white;
+    margin-left: 20px;
+    border-radius: 5px;
+    padding: 3px 7px;
+    // margin-bottom: 20px;
+  }
 
-  span {
+  .btn-edit {
+    border: 1px solid gold;
+    background-color: gold;
     color: black;
-    font-size: .9em;
-    font-weight: normal;
+    margin-left: 50px;
+    border-radius: 5px;
+    padding: 3px 7px;
+    height: 50%;
   }
 
-  h1 {
-    font-size: 40px;
-    text-align: center;
-    margin-top: 20px;
-    font-weight: bolder;
+  .profile-main-categories {
+    display: flex;
+    align-items: center;
   }
-}
-
-.profile-page-wrapper {
-  margin-left: 20px;
-}
-
-.profile-title {
-  font-weight: bold;
-  font-size: 20px;
-  margin-top: 10px;
-}
-
-.plant-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  margin: 0 15px;
-}
-
-.plant-card-image {
-  height: 20vh;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-}
-
-.profile-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 300px;
-  margin: 10px;
-  border: 7px solid $primary;
-  border-radius: 10px;
-}
-
-.profile-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  margin: 0 15px;
-}
-
-.profile-card-image {
-  height: 20vh;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-}
-
-.profile-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 300px;
-  margin: 10px;
-  border: 7px solid $primary;
-  border-radius: 10px;
-}
-
-
-.profile-card-title {
-  font-size: 20px;
-  font-weight: bold;
-  text-align: center;
-}
-
-.buffer {
-  padding: 0 10px;
-}
-
-.buffer h2 {
-  font-weight: bold;
-  font-size: 20px;
-  text-align: center;
-}
-
-.no-blogs-yet {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.no-plants-yet {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.btn-post {
-  border: 1px solid $primary;
-  background-color: #467A43;
-  color: white;
-  margin-left: 20px;
-  border-radius: 5px;
-  padding: 3px 7px;
-  // margin-bottom: 20px;
-}
-
-.btn-edit {
-  border: 1px solid gold;
-  background-color: gold;
-  color: black;
-  margin-left: 50px;
-  border-radius: 5px;
-  padding: 3px 7px;
-  height: 50%;
-}
-
-.profile-main-categories {
-  display: flex;
-  align-items: center;
-}
