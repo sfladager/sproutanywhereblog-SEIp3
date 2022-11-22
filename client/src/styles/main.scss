@@ -88,7 +88,7 @@ body {
     font-family: $header-font;
     font-size: 1.2rem;
   }
-  input {
+  input, select {
     width: 100%;
     padding: 5px;
     margin-bottom: 15px;
@@ -103,6 +103,12 @@ body {
       background-color: $accent;
     }
   } 
+  // editor on blog forms
+  .rdw-editor-wrapper {
+    border: 1px solid $accent;
+    margin-bottom: 15px;
+  }
+
   .blog-form-select {
     border-color: $accent;
     background-color: $primary;

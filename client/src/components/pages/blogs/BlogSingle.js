@@ -2,6 +2,10 @@
 import { useState, useEffect } from 'react'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { $generateHtmlFromNodes, $generateNodesFromDOM, html } from '@lexical/html'
+import { $getHtmlContent } from '@lexical/clipboard'
+import { $getRoot } from 'lexical'
+import parse from 'html-react-parser'
 
 // Chakra imports
 import { Container, Box, Image, Button, ButtonGroup } from '@chakra-ui/react'
@@ -9,9 +13,10 @@ import { Container, Box, Image, Button, ButtonGroup } from '@chakra-ui/react'
 const BlogSingle = () => {
   // ! State
   const [ blog, setBlog ] = useState([])
-  const [ errors, setErrors ] = useState(false)
+  const [ article, setArticle ] = useState()
+  const [ errors, setErrors ] = useState(null)
 
-  const { blogsId, category } = useParams()
+  const { blogsId } = useParams()
   const navigate = useNavigate()
 
   // ! Execution
@@ -19,13 +24,20 @@ const BlogSingle = () => {
     const getData = async () => {
       try {
         const { data } = await axios.get(`/api/blogs/${blogsId}`)
+        setArticle(data.article)
         setBlog(data)
       } catch (err) {
         console.log(err)
+        setErrors(err.response.data)
       }
     }
     getData()
   }, [blogsId])
+
+  useEffect(() => {
+    console.log(article)
+    
+  }, [article])
 
   const deleteBlog = async (e) => {
     try {
@@ -58,7 +70,7 @@ const BlogSingle = () => {
               <p>FB, Twtter, Whatsapp, pinterst share links go here</p>
             </Box>
             <Box className="blog-article">
-              {blog.article}
+              {article && parse(article)}
             </Box>
             <Box>
               <ButtonGroup gap='2'>

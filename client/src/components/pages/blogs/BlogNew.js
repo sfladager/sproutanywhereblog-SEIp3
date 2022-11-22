@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import axios from 'axios'
+import { getToken } from '../../../helpers/auth'
 
 import ImageUpload from '../../ImageUpload'
-import Editor from '../../editor/Editor'
-import '../../../styles/editor.scss'
+import NewEditor from '../../newEditor/NewEditor'
 
 // Chakra imports
-import { Container, Box, Image, Button, Select, Input } from '@chakra-ui/react'
+import { Container, Box, Button, Select, Input } from '@chakra-ui/react'
 
 const BlogNew = () => {
   // ! State
@@ -28,16 +28,18 @@ const BlogNew = () => {
 
   const navigate = useNavigate()
 
-
-
   // ! Execution
   // submit blog to database
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const { data } = await axios.post('/api/blogs', formFields)
+      const { data } = await axios.post('/api/blogs', formFields, {
+        headers: {
+          Authorization: `Bearer ${getToken()}`,
+        },
+      })
       console.log('SUCCESS', data._id)
-      navigate(`/api/blogs/${data._id}`)
+      navigate(`/blogs/${data._id}`)
     } catch (err) {
       console.log(err)
     }
@@ -66,6 +68,7 @@ const BlogNew = () => {
     filterCategories()
     filterTags()
   }, [blogs])
+
   // Filters blog data to extract all the categories and creates a new set with no duplicate categories
   const filterCategories = () => {
     const filter = [ ...new Set(blogs.map(blog => blog.category))].sort()
@@ -126,23 +129,14 @@ const BlogNew = () => {
               <ImageUpload
                 formFields={formFields}
                 setFormFields={setFormFields}
-                required 
               />
               {/* Article */}
               <label htmlFor="article">Article <span className="required">*</span></label>
-              {/* <Input 
-                type='text'
-                name="article"
-                onChange={handleChange}
-                placeholder="Article"
-                required 
-              /> */}
-              <Editor
-                name="article"
-                onChange={handleChange}
-                required
+              <NewEditor
+                formFields={formFields}
+                setFormFields={setFormFields}
               />
-              <Button className="btn-green">Add Blog</Button>
+              <Button onSubmit={handleSubmit} type="submit" className="btn-green">Add Blog</Button>
             </Box>
           </form>
         </Box>

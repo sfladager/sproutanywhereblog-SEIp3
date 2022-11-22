@@ -20,12 +20,16 @@ const ImageUpload = ({ formFields, setFormFields }) => {
 
   return (
     <div className="image-field">
-      <label htmlFor="image-input-field">Image <span className="required">*</span></label>
+      <label className="image-input-field">Image <span className="required">*</span></label>
       { formFields.thumbnail ? 
-        
         <img src={formFields.thumbnail} alt="uploaded image" />
         :
-        <input onChange={handleChange} className="image-input-field" type="file" />
+        <input 
+          name="image-input-field"
+          className="image-input-field" 
+          type="file"
+          onChange={handleChange} 
+        />
       }
     </div>
   )
