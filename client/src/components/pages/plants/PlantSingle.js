@@ -46,6 +46,9 @@ const PlantsIndex = () => {
     <>
       <h1>Plant</h1>
       <main className="plant-single">
+        <Flex>
+          
+        </Flex>
         <Container className="bread-container">
           { plant ?
             <>

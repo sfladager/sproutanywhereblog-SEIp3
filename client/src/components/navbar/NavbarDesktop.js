@@ -38,7 +38,6 @@ const NavbarDesktop = () => {
       h="60px"
       align="center"
       justify="center"
-      bg="blue.100"
     >
       <Flex
 
@@ -58,14 +57,15 @@ const NavbarDesktop = () => {
         align="center"
       >    
         <Flex className="navbar-links">
-          <div>
+          <div className="nav-link-plants-container">
             <div className="nav-link nav-link-plants" 
               // onMouseEnter={handleMouseOver} 
               // onMouseOut={handleMouseOut}
               onClick={handleMenuClick}
+              // onMouseOver={(e) => e.target.classList.add('plant-link-entered')}
             >plants<ChevronDownIcon />
               <Flex>
-                {open && <NavPlants className="nav-plants-dropdown" isOpen={true} closeDropdown={closeDropdown}/>}
+                {open && <NavPlants className="nav-plants-dropdown" isOpen={true} open={open} closeDropdown={closeDropdown}/>}
               </Flex>
             </div>
           </div>
@@ -75,7 +75,6 @@ const NavbarDesktop = () => {
       </Flex>
       <Spacer />
       <Flex
-
         top="1rem"
         right="1rem"
       >  

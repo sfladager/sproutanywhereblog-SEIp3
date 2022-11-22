@@ -9,6 +9,7 @@ import { MdOutlineAccountCircle } from 'react-icons/md'
 
 
 import NavLinks from './NavLinks.js'
+import NavPlants from './NavPlants.js'
 // import './navbar.scss'
 import logo from '../../assets/logo.png'
 
@@ -31,7 +32,6 @@ const NavbarMobile = () => {
       h="60px"
       align="center"
       justify="space-around"
-      bg="blue.200"
     >
       <Flex
         top="1rem"
@@ -64,8 +64,11 @@ const NavbarMobile = () => {
       >  
         <Flex className="navbar-icon"
           mr="1rem"
+          align="center"
+          justify="center"
         >
           <SearchIcon className="search-icon" w={25} h={25} onClick={handleSearchClick} />
+          <VscAccount className="account-icon" w={30} h={30} />
         </Flex>
       </Flex>
     </Flex>
