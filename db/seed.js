@@ -27,11 +27,12 @@ const seedDatabase = async () => {
     })
 
     const plants = await Plant.create(plantsWithOwners)
-    console.log(plants)
+    // console.log(plants)
     console.log(`🌱 Plants collection seeded with ${plants.length} plants`)
 
 
     const blogs = await Blog.create(blogsWithOwners)
+    // console.log(blogsWithOwners)
     console.log(`Blogs collection seeded with ${blogs.length} users!`)
 
     await mongoose.connection.close()

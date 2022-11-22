@@ -1,23 +1,20 @@
 import { Link } from 'react-router-dom'
 
-const NavLinks = () => {
+import { HamburgerIcon, CloseIcon, ChevronDownIcon, SearchIcon } from '@chakra-ui/icons'
+
+const NavLinks = (open, isOpen, closeDropdown) => {
 
   return (
-    <div className='navlinks'>
-      <nav>
-        <Link to="/">houseplants</Link>
-        <Link to="/">succulents</Link>
-        <Link to="/">plant care</Link>
-        <Link to="/">blog</Link>
-        <Link to="/">about us</Link>
-
-        <Link to="/">register</Link>
-        <Link to="/">log in</Link>
-
-      </nav>
-    </div>
+    <nav>
+      <ul className="nav-drop-ul slide-in-top slide-out-elliptic-top-bck">
+        <Link to="/" onClick={() => isOpen && closeDropdown} className="nav-drop-link">plants<ChevronDownIcon /></Link>
+        <Link to="/" className="nav-drop-link">blog</Link>
+        <Link to="/" className="nav-drop-link">about us</Link>
+        <Link to="/" className="nav-drop-link">register</Link>
+        <Link to="/" className="nav-drop-link">log in</Link>
+      </ul>
+    </nav>
   )
-  
 }
 
 export default NavLinks
