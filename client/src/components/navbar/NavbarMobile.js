@@ -31,7 +31,7 @@ const NavbarMobile = () => {
       display={['flex', 'flex', 'none', 'none']}
       h="60px"
       align="center"
-      justify="space-around"
+      justify="space-between"
     >
       <Flex
         top="1rem"
@@ -40,14 +40,16 @@ const NavbarMobile = () => {
       >    
         <Flex className="navbar-icon"
           ml="1rem"
+          mr="0.5rem"
         >
           <Hamburger className="burger-icon" toggled={open} toggle={handleMenuClick}/>
         </Flex>
+        <Flex w={18}></Flex>
         <Flex>
           {open && <NavLinks className="nav-menu-drop" isOpen={true} open={open} closeDropdown={closeDropdown}/>}
         </Flex>
       </Flex>
-      <Spacer />
+
       <Flex
         top="1rem"
         left="1rem"
@@ -56,7 +58,7 @@ const NavbarMobile = () => {
       >
         <Link to="/"><img src={logo} alt="Sprout logo" className="sprout-logo"/></Link>
       </Flex>
-      <Spacer />
+
       <Flex
         top="1rem"
         right="1rem"
@@ -64,6 +66,7 @@ const NavbarMobile = () => {
       >  
         <Flex className="navbar-icon"
           mr="1rem"
+          ml="0.5rem"
           align="center"
           justify="center"
         >
