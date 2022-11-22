@@ -1,6 +1,6 @@
 import { useState } from 'react'
-
-import { Link } from 'react-router-dom'
+import { isAuthenticated, handleLogout } from '../../helpers/auth'
+import { Link, useNavigate } from 'react-router-dom'
 import { Flex, Spacer, Button, IconButton } from '@chakra-ui/react'
 import { HamburgerIcon, CloseIcon, ChevronDownIcon, SearchIcon } from '@chakra-ui/icons'
 import customTheme from '../../pages/theme.js'
@@ -11,8 +11,10 @@ import NavPlants from './NavPlants.js'
 
 const NavbarDesktop = () => {
 
+  const navigate = useNavigate()
+
   const [open, setOpen] = useState(false)
- 
+
   const handleMenuClick = () => {
     console.log('menu clicked')
     setOpen(!open)
@@ -55,17 +57,17 @@ const NavbarDesktop = () => {
         top="1rem"
         justify="center"
         align="center"
-      >    
+      >
         <Flex className="navbar-links">
           <div className="nav-link-plants-container">
-            <div className="nav-link nav-link-plants" 
+            <div className="nav-link nav-link-plants"
               // onMouseEnter={handleMouseOver} 
               // onMouseOut={handleMouseOut}
               onClick={handleMenuClick}
-              // onMouseOver={(e) => e.target.classList.add('plant-link-entered')}
+            // onMouseOver={(e) => e.target.classList.add('plant-link-entered')}
             >plants<ChevronDownIcon />
               <Flex>
-                {open && <NavPlants className="nav-plants-dropdown" isOpen={true} open={open} closeDropdown={closeDropdown}/>}
+                {open && <NavPlants className="nav-plants-dropdown" isOpen={true} open={open} closeDropdown={closeDropdown} />}
               </Flex>
             </div>
           </div>
@@ -77,7 +79,7 @@ const NavbarDesktop = () => {
       <Flex
         top="1rem"
         right="1rem"
-      >  
+      >
         <Flex className="navbar-links"
           align="center"
           justify="center"
@@ -88,8 +90,17 @@ const NavbarDesktop = () => {
           >
             <SearchIcon className="search-icon" w={17} h={17} />
           </Flex>
-          <Link to="/" className="nav-link nav-link-acc">register</Link>
-          <Link to="/" className="nav-link nav-link-acc">log in</Link>
+          {isAuthenticated() ?
+            <>
+              <span className='nav-link' onClick={() => handleLogout(navigate)}>Logout</span>
+              <Link to="/profile" className="nav-drop-link">My Profile</Link>
+            </>
+            :
+            <>
+              <Link to="/register" className="nav-drop-link">register</Link>
+              <Link to="/login" className="nav-drop-link">log in</Link>
+            </>
+          }
         </Flex>
       </Flex>
     </Flex>

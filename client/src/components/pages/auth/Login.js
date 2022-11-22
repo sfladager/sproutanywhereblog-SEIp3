@@ -31,10 +31,12 @@ const Login = () => {
     e.preventDefault()
     try {
       const { data } = await axios.post('/api/login', formFields)
+      console.log(data)
       console.log(data.token)
       setToken(data.token)
       navigate('/home')
     } catch (err) {
+      console.log(err)
       setError(err.response.data.message)
     }
   }

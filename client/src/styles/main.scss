@@ -24,31 +24,37 @@ body {
 
 .navbar-links {
   font-family: $body-font;
-  > .nav-link{
-    &:hover{
+
+  >.nav-link {
+    &:hover {
       color: $primary;
     }
   }
-} 
-.nav-link{
+}
+
+.nav-link {
   font-size: 20px;
   margin: 15px;
   font-weight: bold;
   cursor: pointer;
 }
-.nav-link-acc{
+
+.nav-link-acc {
   font-weight: lighter;
 }
-.search-icon{
+
+.search-icon {
   cursor: pointer;
 }
-.account-icon{
+
+.account-icon {
   cursor: pointer;
   height: 25px;
   width: 25px;
   margin-left: 1rem;
 }
-.nav-plants-drop-ul{
+
+.nav-plants-drop-ul {
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -58,23 +64,28 @@ body {
   background-color: rgba(241, 234, 234, 0.8);
   z-index: 20;
 }
-.nav-drop-plants{
+
+.nav-drop-plants {
   position: relative;
   margin: 10px 0 10px 25px;
   font-family: $body-font;
   font-size: 20px;
   font-weight: bold;
-    &:hover{
-      color: $primary;
-    }
+
+  &:hover {
+    color: $primary;
+  }
 }
-.nav-drop-plants:first-child{
+
+.nav-drop-plants:first-child {
   margin-top: 20px;
 }
-.nav-drop-plants:last-child{
+
+.nav-drop-plants:last-child {
   margin-bottom: 20px;
 }
-.nav-drop-ul{
+
+.nav-drop-ul {
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -84,19 +95,23 @@ body {
   background-color: rgba(241, 234, 234, 0.8);
   z-index: 20;
 }
-.nav-drop-link{
+
+.nav-drop-link {
   margin: 10px 0 10px 25px;
   font-family: $body-font;
   font-size: 20px;
   font-weight: bold;
-  &:hover{
+
+  &:hover {
     color: $primary;
   }
 }
-.nav-drop-link:first-child{
+
+.nav-drop-link:first-child {
   margin-top: 20px;
 }
-.nav-drop-link:last-child{
+
+.nav-drop-link:last-child {
   margin-bottom: 20px;
 }
 
@@ -132,40 +147,46 @@ body {
 //     }
 //   }
 
-.plant-single{
+.plant-single {
   font-family: $body-font;
-  h1{
+
+  h1 {
     font-family: $header-font;
     font-size: 1.4rem;
   }
-  .plant-info-guide-title-container{
+
+  .plant-info-guide-title-container {
     border-bottom: 0.5px solid #818181;
   }
-  .plant-info-guide-title{
+
+  .plant-info-guide-title {
     font-weight: bolder;
     font-size: 1.2rem;
-    margin: 10px auto 0 auto; 
+    margin: 10px auto 0 auto;
   }
 }
-.plant-info-container{
+
+.plant-info-container {
   flex-direction: column;
-  
-  .plant-info{
+
+  .plant-info {
     flex-direction: column;
 
-    img{
+    img {
       width: 60px;
       margin: 0 auto;
     }
 
-    .plant-info-subtitle{
+    .plant-info-subtitle {
       font-weight: bolder;
       margin: 0 auto;
     }
   }
 }
+
 .blog-index-filter-box {
   text-align: center;
+
   select {
     text-align: right;
     text-decoration: underline;
@@ -174,7 +195,8 @@ body {
   }
 }
 
-.succulents-blog-index, .single-blog {
+.succulents-blog-index,
+.single-blog {
   display: flex;
   justify-content: center;
 }
@@ -182,15 +204,18 @@ body {
 .blog-index-cards {
   .blog-card-p {
     font-size: 0.7rem;
-    color:#98999a;
+    color: #98999a;
   }
-  .blog-read-more{
+
+  .blog-read-more {
     background-color: $primary;
     color: $secondary;
   }
+
   .description-card-p {
     margin-top: 5px;
   }
+
   button {
     color: $accent;
   }
@@ -202,16 +227,18 @@ body {
     font-family: $header-font;
     color: $primary;
   }
+
   .btn-green {
     background-color: $primary;
     color: $secondary;
+
     &:hover {
       background-color: $accent;
     }
   }
 }
 
-.blog-form-page{
+.blog-form-page {
   display: flex;
   justify-content: center;
 }
@@ -221,21 +248,26 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   h1 {
     font-size: 1.5rem;
     padding-right: 3rem;
   }
 }
+
 // Blog form page
 .blog-form {
   margin-top: 20px;
+
   .required {
     color: red;
-  } 
+  }
+
   label {
     font-family: $header-font;
     font-size: 1.2rem;
   }
+
   input {
     width: 100%;
     padding: 5px;
@@ -244,18 +276,22 @@ body {
     border-radius: 5px;
     font-family: $body-font;
   }
+
   .btn-green {
     background-color: $primary;
     color: $secondary;
+
     &:hover {
       background-color: $accent;
     }
-  } 
+  }
+
   .blog-form-select {
     border-color: $accent;
     background-color: $primary;
   }
 }
+
 .form-page-wrapper {
   display: flex;
   min-height: 100vh;
@@ -315,4 +351,140 @@ body {
       margin-bottom: 15px;
     }
   }
+}
+
+.profile-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #467A43;
+
+  span {
+    color: black;
+    font-size: .9em;
+    font-weight: normal;
+  }
+
+  h1 {
+    font-size: 40px;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bolder;
+  }
+}
+
+.profile-page-wrapper {
+  margin-left: 20px;
+}
+
+.profile-title {
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.plant-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 0 15px;
+}
+
+.plant-card-image {
+  height: 20vh;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+  margin: 10px;
+  border: 7px solid $primary;
+  border-radius: 10px;
+}
+
+.profile-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 0 15px;
+}
+
+.profile-card-image {
+  height: 20vh;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+  margin: 10px;
+  border: 7px solid $primary;
+  border-radius: 10px;
+}
+
+
+.profile-card-title {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.buffer {
+  padding: 0 10px;
+}
+
+.buffer h2 {
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+}
+
+.no-blogs-yet {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.no-plants-yet {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.btn-post {
+  border: 1px solid $primary;
+  background-color: #467A43;
+  color: white;
+  margin-left: 20px;
+  border-radius: 5px;
+  padding: 3px 7px;
+  // margin-bottom: 20px;
+}
+
+.btn-edit {
+  border: 1px solid gold;
+  background-color: gold;
+  color: black;
+  margin-left: 50px;
+  border-radius: 5px;
+  padding: 3px 7px;
+  height: 50%;
+}
+
+.profile-main-categories {
+  display: flex;
+  align-items: center;
 }

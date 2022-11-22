@@ -7,6 +7,18 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
 })
 
+userSchema.virtual('createdBlogs', {
+  ref: 'Blog',
+  localField: '_id',
+  foreignField: 'owner',
+})
+
+userSchema.virtual('createdPlants', {
+  ref: 'Plant',
+  localField: '_id',
+  foreignField: 'owner',
+})
+
 userSchema.set('toJSON', {
   // First argument passed into the transform method is the document we just queried, which means we can actually manipulate the document stored in the collection
   // Secondly, in this instance we don't want to update the document itself, because those changes are permanent. So we'll use second argument which is a json version of the document we queried. Any changes made to this would not be permanent and simply would apply to the json being returned to the user

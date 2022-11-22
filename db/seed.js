@@ -19,24 +19,22 @@ const seedDatabase = async () => {
     console.log(`👤 Users collection seeded with ${users.length} users!`)
 
     const plantsWithOwners = plantData.map(plant => {
-      return { ...plant, owner: users[0]._id }
+      return { ...plant, owner: users[1]._id }
     })
 
     const blogsWithOwners = blogData.map(blog => {
-      return { ...blog, owner: users[1]._id }
+      return { ...blog, owner: users[0]._id }
     })
 
     const plants = await Plant.create(plantsWithOwners)
-    // console.log(plants)
     console.log(`🌱 Plants collection seeded with ${plants.length} plants`)
 
-
     const blogs = await Blog.create(blogsWithOwners)
-<<<<<<< HEAD
     // console.log(blogsWithOwners)
-=======
->>>>>>> b21c163d986f1e331c6f730b22a1b95fa7aa4b35
     console.log(`Blogs collection seeded with ${blogs.length} users!`)
+    console.log(users)
+    console.log(plants)
+    console.log(blogs)
 
     await mongoose.connection.close()
     console.log('👋 Goodbye!')

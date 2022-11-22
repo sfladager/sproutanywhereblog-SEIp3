@@ -35,9 +35,8 @@ export const findBlog = async (req, res) => {
   }
 }
 
-export const findAllUsers = async (req, res) => {
+export const findAllUsers = async (_req, res) => {
   try {
-    // const { id } = req.params
     const users = await User.find()
     if (!users) throw new NotFound('User not found')
     console.log(users)

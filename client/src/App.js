@@ -14,6 +14,7 @@ import BlogNew from './components/pages/blogs/BlogNew'
 import BlogEdit from './components/pages/blogs/BlogEdit'
 import Login from './components/pages/auth/Login'
 import Register from './components/pages/auth/Register'
+import Profile from './components/pages/profile/Profile'
 
 import Home from './components/pages/Home'
 
@@ -34,6 +35,7 @@ const App = () => {
             <Route path="/blogs/new" element={<BlogNew />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/profile" element={<Profile />} />
           </Routes>
         </BrowserRouter>
       </div>
