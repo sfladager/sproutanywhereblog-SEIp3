@@ -2,9 +2,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import { $generateHtmlFromNodes, $generateNodesFromDOM, html } from '@lexical/html'
-import { $getHtmlContent } from '@lexical/clipboard'
-import { $getRoot } from 'lexical'
 import parse from 'html-react-parser'
 
 // Chakra imports
