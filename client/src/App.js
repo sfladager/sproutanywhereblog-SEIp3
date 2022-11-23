@@ -7,6 +7,8 @@ import { ChakraProvider } from '@chakra-ui/react'
 // Imported Components
 import PlantsIndex from './components/pages/plants/PlantsIndex'
 import PlantSingle from './components/pages/plants/PlantSingle'
+import PlantNew from './components/pages/plants/PlantNew'
+import PlantEdit from './components/pages/plants/PlantEdit'
 
 import SucculentsBlogs from './components/pages/blogs/SucculentsBlogs'
 import BlogSingle from './components/pages/blogs/BlogSingle'
@@ -30,6 +32,8 @@ const App = () => {
           <Routes>
             <Route path="/plants" element={<PlantsIndex />} />
             <Route path="/plants/:id" element={<PlantSingle />} />
+            <Route path="/plants/new" element={<PlantNew />} />
+            <Route path="/plants/:id/edit" element={<PlantEdit />} />
             <Route path="/" element={<Home />} />
             <Route path="/aboutus" element={<AboutUs />} />
             <Route path="*" element={<NotFound />} />

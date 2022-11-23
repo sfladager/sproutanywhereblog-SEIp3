@@ -15,7 +15,8 @@ const NavbarDesktop = () => {
 
   const [open, setOpen] = useState(false)
 
-  const handleMenuClick = () => {
+  const handleMenuClick = (e) => {
+    e.stopPropagation()
     console.log('menu clicked')
     setOpen(!open)
   }
@@ -65,7 +66,7 @@ const NavbarDesktop = () => {
               // onMouseOut={handleMouseOut}
               onClick={handleMenuClick}
             // onMouseOver={(e) => e.target.classList.add('plant-link-entered')}
-            >plants<ChevronDownIcon />
+            >plants <ChevronDownIcon />
               <Flex>
                 {open && <NavPlants className="nav-plants-dropdown" isOpen={true} open={open} closeDropdown={closeDropdown} />}
               </Flex>

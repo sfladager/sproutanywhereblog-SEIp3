@@ -111,9 +111,9 @@ body {
   margin-top: 20px;
 }
 
-.nav-drop-link:last-child {
-  margin-bottom: 20px;
-}
+// .nav-drop-link:last-child {
+//   margin-bottom: 20px;
+// }
 
 
 
@@ -235,6 +235,12 @@ body {
     &:hover {
       background-color: $accent;
     }
+  }
+  .social-imgs{
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    margin-right: 5px;
   }
 }
 
