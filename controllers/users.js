@@ -1,11 +1,10 @@
 import { NotFound } from '../config/errors.js'
-import { findSingleUser } from '../config/helpers.js'
 import { sendErrors } from '../config/helpers.js'
 import User from '../models/user.js'
 
 export const updateUser = async (req, res) => {
   try {
-    const user = await findSingleUser(req, res)
+    const user = await User.findById(req.currentUser._id)
     if (user) {
       Object.assign(user, req.body)
       user.save()

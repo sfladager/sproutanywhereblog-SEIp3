@@ -50,8 +50,8 @@ router.route('/login')
 router.route('/users')
   .get(findAllUsers)
 
-router.route('/users/:id')
-  .get(findSingleUser)
+router.route('/user')
+  .get(secureRoute, findSingleUser)
 
 router.route('/profile')
   .put(secureRoute, updateUser)

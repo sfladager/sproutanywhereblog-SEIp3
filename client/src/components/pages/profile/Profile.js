@@ -42,7 +42,7 @@ const Profile = () => {
               <h2 className='profile-title'>username: <span>{profileData.username}</span></h2>
               <h2 className='profile-title'>e-mail: <span>{profileData.email}</span></h2>
             </div>
-            <Link to="/edit-email" className='btn-edit'>Edit</Link>
+            <Link to="/edit-profile" className='btn-edit'>Edit</Link>
           </div>
           <hr></hr>
           <h2 className='profile-title'>My plants</h2>
@@ -65,8 +65,11 @@ const Profile = () => {
             {profileData.createdPlants.length < 1 &&
               <div className='no-plants-yet'>
                 <p><span>You have not posted any plants yet, but you can start now!</span></p>
-                <Link to="/plants/new" className='btn-post'>Post a plant!</Link>
+                <Link to="/plants/new" className='btn-post'>Post a first plant!</Link>
               </div>
+            }
+            {profileData.createdPlants.length > 0 &&
+              <Link to="/plants/new" className='btn-post'>Post a new plant!</Link>
             }
           </div>
           <hr></hr>
@@ -90,8 +93,11 @@ const Profile = () => {
             {profileData.createdBlogs.length < 1 &&
               <div className='no-blogs-yet'>
                 <p><span>You have not posted any blogs yet, but you can start now!</span></p>
-                <Link to="/blogs/new" className='btn-post'>Post a blog!</Link>
+                <Link to="/blogs/new" className='btn-post'>Post a first blog!</Link>
               </div>
+            }
+            {profileData.createdBlogs.length > 0 &&
+              <Link to="/plants/new" className='btn-post btn-new'>Post a new blog!</Link>
             }
           </div>
         </>

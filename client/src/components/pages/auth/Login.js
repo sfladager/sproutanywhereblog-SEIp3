@@ -45,11 +45,11 @@ const Login = () => {
 
   // ! JSX
   return (
-    <div className='form-page-wrapper'>
+    <div className='login-page-wrapper'>
       <main className="form-page">
-        <Container className='mt-4'>
+        <Container className='login-form-container mt-1'>
           <Row>
-            <div className='col-10 offset-1 col-md-6 offset-md-3 col-lg-4 offset-lg-4'>
+            <div>
               <form onSubmit={handleSubmit}>
                 <h1>Login</h1>
                 {/* Email */}

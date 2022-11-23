@@ -49,11 +49,10 @@ export const findAllUsers = async (_req, res) => {
 
 export const findSingleUser = async (req, res) => {
   try {
-    const { id } = req.params
-    const user = await User.findById(id)
+    const user = await User.findById(req.currentUser._id)
     if (!user) throw new NotFound('User not found')
     console.log(user)
-    return user
+    return res.json(user)
   } catch (err) {
     sendErrors(res, err)
   }
