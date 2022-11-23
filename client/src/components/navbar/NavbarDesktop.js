@@ -72,7 +72,7 @@ const NavbarDesktop = () => {
             </div>
           </div>
           <Link to="/" className="nav-link">blog</Link>
-          <Link to="/" className="nav-link">about us</Link>
+          <Link to="/aboutus" className="nav-link">about us</Link>
         </Flex>
       </Flex>
       <Spacer />

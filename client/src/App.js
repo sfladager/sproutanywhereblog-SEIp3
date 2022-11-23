@@ -16,8 +16,9 @@ import Login from './components/pages/auth/Login'
 import Register from './components/pages/auth/Register'
 import Profile from './components/pages/profile/Profile'
 import EditProfile from './components/pages/profile/EditProfile'
-
+import AboutUs from './components/pages/AboutUs'
 import Home from './components/pages/Home'
+import NotFound from './components/pages/NotFound'
 
 const App = () => {
 
@@ -30,6 +31,8 @@ const App = () => {
             <Route path="/plants" element={<PlantsIndex />} />
             <Route path="/plants/:id" element={<PlantSingle />} />
             <Route path="/" element={<Home />} />
+            <Route path="/aboutus" element={<AboutUs />} />
+            <Route path="*" element={<NotFound />} />
             <Route path="/blogs/category/succulents" element={<SucculentsBlogs />} />
             <Route path="/blogs/:blogsId" element={<BlogSingle />} />
             <Route path="/blogs/:blogsId/edit" element={<BlogEdit />} />
