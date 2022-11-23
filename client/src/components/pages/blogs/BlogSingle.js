@@ -11,7 +11,7 @@ import twitterLogo from '../../../assets/twitter.svg'
 import whatsAppLogo from '../../../assets/whatsapp.svg'
 
 // Chakra imports
-import { Container, Box, Image, Button, ButtonGroup } from '@chakra-ui/react'
+import { Container, Box, Image, Button, ButtonGroup, Flex } from '@chakra-ui/react'
 
 const BlogSingle = () => {
   // ! State
@@ -69,29 +69,25 @@ const BlogSingle = () => {
             </Link>
             <Box mt={1}>
               <h1>{ blog.title }</h1>
-              <p>{ blog.createdAt } | Written by: {blog.owner.username} </p>
+              <p className="blog-single-created-by">{ blog.createdAt } | Written by: {blog.owner.username} </p>
             </Box>
             <Box>
               <Image src={blog.thumbnail} alt={blog.title}/>
             </Box>
-            <Box>
-              <h3>{blog.description}</h3>
-            </Box>
-            <Box className="social-icons">
+            <div className="social-icons">
               <img onClick={socialLinks}  id={`https://www.facebook.com/share.php?u=sproutanywhere.com/blogs/${blogsId}`} className="social-imgs" src={fbLogo} alt='FB logo' />
               <img onClick={socialLinks} id={'https://twitter.com/share?ref_src=twsrc%5Etfw'} className="social-imgs"  src={twitterLogo} alt='Twitter logo' />
               <img onClick={socialLinks} id={'http://www.instagram.com/sproutanywhere'} className="social-imgs" src={igLogo} alt='IG logo' />
               <img onClick={socialLinks} id={'https://www.pinterest.com/sproutanywhere'} className="social-imgs"  src={pinterestLogo} alt='Pinterest logo' />
               <img onClick={socialLinks} id={`whatsapp://send?text=sproutanywhere.com/blogs/${blogsId}`} className="social-imgs"  src={whatsAppLogo} alt='whatsApp logo' />
-              
-            </Box>
+            </div>
             <Box className="blog-article">
               {article && parse(article)}
             </Box>
             <Box>
               {/* This checks if the owner of the blog is viewing the page, and if so, displays the edit/delete buttons */}
               {isOwner(blog.owner._id) &&
-                <ButtonGroup gap='2'>
+                <ButtonGroup mt={3} gap='2'>
                   <Link to={`/blogs/${blogsId}/edit`}><Button className="btn-green">Edit</Button></Link>
                   <Button onClick={deleteBlog} colorScheme='red'>Delete</Button>
                 </ButtonGroup>

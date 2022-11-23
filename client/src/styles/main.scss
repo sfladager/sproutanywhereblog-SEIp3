@@ -186,15 +186,17 @@ body {
 // Blog index page
 .blog-index-filter-box {
   text-align: center;
-
   select {
-    text-align: right;
+    text-align: center;
     text-decoration: underline;
-    color: $primary;
-    padding-left: 10px;
+    padding-left: 5px;
   }
 }
-
+.blog-index-filter-p {
+  font-size: 1.5rem;
+  color: $primary;
+  text-decoration: underline;
+}
 .succulents-blog-index,
 .single-blog {
   display: flex;
@@ -202,8 +204,14 @@ body {
 }
 
 .blog-index-cards {
+  .blog-index-card-title {
+    font-size: 1.4rem;
+    color: $primary;
+    font-family: $header-font;
+    margin-top: 5px;
+  }
   .blog-card-p {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     color: #98999a;
   }
 
@@ -216,8 +224,13 @@ body {
     margin-top: 5px;
   }
 
-  button {
+  .blog-card-btn {
     color: $accent;
+    font-size: 1.1rem;
+    &:hover {
+      color: $primary;
+      font-size: 1.2rem;
+    }
   }
 }
 // Single blog page
@@ -226,6 +239,16 @@ body {
     font-size: 2rem;
     font-family: $header-font;
     color: $primary;
+    text-align: center;
+  }
+  .blog-single-created-by {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+  img {
+    max-height: 800px;
+    margin: 0 auto;
   }
 
   .btn-green {
@@ -236,11 +259,15 @@ body {
       background-color: $accent;
     }
   }
+  .social-icons {
+    display: flex;
+    justify-content: flex-end;
+  }
   .social-imgs{
-    height: 40px;
-    width: 40px;
+    height: 32px;
+    width: 32px;
     display: inline-block;
-    margin-right: 5px;
+    margin: 5px 0px 5px 5px;
   }
 }
 // Blog form page styling

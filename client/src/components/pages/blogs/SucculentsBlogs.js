@@ -56,7 +56,7 @@ const SucculentsBlogs = () => {
     <main className="succulents-blog-index">
       <Container m={2} maxW="997px">
         <Box p={1} mb={2} className="blog-index-filter-box">
-          <h2>I want to read about<span className="blog-index-filter-selector">
+          <h2 className="blog-index-filter-p">I want to read about<span className="blog-index-filter-selector">
             <select onChange={handleChange} className="filter-blog-by-tag" id="filter-blog-by-tag" placeholder="Pick One">
               <option id="all" value="all">All</option>
               {tags.map((item, i) => {
@@ -70,18 +70,23 @@ const SucculentsBlogs = () => {
             <>
               {filteredBlogs.map(b => {
                 const { _id, title, createdAt, thumbnail, description } = b
-                console.log(description.length)
                 return (
                   <Link key={_id} to={`/blogs/${_id}`}>
-                    <Card className="blog-index-cards">
+                    <Card align='center' boxShadow='md' className="blog-index-cards">
                       <CardBody>
-                        <Image src={thumbnail} alt={title} />
-                        <Heading mt="2" size='md'>{title}</Heading>
-                        <p className="blog-card-p">{createdAt}</p>
+                        <Image 
+                          boxSize='250px'
+                          align='center'
+                          objectFit='cover' 
+                          src={thumbnail} 
+                          alt={title} 
+                        />
+                        <h2 className="blog-index-card-title">{title}</h2>
+                        <p className="blog-card-p">Added on: {createdAt}</p>
                         <p className="description-card-p">{description}</p>
-                        <Button variant='ghost' p="0">
+                        <button className="blog-card-btn">
                           Read more
-                        </Button>
+                        </button>
                       </CardBody>
                     </Card>
                   </Link>
