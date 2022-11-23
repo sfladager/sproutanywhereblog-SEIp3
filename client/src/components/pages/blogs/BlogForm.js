@@ -20,7 +20,7 @@ const BlogForm = ({ handleSubmit, formFields, setFormFields, errors, setErrors, 
 
   // Get values and add to formfields object 
   const handleChange = (e) => {
-    console.log(`${e.target.name} - ${e.target.value}`)
+    // console.log(`${e.target.name} - ${e.target.value}`)
     setFormFields({ ...formFields, [e.target.name]: e.target.value })
     setErrors({ ...errors, [e.target.name]: '', message: '' })
   }
