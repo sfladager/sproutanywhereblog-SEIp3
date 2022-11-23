@@ -70,6 +70,7 @@ const SucculentsBlogs = () => {
             <>
               {filteredBlogs.map(b => {
                 const { _id, title, createdAt, thumbnail, description } = b
+                console.log(description.length)
                 return (
                   <Link key={_id} to={`/blogs/${_id}`}>
                     <Card className="blog-index-cards">
