@@ -35,9 +35,8 @@ export const findBlog = async (req, res) => {
   }
 }
 
-export const findAllUsers = async (req, res) => {
+export const findAllUsers = async (_req, res) => {
   try {
-    // const { id } = req.params
     const users = await User.find()
     if (!users) throw new NotFound('User not found')
     console.log(users)
@@ -50,11 +49,10 @@ export const findAllUsers = async (req, res) => {
 
 export const findSingleUser = async (req, res) => {
   try {
-    const { id } = req.params
-    const user = await User.findById(id)
+    const user = await User.findById(req.currentUser._id)
     if (!user) throw new NotFound('User not found')
     console.log(user)
-    return user
+    return res.json(user)
   } catch (err) {
     sendErrors(res, err)
   }

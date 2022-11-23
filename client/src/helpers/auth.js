@@ -2,19 +2,16 @@ import { Buffer } from 'buffer'
 
 const tokenName = 'sprout-project-token'
 
-// This function is going to save our token to localStorage
 export const setToken = (token) => {
   localStorage.setItem(tokenName, token)
 }
 
-// This function is going to retrieve the token from localStorage
 export const getToken = () => {
   return localStorage.getItem(tokenName)
 }
 
 // This function will decode the token saved in our local storage and return the payload
 export const getPayload = () => {
-  // Get the token from localStorage
   const token = getToken()
   // Check the token has a value - will return null if no token exists
   // In the case that no token exists, we return false as the function value
