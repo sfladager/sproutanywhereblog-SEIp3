@@ -183,7 +183,7 @@ body {
     }
   }
 }
-
+// Blog index page
 .blog-index-filter-box {
   text-align: center;
 
@@ -220,7 +220,7 @@ body {
     color: $accent;
   }
 }
-
+// Single blog page
 .single-blog {
   h1 {
     font-size: 2rem;
@@ -243,40 +243,11 @@ body {
     margin-right: 5px;
   }
 }
-
+// Blog form page styling
 .blog-form-page {
   display: flex;
   justify-content: center;
-}
-
-.blog-form-title {
-  font-family: $header-font;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  h1 {
-    font-size: 1.5rem;
-    padding-right: 3rem;
-  }
-}
-
-// Blog form page
-.blog-form {
-  margin-top: 20px;
-
-  .required {
-    color: red;
-  }
-
-  label {
-    font-family: $header-font;
-    font-size: 1.2rem;
-  }
-
-  input {
-
-    input,
+  .blog-form-input,
     select {
       width: 100%;
       padding: 5px;
@@ -294,17 +265,40 @@ body {
         background-color: $accent;
       }
     }
-
+    .blog-form {
+      margin-top: 20px;
+    
+      .required {
+        color: red;
+      }
+    
+      label {
+        font-family: $header-font;
+        font-size: 1.2rem;
+      }
+    }
     // editor on blog forms
     .rdw-editor-wrapper {
       border: 1px solid $accent;
       margin-bottom: 15px;
+      border-radius: 5px;
     }
 
     .blog-form-select {
       border-color: $accent;
       background-color: $primary;
     }
+}
+
+.blog-form-title {
+  font-family: $header-font;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h1 {
+    font-size: 1.5rem;
+    padding-right: 3rem;
   }
 }
 

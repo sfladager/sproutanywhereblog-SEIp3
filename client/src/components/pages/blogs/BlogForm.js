@@ -55,7 +55,7 @@ const BlogForm = ({ handleSubmit, formFields, setFormFields, errors, setErrors, 
   return (
     <Container w={[350, 500, 768, 997]} m={2} maxW="997px">
       <Box className="blog-form-title">
-        <Link to={'/blogs'}>
+        <Link to={'/'}>
           <Button variant='ghost' m="0" p="1">Back</Button>
         </Link>
         <h1>{formName}</h1>
@@ -68,6 +68,7 @@ const BlogForm = ({ handleSubmit, formFields, setFormFields, errors, setErrors, 
             <Input 
               type='text'
               name="title"
+              className="blog-form-input"
               onChange={handleChange}
               value={formFields.title}
               placeholder="Title"
@@ -99,6 +100,7 @@ const BlogForm = ({ handleSubmit, formFields, setFormFields, errors, setErrors, 
             <Input 
               type='text'
               name="description"
+              className="blog-form-input"
               onChange={handleChange}
               value={formFields.description}
               placeholder="Description"

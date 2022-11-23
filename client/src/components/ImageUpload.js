@@ -27,7 +27,7 @@ const ImageUpload = ({ formFields, setFormFields }) => {
         :
         <input 
           name="image-input-field"
-          className="image-input-field" 
+          className="blog-form-input"
           type="file"
           onChange={handleChange} 
         />
