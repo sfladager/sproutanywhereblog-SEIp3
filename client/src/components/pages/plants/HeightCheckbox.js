@@ -2,168 +2,129 @@ import { useState, useEffect, useCallback } from 'react'
 
 import { Flex, Checkbox, CheckboxGroup, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, Box, Stack } from '@chakra-ui/react'
 
-const HeightCheckBox = ({ plants, setFilteredPlants, filteredPlants }) => {
+const PlantsCheckBox = ({ filters, handleFilter }) => {
 
-
-  
-  const filterOptions = [
-    {
-      'id': 1,
-      'plantHeight': 'small',
-    },
-    {
-      'id': 2,
-      'plantHeight': 'medium',
-    },
-    {
-      'id': 3,
-      'plantHeight': 'large',
-    }
-  ]  
-  
-  const [checkedSmall, setCheckedSmall] = useState(false)
-  const [checkedMedium, setCheckedMedium] = useState(false)
-  const [checkedLarge, setCheckedLarge] = useState(false)
-
-  // const [filteredPlants, setFilteredPlants] = useState([])
-
-  
-  const handleToggle = (e) => {
-    if (e.target.value === 'small') {
-      setCheckedSmall(!checkedSmall)
-    }
-    if (e.target.value === 'medium') {
-      setCheckedMedium(!checkedMedium)
-    }
-    if (e.target.value === 'large') {
-      setCheckedLarge(!checkedLarge)
-    }
-  }
-  
-  useEffect(() => {
-    // console.log('small --> ' + checkedSmall)
-    // console.log('medium --> ' + checkedMedium)
-    // console.log('large --> ' + checkedLarge)
-
-    const filterPlants = () => {
-    // const regex = new RegExp(search, 'i')
-      if (checkedSmall) {
-        console.log('check small')
-        const filtered = plants.filter(plant => plant.plantHeight === 'small') 
-        const unique = []
-        for (let i = 0; i < filtered.length; i++) {
-          if (!filteredPlants.includes(filtered[i])){
-            unique.push(filtered[i])
-          }
-        }
-        console.log(unique)
-        const newFiltered = [ ...filteredPlants ].concat(unique)
-        console.log(newFiltered)
-        setFilteredPlants(newFiltered)
-      }
-      if (!checkedSmall) {
-        console.log('uncheck small')
-        const newFiltered = filteredPlants.filter(plant => plant.plantHeight !== 'small')
-        setFilteredPlants(newFiltered)
-      }
-      if (checkedMedium) {
-        console.log('check medium')
-        const filtered = plants.filter(plant => plant.plantHeight === 'medium') 
-        const unique = []
-        for (let i = 0; i < filtered.length; i++) {
-          if (!filteredPlants.includes(filtered[i])){
-            unique.push(filtered[i])
-          }
-        }
-        console.log(unique)
-        const newFiltered = [ ...filteredPlants ].concat(unique)
-        console.log(newFiltered)
-        setFilteredPlants(newFiltered)
-      }
-      if (!checkedMedium) {
-        console.log('uncheck medium')
-        const newFiltered = filteredPlants.filter(plant => plant.plantHeight !== 'medium')
-        setFilteredPlants(newFiltered)
-      }
-      if (checkedLarge) {
-        console.log('check large')
-        const filtered = plants.filter(plant => plant.plantHeight === 'large') 
-        const unique = []
-        for (let i = 0; i < filtered.length; i++) {
-          if (!filteredPlants.includes(filtered[i])){
-            unique.push(filtered[i])
-          }
-        }
-        console.log(unique)
-        const newFiltered = [ ...filteredPlants ].concat(unique)
-        console.log(newFiltered)
-        setFilteredPlants(newFiltered)
-      }
-      if (!checkedLarge) {
-        console.log('uncheck large')
-        const newFiltered = filteredPlants.filter(plant => plant.plantHeight !== 'large')
-        setFilteredPlants(newFiltered)
-      }
-    }
-    filterPlants()
-  }, [checkedSmall, checkedMedium, checkedLarge])
-
- 
+  const categoryOptions = ['succulent', 'palm', 'bonsai', 'fern', 'foliage']
+  const locationOptions = ['office', 'living room', 'bedroom', 'bathroom', 'balcony', 'kitchen']
+  const sizeOptions = ['small', 'medium', 'large']
 
   return (
     <>
       <Accordion allowMultiple>
-        <AccordionItem>
+        <AccordionItem className="filter-type-wrapper">
           <AccordionButton>
             <Box flex='1' textAlign='left'>
-              Plant Height
+              Plant type
             </Box>
             <AccordionIcon />
           </AccordionButton>
           <AccordionPanel>
-            <Stack spacing={5} direction='column'>
-              <Flex>
-                <Flex className="filters-options">
-                  {filterOptions.map(option => {
-                    // const joined = option.split('').join('-')
-                    return (
-                      <Flex key={option.plantHeight} className={`${option.plantHeight}-filter`}>
-                        <input className={`${option.plantHeight}-checkbox`} type="checkbox" value={option.plantHeight} onChange={handleToggle} />
-                        <label>{option.plantHeight}</label>
-                      </Flex>
-                    )
-                  })}
-                </Flex>
+            <Flex>
+              <Flex className="filters-type">
+                {categoryOptions.map(option => {
+                  // const joined = option.split('').join('-')
+                  return (
+                    <Flex key={option} className={`${option}-type-filter`}>
+                      <input className={`${option}-type-checkbox`} type="checkbox" 
+                        value={option} onChange={() => handleFilter('category', option)} />
+                      <label>{option}</label>
+                    </Flex>
+                  )
+                })}
               </Flex>
-            </Stack>
+            </Flex>
+          </AccordionPanel>
+        </AccordionItem>
+        <AccordionItem className="filter-location-wrapper">
+          <AccordionButton>
+            <Box flex='1' textAlign='left'>
+              Location
+            </Box>
+            <AccordionIcon />
+          </AccordionButton>
+          <AccordionPanel>
+            <Flex>
+              <Flex className="filters-location">
+                {locationOptions.map(option => {
+                  const joined = option.split('').join('-')
+                  return (
+                    <Flex key={option} className={`${joined}-location-filter`}>
+                      <input className={`${joined}-location-checkbox`} type="checkbox" 
+                        value={option} onChange={() => handleFilter('idealLocation', option)} />
+                      <label>{option}</label>
+                    </Flex>
+                  )
+                })}
+              </Flex>
+            </Flex>
+          </AccordionPanel>
+        </AccordionItem>
+        <AccordionItem className="filter-sunlight-wrapper">
+          <AccordionButton>
+            <Box flex='1' textAlign='left'>
+              Sunlight required
+            </Box>
+            <AccordionIcon />
+          </AccordionButton>
+          <AccordionPanel>
+            <Flex>
+              <Flex className="filters-sunlight">
+                {sizeOptions.map(option => {
+                  // const joined = option.split('').join('-')
+                  return (
+                    <Flex key={option} className={`${option}-sunlight-filter`}>
+                      <input className={`${option}-sunlight-checkbox`} type="checkbox" 
+                        value={option} onChange={() => handleFilter('sunlightRequired', option)} />
+                      <label>{option}</label>
+                    </Flex>
+                  )
+                })}
+              </Flex>
+            </Flex>
+          </AccordionPanel>
+        </AccordionItem>
+        <AccordionItem className="filter-height-wrapper">
+          <AccordionButton>
+            <Box flex='1' textAlign='left'>
+              Plant height
+            </Box>
+            <AccordionIcon />
+          </AccordionButton>
+          <AccordionPanel>
+            <Flex>
+              <Flex className="filters-height">
+                {sizeOptions.map(option => {
+                  // const joined = option.split('').join('-')
+                  return (
+                    <Flex key={option} className={`${option}-height-filter`}>
+                      <input className={`${option}-height-checkbox`} type="checkbox" 
+                        value={option} onChange={() => handleFilter('plantHeight', option)} />
+                      <label>{option}</label>
+                    </Flex>
+                  )
+                })}
+              </Flex>
+            </Flex>
           </AccordionPanel>
         </AccordionItem>
       </Accordion>
+      <Flex className="filters-beginner">
+        <Flex className="beginner-filter">
+          <input className="beginner-checkbox" type="checkbox" 
+            onChange={(e) => handleFilter('beginnerFriendly', e.target.checked)}
+          />
+          <label>Beginner friendly</label>
+        </Flex>
+      </Flex>
+      <Flex className="filters-safe">
+        <Flex className="safe-filter">
+          <input className="safe-checkbox" type="checkbox" 
+            onChange={(e) => handleFilter('safeForPetsOrChildren', e.target.checked)}/>
+          <label>Children and pet friendly</label>
+        </Flex>
+      </Flex>
     </>
   )  
 }
 
-export default HeightCheckBox
-
-{/* <Flex>
-        <Flex>filters</Flex>
-        <Flex className="filters-options">
-          {filterOptions.map(option => {
-            const joined = option.split('').join('-')
-            return (
-              <Flex key={option} className={`${joined}-filter`}>
-                <input className={`${joined}-checkbox`} type="checkbox" value={joined} checked onChange={}/>
-                <label>{option}</label>
-              </Flex>
-            )
-          })}
-        </Flex>
-        </Flex>
-
-        <Stack spacing={5} direction='column'>
-          {filterOptions.map(option => {
-            return (
-              <Checkbox>option</Checkbox>
-            )  
-          })}
-        </Stack> */}
+export default PlantsCheckBox
