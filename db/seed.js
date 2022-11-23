@@ -32,10 +32,7 @@ const seedDatabase = async () => {
 
 
     const blogs = await Blog.create(blogsWithOwners)
-<<<<<<< HEAD
     // console.log(blogsWithOwners)
-=======
->>>>>>> b21c163d986f1e331c6f730b22a1b95fa7aa4b35
     console.log(`Blogs collection seeded with ${blogs.length} users!`)
 
     await mongoose.connection.close()

@@ -16,10 +16,12 @@ const plantSchema = new mongoose.Schema({
   idealLocation: [{ type: String, required: true }], // office, living room, bedroom, bathroom, patio, garden
   sunlightRequired: { type: String, required: true }, // <1hr, 1-2hr, >2hr
   plantHeight: { type: String, required: true }, // small (<50cm), medium(50-100cm), large(>100cm)
-  plantSkill: { type: Boolean, required: true }, // yes(skilled) no(unskilled)
-  toxicToPetsOrChildren: { type: Boolean, required: true }, // yes no
-  // owner: { type: mongoose.Schema.OnjectId, ref: 'User', required: true }
+  beginnerFriendly: { type: Boolean, required: true }, // yes(skilled) no(unskilled)
+  safeForPetsOrChildren: { type: Boolean, required: true }, // yes no
   owner: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
 })
 
 export default mongoose.model('Plant', plantSchema)
+
+
+
