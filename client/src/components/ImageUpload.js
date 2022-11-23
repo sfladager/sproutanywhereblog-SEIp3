@@ -4,14 +4,15 @@ const ImageUpload = ({ formFields, setFormFields }) => {
 
   const handleChange = async (e) => {
     try {
-      console.log(e.target.files[0])
       const formData = new FormData()
       // Appends the file information of the file to be uploaded
+      console.log(e.target.files[0])
       formData.append('file', e.target.files[0])
       // Appends the upload preset information
       formData.append('upload_preset', process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET)
       // Sends the file data to the cloudinary serve
       const { data } = await axios.post(process.env.REACT_APP_CLOUDINARY_URL, formData)
+      console.log('DATA', data)
       setFormFields({ ...formFields, thumbnail: data.secure_url })
     } catch (err) {
       console.log(err)
