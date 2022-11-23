@@ -7,7 +7,8 @@ import { ChakraProvider } from '@chakra-ui/react'
 // Imported Components
 import PlantsIndex from './components/pages/plants/PlantsIndex'
 import PlantSingle from './components/pages/plants/PlantSingle'
-import PlantsNew from './components/pages/plants/PlantNew'
+import PlantNew from './components/pages/plants/PlantNew'
+import PlantEdit from './components/pages/plants/PlantEdit'
 
 import SucculentsBlogs from './components/pages/blogs/SucculentsBlogs'
 import BlogSingle from './components/pages/blogs/BlogSingle'
@@ -15,6 +16,8 @@ import BlogNew from './components/pages/blogs/BlogNew'
 import BlogEdit from './components/pages/blogs/BlogEdit'
 import Login from './components/pages/auth/Login'
 import Register from './components/pages/auth/Register'
+import Profile from './components/pages/profile/Profile'
+import EditProfile from './components/pages/profile/EditProfile'
 
 import Home from './components/pages/Home'
 
@@ -28,7 +31,8 @@ const App = () => {
           <Routes>
             <Route path="/plants" element={<PlantsIndex />} />
             <Route path="/plants/:id" element={<PlantSingle />} />
-            <Route path="/plants/new" element={<PlantsNew />} />
+            <Route path="/plants/new" element={<PlantNew />} />
+            <Route path="/plants/:id/edit" element={<PlantEdit />} />
             <Route path="/" element={<Home />} />
             <Route path="/blogs/category/succulents" element={<SucculentsBlogs />} />
             <Route path="/blogs/:blogsId" element={<BlogSingle />} />
@@ -36,6 +40,8 @@ const App = () => {
             <Route path="/blogs/new" element={<BlogNew />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/edit-profile" element={<EditProfile />} />
           </Routes>
         </BrowserRouter>
       </div>

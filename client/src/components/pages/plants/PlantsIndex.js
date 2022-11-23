@@ -106,11 +106,11 @@ const PlantsIndex = () => {
         <PlantsCheckBox filters={filters} handleFilter={handleFilter} />
         <Container m={2} maxW="997px">
           <SimpleGrid minChildWidth="250px" spacing='30px'>
-            {filterPlants.map(({ _id, name, imageURL }) => 
+            {filterPlants.map(({ _id, name, thumbnail }) => 
               <Link key={_id} to={`/plants/${_id}`}>
                 <Card className="plants-index-cards">
                   <CardBody>
-                    <Image src={imageURL} alt={name} />
+                    <Image src={thumbnail} alt={name} />
                     <Heading mt="2" size='md'>{name}</Heading>
                   </CardBody>
                 </Card>

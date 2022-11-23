@@ -4,7 +4,7 @@ import { addPlant, deletePlant, getAllPlants, getPlantsByCategory, getSinglePlan
 import { registerUser, loginUser } from '../controllers/auth.js'
 import { findAllUsers } from './helpers.js'
 import { findSingleUser } from './helpers.js'
-import { updateUser } from '../controllers/users.js'
+import { getProfile, updateUser } from '../controllers/users.js'
 import secureRoute from './secureRoute.js'
 // import { updateProfile } from '../controllers/users.js'
 
@@ -33,7 +33,7 @@ router.route('/plants')
 
 router.route('/plants/category/:category')
   .get(getPlantsByCategory)
-  
+
 router.route('/plants/:id')
   .get(getSinglePlant)
   .put(updatePlant)
@@ -50,8 +50,11 @@ router.route('/login')
 router.route('/users')
   .get(findAllUsers)
 
-router.route('/users/:id')
-  .get(findSingleUser)
+router.route('/user')
+  .get(secureRoute, findSingleUser)
+
+router.route('/profile')
   .put(secureRoute, updateUser)
+  .get(secureRoute, getProfile)
 
 export default router

@@ -32,7 +32,7 @@ const PlantsIndex = () => {
   },[id])
   
   console.log(plant)
-  const { name, imageURL, mainDescription, lightDescription, waterDescription, tempDescription, humidityDescription, heightDescription, toxicityDescription } = plant
+  const { name, thumbnail, mainDescription, lightDescription, waterDescription, tempDescription, humidityDescription, heightDescription, toxicityDescription } = plant
 
   // useEffect(() => {
   //   const constPlant = () => {
@@ -53,7 +53,7 @@ const PlantsIndex = () => {
           { plant ?
             <>
               <h1><strong>{name}</strong></h1>
-              <img src={imageURL} alt={name}/>
+              <img src={thumbnail} alt={name}/>
               <p>{mainDescription}</p>
               <Flex className="plant-info-guide-title-container">
                 <p className="plant-info-guide-title">{name} Care &amp; Info Guide</p>

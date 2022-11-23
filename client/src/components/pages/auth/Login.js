@@ -31,10 +31,12 @@ const Login = () => {
     e.preventDefault()
     try {
       const { data } = await axios.post('/api/login', formFields)
+      console.log(data)
       console.log(data.token)
       setToken(data.token)
       navigate('/home')
     } catch (err) {
+      console.log(err)
       setError(err.response.data.message)
     }
   }
@@ -43,11 +45,11 @@ const Login = () => {
 
   // ! JSX
   return (
-    <div className='form-page-wrapper'>
+    <div className='login-page-wrapper'>
       <main className="form-page">
-        <Container className='mt-4'>
+        <Container className='login-form-container mt-1'>
           <Row>
-            <div className='col-10 offset-1 col-md-6 offset-md-3 col-lg-4 offset-lg-4'>
+            <div>
               <form onSubmit={handleSubmit}>
                 <h1>Login</h1>
                 {/* Email */}
