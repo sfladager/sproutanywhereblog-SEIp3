@@ -4,7 +4,6 @@ const ImageUpload = ({ formFields, setFormFields }) => {
 
   const handleChange = async (e) => {
     try {
-      console.log(e.target.files[0])
       const formData = new FormData()
       // Appends the file information of the file to be uploaded
       formData.append('file', e.target.files[0])
