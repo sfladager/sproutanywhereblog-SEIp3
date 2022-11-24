@@ -313,10 +313,10 @@ body {
   display: flex;
   min-height: 100vh;
   width: 100vw;
-  align-items: center;
+  align-items: top;
   justify-content: center;
-  margin: auto;
-  background-color: #F3F5F8;
+  padding-top: 100px;
+  background-color: $secondary;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -326,6 +326,7 @@ body {
 .form-page {
   width: 100%;
   text-align: center;
+  margin-top: 0;
 
   .btn-main {
     background-color: darken(#467A43, 15%);
@@ -343,14 +344,16 @@ body {
   h1 {
     font-size: 40px;
     margin-bottom: 20px;
+    color: #467A43;
   }
 
   form {
-    background: #9CB42F;
+    background: $secondary;
     padding: 40px;
     border-radius: 18px;
     width: 30%;
     display: inline-block;
+    border: 2px solid $primary;
 
     label {
       font-size: 0.9rem;
@@ -685,4 +688,71 @@ body {
 
 .amazon-btn {
   align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .login-page-wrapper {
+    display: flex;
+    min-height: 100vh;
+    width: 100vw;
+    align-items: top;
+    justify-content: center;
+    padding-top: 100px;
+    background-color: $secondary;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  // Form Page
+  .form-page {
+    width: 100%;
+    text-align: center;
+    margin-top: 0;
+
+    .btn-main {
+      background-color: darken(#467A43, 15%);
+      color: white;
+      width: 33%;
+      border-radius: 5px;
+      height: 2em;
+      margin-top: 1em;
+
+      &:hover {
+        background-color: darken(#467A43, 20%);
+      }
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-bottom: 20px;
+      color: #467A43;
+    }
+
+    form {
+      background: $secondary;
+      padding: 40px;
+      border-radius: 18px;
+      width: 80%;
+      display: inline-block;
+      border: 2px solid $primary;
+
+      label {
+        font-size: 0.9rem;
+      }
+
+      input {
+        width: 100%;
+        margin-bottom: 15px;
+        border: none;
+        padding: 5px;
+      }
+
+      small {
+        display: block;
+        margin-bottom: 15px;
+      }
+    }
+  }
 }
