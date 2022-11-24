@@ -1,5 +1,5 @@
 import express from 'express'
-import { getAllBlogs, addBlog, getSingleBlog, updateBlog, deleteBlog, getBlogsCategory, getBlogsCategoryAndTags } from '../controllers/blogs.js'
+import { getAllBlogs, addBlog, getSingleBlog, updateBlog, deleteBlog, getBlogsCategory, getBlogsCategoryAndTags, addBlogReview } from '../controllers/blogs.js'
 import { addPlant, deletePlant, getAllPlants, getPlantsByCategory, getSinglePlant, updatePlant, addPlantReview } from '../controllers/plants.js'
 import { registerUser, loginUser } from '../controllers/auth.js'
 import { findAllUsers } from './helpers.js'
@@ -55,6 +55,9 @@ router.route('/user')
 
 router.route('/plants/:id/review')
   .post(secureRoute, addPlantReview)
+
+router.route('/blogs/:id/review')
+  .post(secureRoute, addBlogReview)
 
 router.route('/profile')
   .put(secureRoute, updateUser)

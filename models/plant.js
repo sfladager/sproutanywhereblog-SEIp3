@@ -3,7 +3,8 @@ import mongoose from 'mongoose'
 const reviewPlantSchema = new mongoose.Schema({
   text: { type: String, required: true, maxlength: 300 },
   rating: { type: Number, required: false, min: 1, max: 5 },
-  owner: { type: mongoose.Schema.ObjectId, ref: 'User', required: false },
+  owner: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
+  username: { type: String, required: false, maxlength: 300 },
 }, {
   timestamps: true,
 })

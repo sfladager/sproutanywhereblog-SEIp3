@@ -15,9 +15,12 @@ import { Container, Box, Image, Button, ButtonGroup } from '@chakra-ui/react'
 
 const BlogSingle = () => {
   // ! State
-  const [ blog, setBlog ] = useState(null)
-  const [ article, setArticle ] = useState(null)
-  const [ errors, setErrors ] = useState(null)
+  const [blog, setBlog] = useState(null)
+  const [article, setArticle] = useState(null)
+  const [errors, setErrors] = useState(null)
+  const [reviewField, setReviewField] = useState({
+    text: '',
+  })
 
   const { blogsId } = useParams()
   const navigate = useNavigate()
@@ -39,7 +42,7 @@ const BlogSingle = () => {
 
   // useEffect(() => {
   //   console.log(blog.owner._id)
-    
+
   // }, [blog])
 
   const deleteBlog = async (e) => {
@@ -54,10 +57,39 @@ const BlogSingle = () => {
       console.log(err)
     }
   }
-  function socialLinks(e){
+  function socialLinks(e) {
     console.log(e.target.id)
     window.open(e.target.id, '_blank')
   }
+
+  const handleChange = (e) => {
+    const updatedReviewField = {
+      ...reviewField,
+      [e.target.name]: e.target.value,
+    }
+    setReviewField(updatedReviewField)
+    if (errors) setErrors('')
+  }
+
+  const handleClick = async (e) => {
+    try {
+      console.log(blogsId)
+      const { data } = await axios.post(`/api/blogs/${blogsId}/review`, reviewField, {
+        headers: {
+          Authorization: `Bearer ${getToken()}`,
+        },
+      })
+      setBlog(data)
+      setReviewField({
+        text: '',
+      })
+      console.log('review SUCCESS ->', data)
+    } catch (err) {
+      console.log('review FAIL ->', err)
+      setErrors(err.response.data)
+    }
+  }
+
 
   return (
     <main className="single-blog">
@@ -68,25 +100,52 @@ const BlogSingle = () => {
               <Button variant='ghost' m="0" p="1">Back</Button>
             </Link>
             <Box mt={1}>
-              <h1>{ blog.title }</h1>
-              <p>{ blog.createdAt } | Written by: {blog.owner.username} </p>
+              <h1>{blog.title}</h1>
+              <p>{blog.createdAt} | Written by: {blog.owner.username} </p>
             </Box>
             <Box>
-              <Image src={blog.thumbnail} alt={blog.title}/>
+              <Image src={blog.thumbnail} alt={blog.title} />
             </Box>
             <Box>
               <h3>{blog.description}</h3>
             </Box>
             <Box className="social-icons">
-              <img onClick={socialLinks}  id={`https://www.facebook.com/share.php?u=sproutanywhere.com/blogs/${blogsId}`} className="social-imgs" src={fbLogo} alt='FB logo' />
-              <img onClick={socialLinks} id={'https://twitter.com/share?ref_src=twsrc%5Etfw'} className="social-imgs"  src={twitterLogo} alt='Twitter logo' />
+              <img onClick={socialLinks} id={`https://www.facebook.com/share.php?u=sproutanywhere.com/blogs/${blogsId}`} className="social-imgs" src={fbLogo} alt='FB logo' />
+              <img onClick={socialLinks} id={'https://twitter.com/share?ref_src=twsrc%5Etfw'} className="social-imgs" src={twitterLogo} alt='Twitter logo' />
               <img onClick={socialLinks} id={'http://www.instagram.com/sproutanywhere'} className="social-imgs" src={igLogo} alt='IG logo' />
-              <img onClick={socialLinks} id={'https://www.pinterest.com/sproutanywhere'} className="social-imgs"  src={pinterestLogo} alt='Pinterest logo' />
-              <img onClick={socialLinks} id={`whatsapp://send?text=sproutanywhere.com/blogs/${blogsId}`} className="social-imgs"  src={whatsAppLogo} alt='whatsApp logo' />
-              
+              <img onClick={socialLinks} id={'https://www.pinterest.com/sproutanywhere'} className="social-imgs" src={pinterestLogo} alt='Pinterest logo' />
+              <img onClick={socialLinks} id={`whatsapp://send?text=sproutanywhere.com/blogs/${blogsId}`} className="social-imgs" src={whatsAppLogo} alt='whatsApp logo' />
+
             </Box>
             <Box className="blog-article">
               {article && parse(article)}
+            </Box>
+            <Box>
+              <hr></hr>
+              <p className="review-section">Any comments ?</p>
+              {blog.reviews.length > 0 &&
+                blog.reviews.map(review => {
+                  return (
+                    <div key={review._id} className='review-flex'>
+                      <div className='review-details'>
+                        <p><span>{review.username}</span></p>
+                        <p id='review-date'>{Date().toString().split('G').slice(0, 1).join()}</p>
+                      </div>
+                      <p id='review-text'>{review.text}</p>
+                    </div>
+                  )
+                })
+              }
+              <div className='input-review-flex'>
+                <input
+                  type="text"
+                  name="text"
+                  onChange={handleChange}
+                  value={reviewField.text}
+                  placeholder="Comment"
+                />
+                <button className="btn-post" onClick={handleClick}>Post comment</button>
+              </div>
             </Box>
             <Box>
               {/* This checks if the owner of the blog is viewing the page, and if so, displays the edit/delete buttons */}
@@ -97,8 +156,8 @@ const BlogSingle = () => {
                 </ButtonGroup>
               }
             </Box>
-          </>  
-          : 
+          </>
+          :
           errors ? <h2>Something went wrong!</h2> : <h2>Loading...</h2>
         }
       </Container>

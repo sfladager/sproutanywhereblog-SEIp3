@@ -18,7 +18,7 @@ export const getAllPlants = async (_req, res) => {
 
 export const addPlant = async (req, res) => {
   try {
-    const plantToAdd = await Plant.create({ ...req.body, owner: req.currentUser._id }) 
+    const plantToAdd = await Plant.create({ ...req.body, owner: req.currentUser._id })
     console.log(plantToAdd)
     return res.status(201).json(plantToAdd)
   } catch (err) {
@@ -103,9 +103,9 @@ export const addPlantReview = async (req, res) => {
   try {
     const plant = await findPlant(req, res)
     if (plant) {
-      console.log(plant)
-      console.log(req.body)
-      const reviewWithOwner = { ...req.body, owner: req.currentUser._id }
+      console.log('user', req.currentUser)
+      console.log('username', req.currentUser.username)
+      const reviewWithOwner = { ...req.body, owner: req.currentUser._id, username: req.currentUser.username }
       plant.reviews.push(reviewWithOwner)
       await plant.save()
       return res.json(plant)
