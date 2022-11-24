@@ -32,9 +32,9 @@ const NavbarMobile = () => {
   }
   window.addEventListener('click', clickOutDropdown)
 
-  useEffect(() => {
-    console.log(open)
-  },[open])
+  // useEffect(() => {
+  //   console.log(open)
+  // },[open])
 
   return (
     <Flex

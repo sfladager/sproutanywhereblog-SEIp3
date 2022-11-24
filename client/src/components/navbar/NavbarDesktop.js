@@ -59,20 +59,9 @@ const NavbarDesktop = () => {
         align="center"
       >
         <Flex className="navbar-links">
-          <div className="nav-link-plants-container">
-            <div className="nav-link nav-link-plants"
-              // onMouseEnter={handleMouseOver} 
-              // onMouseOut={handleMouseOut}
-              onClick={handleMenuClick}
-            // onMouseOver={(e) => e.target.classList.add('plant-link-entered')}
-            >plants <ChevronDownIcon />
-              <Flex>
-                {open && <NavPlants className="nav-plants-dropdown" isOpen={true} open={open} closeDropdown={closeDropdown} />}
-              </Flex>
-            </div>
-          </div>
+          <Link to="/plants" className="nav-link">plants</Link>
           <Link to="/blogs" className="nav-link">blog</Link>
-          <Link to="/aboutus" className="nav-link">about us</Link>
+          <Link to="/about" className="nav-link">about us</Link>
         </Flex>
       </Flex>
       <Spacer />
@@ -107,3 +96,16 @@ const NavbarDesktop = () => {
   )
 }
 export default NavbarDesktop
+
+{/* <div className="nav-link-plants-container">
+  <div className="nav-link nav-link-plants"
+    // onMouseEnter={handleMouseOver} 
+    // onMouseOut={handleMouseOut}
+    onClick={handleMenuClick}
+  // onMouseOver={(e) => e.target.classList.add('plant-link-entered')}
+  >plants <ChevronDownIcon />
+    <Flex>
+      {open && <NavPlants className="nav-plants-dropdown" isOpen={true} open={open} closeDropdown={closeDropdown} />}
+    </Flex>
+  </div>
+</div> */}

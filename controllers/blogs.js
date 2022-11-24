@@ -110,3 +110,19 @@ export const deleteBlog = async (req, res) => {
     sendErrors(res, err)
   }
 }
+
+export const addBlogReview = async (req, res) => {
+  try {
+    const blog = await findBlog(req, res)
+    if (blog) {
+      console.log('user', req.currentUser)
+      console.log('username', req.currentUser.username)
+      const reviewWithOwner = { ...req.body, owner: req.currentUser._id, username: req.currentUser.username }
+      blog.reviews.push(reviewWithOwner)
+      await blog.save()
+      return res.json(blog)
+    }
+  } catch (err) {
+    sendErrors(res, err)
+  }
+}
