@@ -1,4 +1,6 @@
 import Plant from '../models/plant.js'
+import { NotFound } from '../config/errors.js'
+import { sendErrors, findPlant } from '../config/helpers.js'
 
 // *** index route ***
 
@@ -45,7 +47,7 @@ export const getSinglePlant = async (req, res) => {
 
 export const getPlantsByCategory = async (req, res) => {
   try {
-    const  { category } = req.params
+    const { category } = req.params
     const plants = await Plant.find({ category })
     return res.json(plants)
   } catch (err) {
@@ -92,5 +94,21 @@ export const deletePlant = async (req, res) => {
       return res.status(404).json({ message: 'Plant not found' })
     }
     return res.status(404).json(err)
+  }
+}
+
+export const addPlantReview = async (req, res) => {
+  try {
+    const plant = await findPlant(req, res)
+    if (plant) {
+      console.log(plant)
+      console.log(req.body)
+      const reviewWithOwner = { ...req.body, owner: req.currentUser._id }
+      plant.reviews.push(reviewWithOwner)
+      await plant.save()
+      return res.json(plant)
+    }
+  } catch (err) {
+    sendErrors(res, err)
   }
 }

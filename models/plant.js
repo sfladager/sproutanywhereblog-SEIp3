@@ -1,5 +1,12 @@
 import mongoose from 'mongoose'
 // plant schema
+const reviewPlantSchema = new mongoose.Schema({
+  text: { type: String, required: true, maxlength: 300 },
+  rating: { type: Number, required: false, min: 1, max: 5 },
+  owner: { type: mongoose.Schema.ObjectId, ref: 'User', required: false },
+}, {
+  timestamps: true,
+})
 
 const plantSchema = new mongoose.Schema({
   name: { type: String, required: true },
@@ -19,6 +26,7 @@ const plantSchema = new mongoose.Schema({
   beginnerFriendly: { type: Boolean, required: true }, // yes(skilled) no(unskilled)
   safeForPetsOrChildren: { type: Boolean, required: true }, // yes no
   owner: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
+  reviews: [reviewPlantSchema],
 })
 
 export default mongoose.model('Plant', plantSchema)

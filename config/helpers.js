@@ -2,6 +2,7 @@ import { NotFound, Unauthorised } from './errors.js'
 import { CastError } from 'mongoose'
 import Blog from '../models/blog.js'
 import User from '../models/user.js'
+import Plant from '../models/plant.js'
 
 // We will return specific error messages for the user so we create a sendErrors function that we will reuse in our controllers.
 export const sendErrors = (res, err) => {
@@ -53,6 +54,21 @@ export const findSingleUser = async (req, res) => {
     if (!user) throw new NotFound('User not found')
     console.log(user)
     return res.json(user)
+  } catch (err) {
+    sendErrors(res, err)
+  }
+}
+
+export const findPlant = async (req, res, populations) => {
+  try {
+    const { id } = req.params
+    const plant = await Plant.findById(id)
+    if (!plant) throw new NotFound('Plant not found')
+    if (populations && populations.length) {
+      const populationPromises = populations.map(population => plant.populate(population))
+      await Promise.all(populationPromises)
+    }
+    return plant
   } catch (err) {
     sendErrors(res, err)
   }
