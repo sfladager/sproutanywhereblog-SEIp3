@@ -29,15 +29,15 @@ router.route('/blogs/category/:category/:tags')
 
 router.route('/plants')
   .get(getAllPlants)
-  .post(addPlant)
+  .post(secureRoute, addPlant)
 
 router.route('/plants/category/:category')
   .get(getPlantsByCategory)
 
 router.route('/plants/:id')
   .get(getSinglePlant)
-  .put(updatePlant)
-  .delete(deletePlant)
+  .put(secureRoute, updatePlant)
+  .delete(secureRoute, deletePlant)
 
 
 

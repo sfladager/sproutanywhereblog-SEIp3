@@ -101,7 +101,6 @@ const PlantsIndex = () => {
 
   return (
     <>
-      <h1>All Plants</h1>
       <main className="plants-index">
         <PlantsCheckBox filters={filters} handleFilter={handleFilter} />
         <Container m={2} maxW="997px">

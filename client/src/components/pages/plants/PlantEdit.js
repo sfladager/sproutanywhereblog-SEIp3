@@ -62,7 +62,7 @@ const PlantEdit = () => {
         },
       })
       console.log('submit successful', data._id)
-      navigate(`/api/plants/${data._id}`)
+      navigate(`/plants/${data._id}`)
     } catch (err) {
       console.log(err)
       setErrors(err.response.data)

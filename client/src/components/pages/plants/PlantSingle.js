@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
+import { getToken, isOwner } from '../../../helpers/auth'
+
 // Chakra imports
-import { Container, Box, SimpleGrid, Flex, Spacer, Text, Card, CardBody, Image, Heading, Button } from '@chakra-ui/react'
+import { Container, Box, SimpleGrid, Flex, Spacer, Text, Card, CardBody, Image, Heading, Button, ButtonGroup } from '@chakra-ui/react'
+import { FaAmazon } from 'react-icons/fa'
 import lightIcon from '../../../assets/light-icon.webp'
 import waterIcon from '../../../assets/water-icon.webp'
 import tempIcon from '../../../assets/temp-icon.webp'
@@ -11,12 +14,14 @@ import humidIcon from '../../../assets/humid-icon.webp'
 import timeIcon from '../../../assets/time-icon.webp'
 import petIcon from '../../../assets/pet-icon.webp'
 
+
 const PlantsIndex = () => {
   
   const [plant, setPlant] = useState([])
   const [error, setError] = useState(false)
 
   const { id } = useParams()
+  const navigate = useNavigate()
 
 
   useEffect(() => {
@@ -31,28 +36,47 @@ const PlantsIndex = () => {
     getPlant()
   },[id])
   
-  console.log(plant)
   const { name, thumbnail, mainDescription, lightDescription, waterDescription, tempDescription, humidityDescription, heightDescription, toxicityDescription } = plant
 
-  // useEffect(() => {
-  //   const constPlant = () => {
-  //     const { name, imageURL, mainDescription, lightDescription, waterDescription, tempDescription, humidityDescription, heightDescription, toxicityDescription } = plant
-  //   }
-  //   constPlant()
-  // },[plant])
-  
+  useEffect(() => {
+    console.log(plant)
+    console.log(plant.owner)
+  },[plant])
+
+  const deletePlant = async (e) => {
+    try {
+      await axios.delete(`/api/plants/${id}`, {
+        headers: {
+          Authorization: `Bearer ${getToken()}`,
+        },
+      })
+      navigate('/plants')
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  const amazonClick = () => {
+    window.open(
+      `https://www.amazon.co.uk/s?k=${name}`
+    )
+  }
 
   return (
     <>
-      <h1>Plant</h1>
       <main className="plant-single">
         <Flex>
           
         </Flex>
-        <Container className="bread-container">
+        <Container className="plant-container">
           { plant ?
             <>
               <h1><strong>{name}</strong></h1>
+              <Button bg="rgba(255,153,0,1)" 
+                _hover={{ backgroundColor: 'rgba(255,130,0,1)' }} 
+                boxShadow="xl" 
+                leftIcon={<FaAmazon />}
+                onClick={amazonClick}>Buy on Amazon</Button>
               <img src={thumbnail} alt={name}/>
               <p>{mainDescription}</p>
               <Flex className="plant-info-guide-title-container">
@@ -90,6 +114,15 @@ const PlantsIndex = () => {
                   <p>{toxicityDescription}</p>
                 </Flex>
               </Flex>
+              <Box>
+                {/* This checks if the owner of the plant is viewing the page, and if so, displays the edit/delete buttons */}
+                {isOwner(plant.owner) &&
+                  <ButtonGroup gap='2'>
+                    <Link to={`/plants/${id}/edit`}><Button className="btn-green">Edit</Button></Link>
+                    <Button onClick={deletePlant} colorScheme='red'>Delete</Button>
+                  </ButtonGroup>
+                }
+              </Box>
             </>
             :
             error ?
