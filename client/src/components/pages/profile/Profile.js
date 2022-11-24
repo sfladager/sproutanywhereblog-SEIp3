@@ -37,15 +37,25 @@ const Profile = () => {
       <h1>My profile</h1>
       {profileData ?
         <>
-          <div className='profile-main-categories'>
-            <div className='profile-categories'>
-              <h2 className='profile-title'>username: <span>{profileData.username}</span></h2>
-              <h2 className='profile-title'>e-mail: <span>{profileData.email}</span></h2>
-            </div>
-            <Link to="/edit-profile" className='btn-edit'>Edit</Link>
+          <div className='profile-link-flex'>
+            <h2 className='profile-title'>My details</h2>
+            <Link to="/edit-profile" className='btn-edit'>Edit details</Link>
           </div>
+          <p className='profile-details'>username: <span id='span-username'>{profileData.username}</span></p>
+          <p className='profile-details'>e-mail: <span id='span-email'>{profileData.email}</span></p>
           <hr></hr>
-          <h2 className='profile-title'>My plants</h2>
+          <div className='profile-link-flex'>
+            <h2 className='profile-title'>My plants</h2>
+            {profileData.createdPlants.length < 1 &&
+              <Link to="/plants/new" className='btn-post'>Post a first plant!</Link>
+            }
+            {profileData.createdPlants.length > 0 &&
+              <Link to="/plants/new" className='btn-post'>Post a new plant!</Link>
+            }
+          </div>
+          {profileData.createdPlants.length < 1 &&
+            <p className='profile-details'>You have not posted any plants yet.</p>
+          }
           <div className='profile-row'>
             {profileData.createdPlants.length > 0 &&
               profileData.createdPlants.map(plant => {
@@ -53,7 +63,7 @@ const Profile = () => {
                   <div key={plant._id} className='profile-card'>
                     <Link to={`/plants/${plant._id}`}>
                       <div className="buffer">
-                        <div className="profile-card-image" style={{ backgroundImage: `url(${plant.imageURL})` }}></div>
+                        <div className="profile-card-image" style={{ backgroundImage: `url(${plant.thumbnail})` }}></div>
                         <h2 className='profile-card-title'>{plant.name}</h2>
                       </div>
                     </Link>
@@ -62,18 +72,21 @@ const Profile = () => {
               }
               )
             }
-            {profileData.createdPlants.length < 1 &&
-              <div className='no-plants-yet'>
-                <p><span>You have not posted any plants yet, but you can start now!</span></p>
-                <Link to="/plants/new" className='btn-post'>Post a first plant!</Link>
-              </div>
-            }
-            {profileData.createdPlants.length > 0 &&
-              <Link to="/plants/new" className='btn-post'>Post a new plant!</Link>
-            }
           </div>
           <hr></hr>
-          <h2 className='profile-title'>My blogs</h2>
+          <div className='profile-link-flex'>
+            <h2 className='profile-title'>My blogs</h2>
+            {profileData.createdBlogs.length < 1 &&
+              <Link to="/blogs/new" className='btn-post special-margin'>Post a first blog!</Link>
+            }
+            {profileData.createdBlogs.length > 0 &&
+              <Link to="/blogs/new" className='btn-post special-margin'>Post a new blog!</Link>
+            }
+          </div>
+          {profileData.createdBlogs.length < 1 &&
+            <p className='profile-details'>You have not posted any blogs yet.</p>
+          }
+
           <div className='profile-row'>
             {profileData.createdBlogs.length > 0 &&
               profileData.createdBlogs.map(blog => {
@@ -89,15 +102,6 @@ const Profile = () => {
                 )
               }
               )
-            }
-            {profileData.createdBlogs.length < 1 &&
-              <div className='no-blogs-yet'>
-                <p><span>You have not posted any blogs yet, but you can start now!</span></p>
-                <Link to="/blogs/new" className='btn-post'>Post a first blog!</Link>
-              </div>
-            }
-            {profileData.createdBlogs.length > 0 &&
-              <Link to="/plants/new" className='btn-post btn-new'>Post a new blog!</Link>
             }
           </div>
         </>

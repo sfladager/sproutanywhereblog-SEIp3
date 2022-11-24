@@ -1,6 +1,6 @@
 import express from 'express'
 import { getAllBlogs, addBlog, getSingleBlog, updateBlog, deleteBlog, getBlogsCategory, getBlogsCategoryAndTags } from '../controllers/blogs.js'
-import { addPlant, deletePlant, getAllPlants, getPlantsByCategory, getSinglePlant, updatePlant } from '../controllers/plants.js'
+import { addPlant, deletePlant, getAllPlants, getPlantsByCategory, getSinglePlant, updatePlant, addPlantReview } from '../controllers/plants.js'
 import { registerUser, loginUser } from '../controllers/auth.js'
 import { findAllUsers } from './helpers.js'
 import { findSingleUser } from './helpers.js'
@@ -29,15 +29,15 @@ router.route('/blogs/category/:category/:tags')
 
 router.route('/plants')
   .get(getAllPlants)
-  .post(addPlant)
+  .post(secureRoute, addPlant)
 
 router.route('/plants/category/:category')
   .get(getPlantsByCategory)
 
 router.route('/plants/:id')
   .get(getSinglePlant)
-  .put(updatePlant)
-  .delete(deletePlant)
+  .put(secureRoute, updatePlant)
+  .delete(secureRoute, deletePlant)
 
 
 
@@ -52,6 +52,9 @@ router.route('/users')
 
 router.route('/user')
   .get(secureRoute, findSingleUser)
+
+router.route('/plants/:id/review')
+  .post(secureRoute, addPlantReview)
 
 router.route('/profile')
   .put(secureRoute, updateUser)
