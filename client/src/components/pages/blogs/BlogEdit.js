@@ -48,16 +48,16 @@ const BlogEdit = () => {
           Authorization: `Bearer ${getToken()}`,
         },
       })
-      console.log('SUCCESS', data._id)
+      // console.log('SUCCESS', data._id)
       navigate(`/blogs/${data._id}`)
     } catch (err) {
       console.log(err.response.data)
       setErrors(err.response.data)
     }
   }
-  useEffect(() => {
-    console.log(formFields)
-  }, [formFields])
+  // useEffect(() => {
+  //   console.log(formFields)
+  // }, [formFields])
 
   return (
     <main className="blog-form-page">

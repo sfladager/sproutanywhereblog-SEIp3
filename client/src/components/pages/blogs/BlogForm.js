@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
-
 import ImageUpload from '../../ImageUpload'
 import NewEditor from '../../newEditor/NewEditor'
 
@@ -53,6 +52,7 @@ const BlogForm = ({ handleSubmit, formFields, setFormFields, errors, setErrors, 
     const filter = [ ...new Set(blogs.map(blog => blog.tags))].sort()
     setTags(filter)
   }
+
 
   return (
     <Container w={[350, 500, 768, 997]} m={2} maxW="997px">

@@ -89,7 +89,7 @@ const BlogSingle = () => {
 
   return (
     <main className="single-blog">
-      <Container m={2} maxW="997px">
+      <Container w={[350, 500, 768, 997]} m={2} maxW="997px">
         {blog ?
           <>
             <Link to={`/blogs/category/${blog.category}`}>
@@ -111,6 +111,15 @@ const BlogSingle = () => {
             </div>
             <Box className="blog-article">
               {article && parse(article)}
+            </Box>
+            <Box mb={2}>
+              {/* This checks if the owner of the blog is viewing the page, and if so, displays the edit/delete buttons */}
+              {isOwner(blog.owner._id) &&
+                <ButtonGroup mt={3} gap='2'>
+                  <Link to={`/blogs/${blogsId}/edit`}><Button className="btn-green">Edit</Button></Link>
+                  <Button onClick={deleteBlog} colorScheme='red'>Delete</Button>
+                </ButtonGroup>
+              }
             </Box>
             <Box>
               <hr></hr>
@@ -138,15 +147,6 @@ const BlogSingle = () => {
                 />
                 <button className="btn-post" onClick={handleClick}>Post comment</button>
               </div>
-            </Box>
-            <Box>
-              {/* This checks if the owner of the blog is viewing the page, and if so, displays the edit/delete buttons */}
-              {isOwner(blog.owner._id) &&
-                <ButtonGroup mt={3} gap='2'>
-                  <Link to={`/blogs/${blogsId}/edit`}><Button className="btn-green">Edit</Button></Link>
-                  <Button onClick={deleteBlog} colorScheme='red'>Delete</Button>
-                </ButtonGroup>
-              }
             </Box>
           </>
           :
