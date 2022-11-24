@@ -319,7 +319,9 @@ body {
     max-height: 800px;
     margin: 0 auto;
   }
-
+  .blog-article {
+    font-size: 1.1rem;
+  }
   .btn-green {
     background-color: $primary;
     color: $secondary;
