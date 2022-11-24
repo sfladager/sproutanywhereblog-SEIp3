@@ -1,4 +1,6 @@
 import Plant from '../models/plant.js'
+import { NotFound } from '../config/errors.js'
+import { sendErrors, findPlant } from '../config/helpers.js'
 
 // *** index route ***
 
@@ -16,7 +18,7 @@ export const getAllPlants = async (_req, res) => {
 
 export const addPlant = async (req, res) => {
   try {
-    const plantToAdd = await Plant.create({ ...req.body, owner: req.currentUser._id }) 
+    const plantToAdd = await Plant.create({ ...req.body, owner: req.currentUser._id })
     console.log(plantToAdd)
     return res.status(201).json(plantToAdd)
   } catch (err) {
@@ -45,7 +47,7 @@ export const getSinglePlant = async (req, res) => {
 
 export const getPlantsByCategory = async (req, res) => {
   try {
-    const  { category } = req.params
+    const { category } = req.params
     const plants = await Plant.find({ category })
     return res.json(plants)
   } catch (err) {
@@ -94,5 +96,21 @@ export const deletePlant = async (req, res) => {
       return res.status(404).json({ message: 'Plant not found' })
     }
     return res.status(404).json(err)
+  }
+}
+
+export const addPlantReview = async (req, res) => {
+  try {
+    const plant = await findPlant(req, res)
+    if (plant) {
+      console.log('user', req.currentUser)
+      console.log('username', req.currentUser.username)
+      const reviewWithOwner = { ...req.body, owner: req.currentUser._id, username: req.currentUser.username }
+      plant.reviews.push(reviewWithOwner)
+      await plant.save()
+      return res.json(plant)
+    }
+  } catch (err) {
+    sendErrors(res, err)
   }
 }

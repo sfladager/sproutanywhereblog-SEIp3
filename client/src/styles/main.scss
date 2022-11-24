@@ -205,7 +205,8 @@ body {
       background-color: $accent;
     }
   }
-  .social-imgs{
+
+  .social-imgs {
     height: 40px;
     width: 40px;
     display: inline-block;
@@ -346,12 +347,12 @@ body {
 
   span {
     color: black;
-    font-size: .9em;
+    font-size: 1.1em;
     font-weight: normal;
   }
 
   h1 {
-    font-size: 40px;
+    font-size: 4em;
     text-align: center;
     margin-top: 20px;
     font-weight: bolder;
@@ -360,12 +361,23 @@ body {
 
 .profile-page-wrapper {
   margin-left: 20px;
+
+  #span-username {
+    margin-left: 10px;
+  }
+
+  #span-email {
+    margin-left: 10px;
+  }
+
+
 }
 
 .profile-title {
   font-weight: bold;
-  font-size: 20px;
+  font-size: 2.5em;
   margin-top: 10px;
+  margin-bottom: 9px;
 }
 
 .plant-row {
@@ -416,9 +428,19 @@ body {
   flex-direction: column;
   justify-content: center;
   width: 300px;
+  height: 300px;
   margin: 10px;
-  border: 7px solid $primary;
+  border: 2px solid $primary;
   border-radius: 10px;
+  box-shadow: 5px 5px #467A43;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  .zoom:hover {
+    transform: scale(1.5);
+  }
 }
 
 
@@ -454,9 +476,10 @@ body {
   border: 1px solid $primary;
   background-color: #467A43;
   color: white;
-  margin-left: 20px;
+  margin-left: 50px;
   border-radius: 5px;
-  padding: 3px 7px;
+  margin-bottom: 0;
+  padding: 2px 7px;
 }
 
 .btn-edit {
@@ -465,8 +488,9 @@ body {
   color: black;
   margin-left: 50px;
   border-radius: 5px;
-  padding: 3px 7px;
+  padding: 2px 7px;
   height: 50%;
+
 }
 
 .profile-main-categories {
@@ -476,8 +500,9 @@ body {
 
 .btn-new {
   height: 32px;
-
 }
+
+
 
 // *** HOMEPAGE ***
 
@@ -520,3 +545,159 @@ body {
   }
 }
 
+
+// *** PROFILE PAGE ***
+
+.profile-link-flex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.profile-details {
+  margin-left: 10px;
+  color: $primary;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+  .profile-page-wrapper {
+    h1 {
+      font-size: 2em;
+      text-align: center;
+      margin-top: 10px;
+      font-weight: bolder;
+    }
+
+    .profile-title {
+      font-weight: bold;
+      font-size: 1.5em;
+      margin-top: 5px;
+      margin-bottom: 7px;
+    }
+  }
+}
+
+.special-margin {
+  margin-left: 62px;
+}
+
+.about-us-flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 1.5em;
+  list-style: none;
+  align-items: left;
+  margin-top: 70px;
+  margin-left: 30px;
+  margin-bottom: 30px;
+  height: 50vh;
+  font-weight: bold;
+
+  h3 {
+    text-decoration: underline;
+    margin-bottom: 30px;
+  }
+}
+
+.about-us-flex {
+  display: flex;
+  width: 25vw;
+  margin-left: 50px;
+  margin-right: 0;
+  justify-content: space-between;
+
+}
+
+.fa-github {
+  margin-left: 50px;
+}
+
+.fa-linkedin {
+  color: #0a66c2;
+  margin-left: 50px;
+  margin-right: 0;
+}
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100vh;
+  text-align: center;
+  align-items: center;
+  color: white;
+  font-size: 5em;
+  background-image: url(https://images.unsplash.com/photo-1470058869958-2a77ade41c02?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8anVuZ2xlfGVufDB8fDB8fA%3D%3D&w=1000&q=80);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  opacity: 0.7;
+}
+
+.review-flex {
+  margin-top: 10px;
+}
+
+.review-flex span {
+  color: #467A43;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.review-info {
+  text-align: left;
+  border-top: 1px solid $accent;
+  padding: 5px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.input-review-flex {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 10px;
+
+  input {
+    border: 0.5px solid grey;
+  }
+
+  ::placeholder {
+    text-align: center;
+  }
+}
+
+#review-date {
+  // font-style: italic;
+  color: $primary;
+  font-size: 0.8em;
+  // margin-bottom: 10px;
+  margin-left: 15px;
+}
+
+.review-details {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  // margin-left: 20px;
+}
+
+#review-text {
+  margin-bottom: 15px;
+  font-size: 1.3em;
+
+}
+
+.review-section {
+  text-align: center;
+  color: #467A43;
+  font-weight: bold;
+  font-size: 1.5em;
+  margin-top: 10px;
+}
+
+.amazon-btn {
+  align-items: center;
+}

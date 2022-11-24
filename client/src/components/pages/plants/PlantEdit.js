@@ -6,11 +6,11 @@ import { getToken } from '../../../helpers/auth'
 import PlantForm from './PlantForm'
 
 const PlantEdit = () => {
-  
+
   const { id } = useParams()
   const navigate = useNavigate()
 
-  const [ formFields, setFormFields ] = useState({
+  const [formFields, setFormFields] = useState({
     name: '',
     thumbnail: '',
     mainDescription: '',
@@ -28,7 +28,7 @@ const PlantEdit = () => {
     safeForPetsOrChildren: '',
   })
 
-  const [ errors, setErrors ] = useState(null)
+  const [errors, setErrors] = useState(null)
 
   // ! Execution
   // get plant for data
@@ -71,12 +71,12 @@ const PlantEdit = () => {
 
   return (
     <main className="plant-edit-page">
-      <PlantForm 
-        handleSubmit={handleSubmit} 
-        formFields={formFields} 
+      <PlantForm
+        handleSubmit={handleSubmit}
+        formFields={formFields}
         setFormFields={setFormFields}
         errors={errors}
-        setErrors={setErrors} 
+        setErrors={setErrors}
         formName="Edit Plant"
       />
     </main>
