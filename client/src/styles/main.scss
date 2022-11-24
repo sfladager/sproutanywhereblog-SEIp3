@@ -235,9 +235,13 @@ body {
   font-size: 1.3rem;
   color: $primary;
 }
-.blog-index-filter-selector {
+.filter-blog-dropdown {
+  text-decoration: underline;
   font-size: 1.5rem;
 }
+// .blog-index-filter-selector {
+//   font-size: 1.5rem;
+// }
 
 // Centers the following pages
 .succulents-blog-index,

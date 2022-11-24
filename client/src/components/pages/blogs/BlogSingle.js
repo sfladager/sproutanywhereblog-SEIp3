@@ -92,7 +92,7 @@ const BlogSingle = () => {
       <Container w={[350, 500, 768, 997]} m={2} maxW="997px">
         {blog ?
           <>
-            <Link to={`/blogs/category/${blog.category}`}>
+            <Link to={'/blogs'}>
               <Button variant='ghost' m="0" p="1">Back</Button>
             </Link>
             <Box mt={1}>
