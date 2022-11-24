@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
@@ -14,6 +14,7 @@ const BlogsAll = () => {
   const [ categories, setCategories ] = useState([])
   const [ tags, setTags ] = useState([])
   const [ filteredBlogs, setFilteredBlogs ] = useState([])
+  const [ filteredCategories, setFilteredCategories ] = useState([])
 
 
   useEffect(() => {
@@ -40,27 +41,27 @@ const BlogsAll = () => {
     setTags(filterTags)
   }
 
-  const handleChange = useCallback((e) => {
+  const handleChange = (e) => {
     const selectedCategory = blogs.filter(blog => {
-      return (e.target.value === blog.category || e.target.value === 'all') 
+      return (e.target.value === blog.category || e.target.value === 'all')
     })
+    setFilteredCategories(selectedCategory)
     setFilteredBlogs(selectedCategory)
-  }, [blogs])
+  }
 
   const handleChangeTags = (e) => {
-    const selectedTags = blogs.filter(blog => {
+    const selectedTags = filteredCategories.filter(blog => {
       return (e.target.value === blog.tags || e.target.value === 'all')
     })
     console.log(selectedTags)
+    setFilteredBlogs(selectedTags)
   }
 
   useEffect(() => {
     setFilteredBlogs(blogs)
+    setFilteredCategories(blogs)
   }, [blogs])
 
-  useEffect(() => {
-    console.log(categories)
-  }, [blogs])
   return (
     <main className="blogs-all-index">
       <Container m={2} maxW="997px">

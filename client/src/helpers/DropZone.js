@@ -2,7 +2,7 @@ import { useDropzone } from 'react-dropzone'
 import { useState, useCallback, useEffect } from 'react'
 import axios from 'axios'
 
-const DropZone = ({ open, formFields, setFormFields  }) => {
+const DropZone = ({ formFields, setFormFields  }) => {
 
   const [ files, setFiles ] = useState([])
 
@@ -10,11 +10,11 @@ const DropZone = ({ open, formFields, setFormFields  }) => {
 
   const { getRootProps, getInputProps, acceptedFiles, isDragActive } = useDropzone({ onDrop })
 
-  const fileInput = acceptedFiles.map((file) => (
-    <li key={file.path}>
-      {file.path} - {file.size} bytes
-    </li>
-  ))
+  // const fileInput = acceptedFiles.map((file) => (
+  //   <li key={file.path}>
+  //     {file.path} - {file.size} bytes
+  //   </li>
+  // ))
 
   useEffect(() => {
     const getFiles = async () => {
@@ -36,22 +36,6 @@ const DropZone = ({ open, formFields, setFormFields  }) => {
     getFiles()
   }, [files])
 
-  const thumbs = files.map(file => (
-    <div className="thumb" key={file.name}>
-      <div className="thumb-inner" >
-        <p>{file.name}</p>
-        <img
-          className="thumb-img "
-          src={file.preview}
-          // Revoke data uri after image is loaded
-          onLoad={() => { 
-            URL.revokeObjectURL(file.preview) 
-          } }
-        />
-      </div>
-    </div>
-  ))
-
   return (
     <div {...getRootProps({ className: 'dropzone' })}>
       <input className="blog-form-input" {...getInputProps()} />
@@ -63,7 +47,6 @@ const DropZone = ({ open, formFields, setFormFields  }) => {
           <p className="dropzone-content">
             Drag and drop hero image here, or click this box to select image
           </p>
-          
         }
         <aside>
           <div className="thumbsContainer">

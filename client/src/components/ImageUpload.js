@@ -11,14 +11,6 @@ const ImageUpload = ({ formFields, setFormFields }) => {
         formFields={formFields}
         setFormFields={setFormFields}
       />
-      {/* { formFields.thumbnail ? 
-        <img src={formFields.thumbnail} alt="uploaded image" />
-        :
-        <DropZone
-          formFields={formFields}
-          setFormFields={setFormFields}
-        />
-      } */}
     </div>
   )
 }
