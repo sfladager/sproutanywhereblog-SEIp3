@@ -183,22 +183,57 @@ body {
     }
   }
 }
-// Blog index page
+
+// Blogs All index page
+.blogs-all-index {
+  margin-top: 20px;
+  .blog-index-card-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    &:hover {
+      border: 1px solid $accent;
+      box-shadow: 5px 5px 5px #818181;
+    }
+  }
+  .blog-index-card-title {
+    font-size: 1.4rem;
+    color: $primary;
+    font-family: $header-font;
+    margin-top: 5px;
+    padding: 0 5px;
+    &:hover {
+      color: $accent;
+    }
+  }
+  .blog-index-card-description {
+    padding: 0 5px;
+  }
+  .blog-index-card-img {
+    max-height: 300px;
+  }
+}
+
+// Blog category index page
 .blog-index-filter-box {
   text-align: center;
   select {
-    text-align: center;
-    text-decoration: underline;
+    text-align: right;
+    font-weight: bold;
     padding-left: 5px;
   }
 }
 .blog-index-filter-p {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: $primary;
-  text-decoration: underline;
 }
+.blog-index-filter-selector {
+  font-size: 1.5rem;
+}
+
+// Centers the following pages
 .succulents-blog-index,
-.single-blog {
+.single-blog, .blogs-all-index  {
   display: flex;
   justify-content: center;
 }
@@ -224,14 +259,14 @@ body {
     margin-top: 5px;
   }
 
-  .blog-card-btn {
-    color: $accent;
-    font-size: 1.1rem;
-    &:hover {
-      color: $primary;
-      font-size: 1.2rem;
-    }
-  }
+  // .blog-card-btn {
+  //   color: $accent;
+  //   font-size: 1.1rem;
+  //   &:hover {
+  //     color: $primary;
+  //     font-size: 1.2rem;
+  //   }
+  // }
 }
 // Single blog page
 .single-blog {
@@ -304,6 +339,29 @@ body {
         font-size: 1.2rem;
       }
     }
+
+    // Drop Zone styling
+    .thumbsContainer {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin-top: 16px;
+      .thumb {
+        display: inline-flex;
+        border-radius: 2px;
+        border: 1px solid #eaeaea;
+        margin-bottom: 8px;
+        margin-right: 8px;
+        width: 100px;
+        height: 100px;
+        padding: 4px;
+      }
+      .thumb-img {
+        width: auto;
+        max-height: 150px;
+      }
+    }
+
     // editor on blog forms
     .rdw-editor-wrapper {
       border: 1px solid $accent;

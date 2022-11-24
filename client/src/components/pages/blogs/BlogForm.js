@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import DropZone from '../../../helpers/DropZone'
+
 
 import ImageUpload from '../../ImageUpload'
 import NewEditor from '../../newEditor/NewEditor'
+
 
 // Chakra imports
 import { Container, Box, Button, Select, Input } from '@chakra-ui/react'

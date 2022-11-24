@@ -71,7 +71,7 @@ const NavbarDesktop = () => {
               </Flex>
             </div>
           </div>
-          <Link to="/" className="nav-link">blog</Link>
+          <Link to="/blogs" className="nav-link">blog</Link>
           <Link to="/" className="nav-link">about us</Link>
         </Flex>
       </Flex>
