@@ -9,6 +9,7 @@ import igLogo from '../../../assets/instagram.svg'
 import pinterestLogo from '../../../assets/pinterest.svg'
 import twitterLogo from '../../../assets/twitter.svg'
 import whatsAppLogo from '../../../assets/whatsapp.svg'
+import moment from 'moment'
 
 // Chakra imports
 import { Container, Box, Image, Button, ButtonGroup, Flex } from '@chakra-ui/react'
@@ -37,10 +38,6 @@ const BlogSingle = () => {
     getData()
   }, [blogsId])
 
-  // useEffect(() => {
-  //   console.log(blog.owner._id)
-    
-  // }, [blog])
 
   const deleteBlog = async (e) => {
     try {
@@ -55,7 +52,6 @@ const BlogSingle = () => {
     }
   }
   function socialLinks(e){
-    console.log(e.target.id)
     window.open(e.target.id, '_blank')
   }
 
@@ -69,7 +65,7 @@ const BlogSingle = () => {
             </Link>
             <Box mt={1}>
               <h1>{ blog.title }</h1>
-              <p className="blog-single-created-by">{ blog.createdAt } | Written by: {blog.owner.username} </p>
+              <p className="blog-single-created-by">{ moment(blog.createdAt).format('MM-DD-YYYY') } | Written by: {blog.owner.username} </p>
             </Box>
             <Box>
               <Image src={blog.thumbnail} alt={blog.title}/>
