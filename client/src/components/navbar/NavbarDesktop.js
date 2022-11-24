@@ -43,7 +43,6 @@ const NavbarDesktop = () => {
       justify="center"
     >
       <Flex
-
         top="1rem"
         left="1rem"
         ml="1rem"
@@ -54,7 +53,6 @@ const NavbarDesktop = () => {
       </Flex>
       <Spacer />
       <Flex
-
         top="1rem"
         justify="center"
         align="center"
@@ -93,8 +91,8 @@ const NavbarDesktop = () => {
           </Flex>
           {isAuthenticated() ?
             <>
-              <span className='nav-link' onClick={() => handleLogout(navigate)}>Logout</span>
-              <Link to="/profile" className="nav-drop-link">My Profile</Link>
+              <span className='nav-link' onClick={() => handleLogout(navigate)}>logout</span>
+              <Link to="/profile" className="nav-drop-link">my profile</Link>
             </>
             :
             <>
@@ -108,9 +106,3 @@ const NavbarDesktop = () => {
   )
 }
 export default NavbarDesktop
-
-// <Link to="/"><Button variant="ghost">succulents</Button></Link>
-// <Link to="/"><Button variant="ghost">palms</Button></Link>
-// <Link to="/"><Button variant="ghost">bonsai</Button></Link>
-// <Link to="/"><Button variant="ghost">ferns</Button></Link>
-// <Link to="/"><Button variant="ghost">foliage</Button></Link>

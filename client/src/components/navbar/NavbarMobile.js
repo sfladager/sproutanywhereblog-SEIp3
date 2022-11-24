@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { Link } from 'react-router-dom'
 import { Flex, Spacer, Button, IconButton, Text } from '@chakra-ui/react'
@@ -25,6 +25,16 @@ const NavbarMobile = () => {
     console.log('search clicked')
   }
   const closeDropdown = () => setOpen(false)
+  const clickOutDropdown = (e) => {
+    if (!e.target.classList.contains('hamburger-react')) {
+      setOpen(false)
+    }  
+  }
+  window.addEventListener('click', clickOutDropdown)
+
+  useEffect(() => {
+    console.log(open)
+  },[open])
 
   return (
     <Flex
@@ -33,7 +43,7 @@ const NavbarMobile = () => {
       align="center"
       justify="space-between"
     >
-      <Flex
+      <Flex className="burger-icon-container"
         top="1rem"
         justify="center"
         align="center"
@@ -46,7 +56,7 @@ const NavbarMobile = () => {
         </Flex>
         <Flex w={18}></Flex>
         <Flex>
-          {open && <NavLinks className="nav-menu-drop" isOpen={true} open={open} closeDropdown={closeDropdown}/>}
+          {open && <NavLinks className="nav-menu-drop" closeDropdown={closeDropdown}/>}
         </Flex>
       </Flex>
 
@@ -71,7 +81,7 @@ const NavbarMobile = () => {
           justify="center"
         >
           <SearchIcon className="search-icon" w={25} h={25} onClick={handleSearchClick} />
-          <VscAccount className="account-icon" w={30} h={30} />
+          <Link to="/profile"><VscAccount className="account-icon" w={30} h={30} /></Link>
         </Flex>
       </Flex>
     </Flex>
@@ -79,8 +89,3 @@ const NavbarMobile = () => {
 }
 export default NavbarMobile
 
-// <Link to="/"><Button variant="ghost">succulents</Button></Link>
-// <Link to="/"><Button variant="ghost">palms</Button></Link>
-// <Link to="/"><Button variant="ghost">bonsai</Button></Link>
-// <Link to="/"><Button variant="ghost">ferns</Button></Link>
-// <Link to="/"><Button variant="ghost">foliage</Button></Link>

@@ -12,8 +12,8 @@ const NavLinks = (open, isOpen, closeDropdown) => {
         <Link to="/aboutus" className="nav-drop-link">about us</Link>
         {isAuthenticated() ?
           <>
-            <span className='nav-link' onClick={() => handleLogout(navigate)}>Logout</span>
-            <Link to="/profile" className="nav-drop-link">My Profile</Link>
+            <span className="nav-drop-link" onClick={() => handleLogout(navigate)}>logout</span>
+            <Link to="/profile" className="nav-drop-link">my profile</Link>
           </>
           :
           <>

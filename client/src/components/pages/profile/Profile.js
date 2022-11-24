@@ -63,7 +63,7 @@ const Profile = () => {
                   <div key={plant._id} className='profile-card'>
                     <Link to={`/plants/${plant._id}`}>
                       <div className="buffer">
-                        <div className="profile-card-image" style={{ backgroundImage: `url(${plant.imageURL})` }}></div>
+                        <div className="profile-card-image" style={{ backgroundImage: `url(${plant.thumbnail})` }}></div>
                         <h2 className='profile-card-title'>{plant.name}</h2>
                       </div>
                     </Link>
