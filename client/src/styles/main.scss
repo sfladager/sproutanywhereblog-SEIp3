@@ -116,36 +116,9 @@ body {
 // }
 
 
+// **** plants **** //
 
 
-// .slide-in-top {
-//   -webkit-animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-//           animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-//   }
-//   @-webkit-keyframes slide-in-top {
-//     0% {
-//       -webkit-transform: translateY(-1000px);
-//               transform: translateY(-1000px);
-//       opacity: 0;
-//     }
-//     100% {
-//       -webkit-transform: translateY(0);
-//               transform: translateY(0);
-//       opacity: 1;
-//     }
-//   }
-//   @keyframes slide-in-top {
-//     0% {
-//       -webkit-transform: translateY(-1000px);
-//               transform: translateY(-1000px);
-//       opacity: 0;
-//     }
-//     100% {
-//       -webkit-transform: translateY(0);
-//               transform: translateY(0);
-//       opacity: 1;
-//     }
-//   }
 
 .plant-single {
   font-family: $body-font;
@@ -183,6 +156,12 @@ body {
     }
   }
 }
+
+
+
+// **** blogs **** //
+
+
 
 .blog-index-filter-box {
   text-align: center;
@@ -309,7 +288,14 @@ body {
   }
 }
 
-.login-page-wrapper {
+
+
+// **** login, register **** //
+
+
+
+.login-page-wrapper,
+.register-page-wrapper {
   display: flex;
   min-height: 100vh;
   width: 100vw;
@@ -320,6 +306,10 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+}
+
+.register-page-wrapper {
+  padding-top: 60px;
 }
 
 // Form Page
@@ -354,6 +344,7 @@ body {
     width: 30%;
     display: inline-block;
     border: 2px solid $primary;
+    box-shadow: 5px 5px #467A43;
 
     label {
       font-size: 0.9rem;
@@ -372,6 +363,12 @@ body {
     }
   }
 }
+
+
+
+// **** profile page **** //
+
+
 
 .profile-page-wrapper {
   display: flex;
@@ -548,6 +545,61 @@ body {
   font-weight: bold;
 }
 
+
+// *** HOMEPAGE *** //
+
+
+
+.home-main {
+  background-image: url(../assets/monstera-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: calc(100vh - 60px);
+
+  .home-container {
+    flex-direction: column;
+    transform: translate(15vw, 25vh);
+    font-size: 25px;
+    font-weight: bolder;
+  }
+
+  .home-title {
+    margin-bottom: 20px;
+    font-size: 30px;
+  }
+
+  .home-action-container {
+    margin-bottom: 20px;
+  }
+
+  .home-start-message {
+    margin-top: 20px;
+  }
+
+  select {
+    margin-left: 3px;
+    border-bottom: 2px solid $primary;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 25px;
+    font-weight: bolder;
+    color: $primary;
+  }
+
+  button {
+    margin-top: 20px;
+    background-color: lighten($primary, 10%);
+
+    &:hover {
+      background-color: $primary;
+    }
+  }
+}
+
+
+// **** MEDIA QUERIES **** //
+
+
 @media only screen and (max-width: 600px) {
   .profile-page-wrapper {
     h1 {
@@ -565,6 +617,79 @@ body {
     }
   }
 }
+
+@media only screen and (max-width: 800px) {
+
+
+  .login-page-wrapper {
+    display: flex;
+    min-height: 100vh;
+    width: 100vw;
+    align-items: top;
+    justify-content: center;
+    padding-top: 100px;
+    background-color: $secondary;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  // Form Page
+  .form-page {
+    width: 100%;
+    text-align: center;
+    margin-top: 0;
+
+    .btn-main {
+      background-color: darken(#467A43, 15%);
+      color: white;
+      width: 33%;
+      border-radius: 5px;
+      height: 2em;
+      margin-top: 1em;
+
+      &:hover {
+        background-color: darken(#467A43, 20%);
+      }
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-bottom: 20px;
+      color: #467A43;
+    }
+
+    form {
+      background: $secondary;
+      padding: 40px;
+      border-radius: 18px;
+      width: 70%;
+      display: inline-block;
+      border: 2px solid $primary;
+
+      label {
+        font-size: 0.9rem;
+      }
+
+      input {
+        width: 100%;
+        margin-bottom: 15px;
+        border: none;
+        padding: 5px;
+      }
+
+      small {
+        display: block;
+        margin-bottom: 15px;
+      }
+    }
+  }
+}
+
+
+
+// **** ABOUT US **** //
+
 
 .special-margin {
   margin-left: 62px;
@@ -608,6 +733,13 @@ body {
   margin-right: 0;
 }
 
+
+
+// **** NOT FOUND PAGE **** //
+
+
+
+
 .not-found {
   display: flex;
   flex-direction: column;
@@ -622,7 +754,14 @@ body {
   background-size: cover;
   width: 100vw;
   opacity: 0.7;
+  padding-top: 100px;
 }
+
+
+
+// **** COMMENTS **** //
+
+
 
 .review-flex {
   margin-top: 10px;
@@ -688,71 +827,4 @@ body {
 
 .amazon-btn {
   align-items: center;
-}
-
-@media only screen and (max-width: 600px) {
-
-  .login-page-wrapper {
-    display: flex;
-    min-height: 100vh;
-    width: 100vw;
-    align-items: top;
-    justify-content: center;
-    padding-top: 100px;
-    background-color: $secondary;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-  }
-
-  // Form Page
-  .form-page {
-    width: 100%;
-    text-align: center;
-    margin-top: 0;
-
-    .btn-main {
-      background-color: darken(#467A43, 15%);
-      color: white;
-      width: 33%;
-      border-radius: 5px;
-      height: 2em;
-      margin-top: 1em;
-
-      &:hover {
-        background-color: darken(#467A43, 20%);
-      }
-    }
-
-    h1 {
-      font-size: 40px;
-      margin-bottom: 20px;
-      color: #467A43;
-    }
-
-    form {
-      background: $secondary;
-      padding: 40px;
-      border-radius: 18px;
-      width: 80%;
-      display: inline-block;
-      border: 2px solid $primary;
-
-      label {
-        font-size: 0.9rem;
-      }
-
-      input {
-        width: 100%;
-        margin-bottom: 15px;
-        border: none;
-        padding: 5px;
-      }
-
-      small {
-        display: block;
-        margin-bottom: 15px;
-      }
-    }
-  }
 }

@@ -20,7 +20,7 @@ const EditProfile = () => {
     image: '',
   })
 
-  const [errors, setErrors] = useState(null)
+  const [error, setError] = useState('')
 
   useEffect(() => {
     const getUserData = async () => {
@@ -50,14 +50,14 @@ const EditProfile = () => {
       navigate('/profile')
     } catch (err) {
       console.log('EDIT FAIL ->', err)
-      setErrors(err.response.data)
+      setError(err.response.data.message)
     }
   }
 
   const handleChange = (e) => {
     console.log(`${e.target.name}: ${e.target.value}`)
     setFormFields({ ...formFields, [e.target.name]: e.target.value })
-    // setErrors({ ...errors, [e.target.name]: '', message: '' })
+    if (error) setError('')
   }
 
 
@@ -109,7 +109,7 @@ const EditProfile = () => {
                 required
               />
               {/* Error Message */}
-              {errors && <small className='text-danger'>{errors}</small>}
+              {error && <small className='text-danger'>{error}</small>}
               {/* Submit */}
               <button className='btn btn-main w-100'>Edit</button>
             </form>

@@ -56,7 +56,7 @@ const Register = () => {
   }
 
   return (
-    <div className='form-page-wrapper'>
+    <div className='register-page-wrapper'>
       <main className="form-page">
         <Container className='mt-4'>
           <Row>

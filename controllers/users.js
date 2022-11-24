@@ -1,4 +1,4 @@
-import { NotFound } from '../config/errors.js'
+import { NotFound, Unauthorised } from '../config/errors.js'
 import { sendErrors } from '../config/helpers.js'
 import User from '../models/user.js'
 
@@ -6,13 +6,16 @@ export const updateUser = async (req, res) => {
   try {
     const user = await User.findById(req.currentUser._id)
     if (user) {
+      if (req.body.password !== req.body.passwordConfirmation || !req.body.password || !req.body.passwordConfirmation) {
+        throw new Unauthorised
+      }
       Object.assign(user, req.body)
       user.save()
       console.log('User updated!')
       return res.status(202).json(user)
     }
   } catch (err) {
-    sendErrors(res, err)
+    return res.status(422).json({ message: err.message })
   }
 }
 
