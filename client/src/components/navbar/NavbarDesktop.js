@@ -8,6 +8,7 @@ import customTheme from '../../pages/theme.js'
 // import './navbar.scss'
 import logo from '../../assets/logo.png'
 import NavPlants from './NavPlants.js'
+import NavSearch from './NavSearch'
 
 const NavbarDesktop = () => {
 
@@ -88,7 +89,7 @@ const NavbarDesktop = () => {
             align="center"
             justify="center"
           >
-            <SearchIcon className="search-icon" w={17} h={17} />
+            <NavSearch />
           </Flex>
           {isAuthenticated() ?
             <>

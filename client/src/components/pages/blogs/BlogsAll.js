@@ -89,15 +89,13 @@ const BlogsAll = () => {
             filteredBlogs.map(blog => {
               const { _id, title, thumbnail, description } = blog
               return (
-                <>
-                  <Link key={_id} to={`/blogs/${_id}`}>
-                    <div className="blog-index-card-container">
-                      <img className="blog-index-card-img" src={thumbnail} alt={title} />
-                      <h3 className="blog-index-card-title">{title}</h3>
-                      <p className="blog-index-card-description">{description}</p>
-                    </div>
-                  </Link>
-                </>
+                <Link key={_id} to={`/blogs/${_id}`}>
+                  <div className="blog-index-card-container">
+                    <img className="blog-index-card-img" src={thumbnail} alt={title} />
+                    <h3 className="blog-index-card-title">{title}</h3>
+                    <p className="blog-index-card-description">{description}</p>
+                  </div>
+                </Link>
               )
             })
             :

@@ -78,20 +78,18 @@ const BlogForm = ({ handleSubmit, formFields, setFormFields, errors, setErrors, 
             />
             {/* Category */}
             <label htmlFor="category">Category <span className="required">*</span></label>
-            <Select borderColor="#9CB42F" name="category" onChange={handleChange} placeholder={
-              formFields.category !== 'Select Category' ? formFields.category : 'Select Category'
-            } required>
-              <option value='Select Category'>Select Category</option>
+            <Select borderColor="#9CB42F" name="category" onChange={handleChange} required>
+              <option value='Select Category'>{formFields.category ? formFields.category : 'Select Category'
+              }</option>
               {categories.map((item, i) => {
                 return <option key={i} value={item}>{item}</option>
               })}
             </Select>
             {/* Tags */}
             <label htmlFor="tags">Tags <span className="required">*</span></label>
-            <Select borderColor="#9CB42F" name="tags" onChange={handleChange} placeholder={
-              formFields.tags !== 'Select Tags' ? formFields.tags : 'Select Tags'
-            } required>
-              <option value='Select Tags'>Select Tags</option>
+            <Select borderColor="#9CB42F" name="tags" onChange={handleChange} required>
+              <option value='Select Tags'>{formFields.tags ? formFields.tags : 'Select Tags'
+              }</option>
               {tags.map((item, i) => {
                 return <option key={i} value={item}>{item}</option>
               })}

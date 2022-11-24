@@ -7,7 +7,7 @@ import { Fade as Hamburger } from 'hamburger-react'
 import { VscAccount } from 'react-icons/vsc'
 import { MdOutlineAccountCircle } from 'react-icons/md'
 
-
+import NavSearch from './NavSearch'
 import NavLinks from './NavLinks.js'
 import NavPlants from './NavPlants.js'
 // import './navbar.scss'
@@ -70,7 +70,7 @@ const NavbarMobile = () => {
           align="center"
           justify="center"
         >
-          <SearchIcon className="search-icon" w={25} h={25} onClick={handleSearchClick} />
+          <NavSearch />
           <VscAccount className="account-icon" w={30} h={30} />
         </Flex>
       </Flex>

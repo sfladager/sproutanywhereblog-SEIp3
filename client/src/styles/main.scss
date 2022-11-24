@@ -115,6 +115,40 @@ body {
   margin-bottom: 20px;
 }
 
+// Navbar search feature
+.search-dropdown-container {
+  top: 60px;
+  right: 5px;
+  position: absolute;
+  background-color: rgba(241, 234, 234, 0.8);
+  width: 375px;
+  .search-list-input{
+    width: 100%;
+    border-bottom: 2px solid $primary;
+    padding-left: 5px;
+  }
+  .search-list {
+    border-bottom: 2px solid $primary;
+    padding-left: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .search-img {
+    height: 48px;
+    width: 48px;
+    
+  }
+  .search-title {
+    font-family: $header-font;
+    color: $primary;
+    font-size: 1.2rem;
+    padding-left: 10px;
+    flex-basis: 75%;
+  }
+
+}
+
 
 
 
