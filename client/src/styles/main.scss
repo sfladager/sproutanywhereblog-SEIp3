@@ -116,37 +116,6 @@ body {
 // }
 
 
-
-
-// .slide-in-top {
-//   -webkit-animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-//           animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-//   }
-//   @-webkit-keyframes slide-in-top {
-//     0% {
-//       -webkit-transform: translateY(-1000px);
-//               transform: translateY(-1000px);
-//       opacity: 0;
-//     }
-//     100% {
-//       -webkit-transform: translateY(0);
-//               transform: translateY(0);
-//       opacity: 1;
-//     }
-//   }
-//   @keyframes slide-in-top {
-//     0% {
-//       -webkit-transform: translateY(-1000px);
-//               transform: translateY(-1000px);
-//       opacity: 0;
-//     }
-//     100% {
-//       -webkit-transform: translateY(0);
-//               transform: translateY(0);
-//       opacity: 1;
-//     }
-//   }
-
 .plant-single {
   font-family: $body-font;
 
@@ -509,3 +478,45 @@ body {
   height: 32px;
 
 }
+
+// *** HOMEPAGE ***
+
+.home-main{
+  background-image: url(../assets/monstera-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: calc(100vh - 60px);
+  .home-container{
+    flex-direction: column;
+    transform: translate(15vw, 25vh);
+    font-size: 25px;
+    font-weight: bolder;
+  }
+  .home-title{
+    margin-bottom: 20px;
+    font-size: 30px;
+  }
+  .home-action-container{
+    margin-bottom: 20px;
+  }
+  .home-start-message{
+    margin-top: 20px;
+  }
+  select{
+    margin-left: 3px;
+    border-bottom: 2px solid $primary;
+    background-color: rgba(0,0,0,0);
+    font-size: 25px;
+    font-weight: bolder;
+    color: $primary;
+  }
+  button{
+    margin-top: 20px;
+    background-color: lighten($primary, 10%);
+      &:hover{
+        background-color: $primary;
+      }
+  }
+}
+
