@@ -1,7 +1,7 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import router from './config/router.js'
-// import { port, dbURI } from './config/environment.js'
+
 
 
 
