@@ -1,8 +1,10 @@
 import { Unauthorised } from './errors.js'
 import { sendErrors } from './helpers.js'
-import { secret } from './environment.js'
+// import { secret } from './environment.js'
 import jwt from 'jsonwebtoken' // This is needed for the jwt.verify method
 import User from '../models/user.js'
+
+import {} from 'dotenv/config'
 
 // Authentication middleware
 // This will be passed onto any endpoint that we want to secure
@@ -22,7 +24,7 @@ export default async (req, res, next) => {
 
     // 4. Now we have just the token saved to a variable, we'll use jwt.verify(), passing in the token and checking if it is valid
     // 5. verify method also takes in the secret, if the token was generated with a different secret, then it will be invalidated
-    const payload = jwt.verify(token, secret)
+    const payload = jwt.verify(token, process.env.SECRET)
 
     // 6. If the token is valid, then we'll use the payload sub to identify which user is making the request
     // 7. We'll query the model User using the payload sub, if it returns a user, we will pass the request to the controller

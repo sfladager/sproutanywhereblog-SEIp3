@@ -1,8 +1,10 @@
 import User from '../models/user.js'
 import { Unauthorised } from '../config/errors.js'
 import jwt from 'jsonwebtoken'
-import { secret } from '../config/environment.js'
+// import { secret } from '../config/environment.js'
 import { sendErrors } from '../config/helpers.js'
+
+import {} from 'dotenv/config'
 
 // When the user registers, we create a new document that is an instance of userSchema called 'User' model.
 // We use the mongoose method 'create', passing in as an argument the object body sent by the user.
@@ -36,7 +38,7 @@ export const loginUser = async (req, res) => {
       username: userToLogin.username,
     }
 
-    const token = jwt.sign(payload, secret, { expiresIn: '7 days' })
+    const token = jwt.sign(payload, process.env.SECRET, { expiresIn: '7 days' })
     console.log('id: ' + payload.sub)
     return res.json({ message: `Welcome back ${userToLogin.username}`, token: token, sub: `${payload.sub}` })
   } catch (err) {

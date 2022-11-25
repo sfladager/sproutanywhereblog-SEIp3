@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import { dbURI } from '../config/environment.js'
+// import { dbURI } from '../config/environment.js'
 import Plant from '../models/plant.js'
 import plantData from './data/plants.js'
 import User from '../models/user.js'
@@ -7,9 +7,11 @@ import userData from './data/users.js'
 import Blog from '../models/blog.js'
 import blogData from './data/blogs.js'
 
+import {} from 'dotenv/config'
+
 const seedDatabase = async () => {
   try {
-    await mongoose.connect(dbURI)
+    await mongoose.connect(process.env.DB_URI)
     console.log('🚀 Database connected!')
 
     await mongoose.connection.db.dropDatabase()

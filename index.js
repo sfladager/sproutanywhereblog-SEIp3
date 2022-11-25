@@ -1,7 +1,17 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import router from './config/router.js'
-import { port, dbURI } from './config/environment.js'
+// import { port, dbURI } from './config/environment.js'
+
+import {} from 'dotenv/config'
+
+// Deoployment imports
+import 'dotenv/config' // only needs to be added if it doesn't already exist
+import path, { dirname } from 'path'
+import { fileURLToPath } from 'url'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
 
 // ! Variables
@@ -10,7 +20,7 @@ const app = express()
 // ! Listen from requests
 const startServer = async () => {
   try {
-    await mongoose.connect(dbURI)
+    await mongoose.connect(process.env.DB_URI)
     console.log('🚀Database running!')
 
     // ! Middleware
@@ -30,10 +40,20 @@ const startServer = async () => {
     app.use((_req, res) => res.status(404).json('Page Not Found'))
 
     // ! Start server
-    app.listen(port, console.log(`🚀Sever running on port ${port}`))
+    app.listen(process.env.PORT, console.log(`🚀Sever running on port ${process.env.PORT}`))
 
   } catch (err) {
     console.log(err)
   }
 }
 startServer()
+
+// Router
+app.use('/api', router)
+
+// ** New lines **
+app.use(express.static(path.join(__dirname, 'client', 'build')))
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
+})
