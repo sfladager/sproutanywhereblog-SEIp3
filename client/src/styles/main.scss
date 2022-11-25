@@ -22,15 +22,6 @@ body {
 
 // **** nav bar **** //
 
-
-
-.navbar-container {
-  // position: sticky;
-  // top: 0;
-  // z-index: 1100;
-  background-color: white;
-}
-
 .navbar-links {
   font-family: $body-font;
 
@@ -120,55 +111,31 @@ body {
   margin-top: 20px;
 }
 
-.nav-drop-link:last-child {
-  margin-right: 20px;
-}
+// .nav-drop-link:last-child {
+//   margin-bottom: 20px;
+// }
 
-// *** PLANT SINGLE ***
+
+// **** plants **** //
+
+
 
 .plant-single {
   font-family: $body-font;
-  margin-top: 20px;
 
   h1 {
     font-family: $header-font;
     font-size: 1.4rem;
   }
 
-  .plant-name {
-    text-align: center;
-    border-bottom: 1px solid #9CB42F;
-  }
-
   .plant-info-guide-title-container {
-    border-bottom: 1px solid #9CB42F;
+    border-bottom: 0.5px solid #818181;
   }
 
   .plant-info-guide-title {
     font-weight: bolder;
     font-size: 1.2rem;
     margin: 10px auto 0 auto;
-  }
-
-  .chakra-container {
-    max-width: 700px;
-  }
-
-  .plant-img {
-    height: 500px;
-    margin: 0 auto;
-  }
-
-  .plant-main-description {
-    margin-bottom: 20px;
-  }
-
-  .amazon-btn-div {
-    justify-content: center;
-  }
-
-  .plant-info-guide-title-container {
-    margin-top: 20px;
   }
 }
 
@@ -177,8 +144,6 @@ body {
 
   .plant-info {
     flex-direction: column;
-    margin-top: 10px;
-    margin-bottom: 10px;
 
     img {
       width: 60px;
@@ -191,6 +156,12 @@ body {
     }
   }
 }
+
+
+
+// **** blogs **** //
+
+
 
 .blog-index-filter-box {
   text-align: center;
@@ -253,14 +224,12 @@ body {
   }
 }
 
-.blog-form-page,
-.plant-add-page {
+.blog-form-page {
   display: flex;
   justify-content: center;
 }
 
-.blog-form-title,
-.plant-add-title {
+.blog-form-title {
   font-family: $header-font;
   display: flex;
   justify-content: space-between;
@@ -272,38 +241,7 @@ body {
   }
 }
 
-// *** PLANT FORM PAGE ***
-
-.plant-add-page {
-  .plant-add-form {
-    form {
-      margin-top: 30px;
-    }
-  }
-
-  .chakra-input,
-  .chakra-select,
-  .plant-add-location-checkbox {
-    margin-bottom: 10px;
-
-    label {
-      margin-left: 3px;
-      margin-right: 15px;
-    }
-  }
-
-  .btn-green {
-    background-color: $primary;
-    color: $secondary;
-
-    &:hover {
-      background-color: $accent;
-    }
-  }
-
-}
-
-// *** BLOG FORM PAGE ***
+// Blog form page
 .blog-form {
   margin-top: 20px;
 
@@ -350,23 +288,34 @@ body {
   }
 }
 
-.login-page-wrapper {
+
+
+// **** login, register **** //
+
+
+
+.login-page-wrapper,
+.register-page-wrapper {
   display: flex;
   min-height: 100vh;
   width: 100vw;
-  align-items: center;
+  align-items: top;
   justify-content: center;
-  margin: auto;
-  background-color: #F3F5F8;
+  padding-top: 100px;
+  // background-image: url(https://www.gardeningknowhow.com/wp-content/uploads/2021/03/foliage.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+}
+
+.register-page-wrapper {
+  padding-top: 20px;
 }
 
 // Form Page
 .form-page {
   width: 100%;
   text-align: center;
+  margin-top: 0;
 
   .btn-main {
     background-color: darken(#467A43, 15%);
@@ -384,14 +333,17 @@ body {
   h1 {
     font-size: 40px;
     margin-bottom: 20px;
+    color: #467A43;
   }
 
   form {
-    background: #9CB42F;
+    background: $secondary;
     padding: 40px;
     border-radius: 18px;
     width: 30%;
     display: inline-block;
+    border: 2px solid $primary;
+    box-shadow: 5px 5px #467A43;
 
     label {
       font-size: 0.9rem;
@@ -410,6 +362,12 @@ body {
     }
   }
 }
+
+
+
+// **** profile page **** //
+
+
 
 .profile-page-wrapper {
   display: flex;
@@ -507,7 +465,6 @@ body {
   box-shadow: 5px 5px #467A43;
 
   &:hover {
-    transition: transform .3s;
     transform: scale(1.1);
   }
 
@@ -575,215 +532,6 @@ body {
   height: 32px;
 }
 
-// *** CHECKBOX *** 
-
-.plants-filter-container {
-  min-width: 195px;
-  flex-direction: column;
-  margin-top: 30px;
-  margin-left: 10px;
-  ;
-
-  .plants-filter-title {
-    margin-left: 15px;
-    font-size: 20px;
-    font-weight: bolder;
-  }
-
-  .filters-type,
-  .filters-location,
-  .filters-sunlight,
-  .filters-height {
-    flex-direction: column;
-
-    label {
-      margin-left: 5px;
-    }
-  }
-
-  .filters-beginner,
-  .filters-safe {
-    margin-top: 10px;
-    margin-left: 15px;
-
-    label {
-      margin-left: 5px;
-    }
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .plants-filter-container {
-    width: 90vw;
-  }
-
-  .plants-index {
-    display: flex;
-    flex-direction: column;
-    margin-top: 0;
-
-    .chakra-container {
-      transform: translateY(30px);
-    }
-  }
-}
-
-// *** PLANTS INDEX *** 
-
-.plants-index {
-  display: flex;
-  margin-top: 2.5%;
-
-  .no-results {
-    margin: 30px auto;
-    padding-top: 100px;
-    font-size: 30px;
-  }
-
-  .chakra-container {
-    margin: 5px auto;
-  }
-}
-
-.plants-index-cards {
-  margin-bottom: 40px;
-
-  .chakra-heading {
-    text-align: center;
-    margin-top: 10px;
-    font-family: $body-font;
-  }
-
-  .chakra-image {
-    transition: transform .5s;
-
-    &:hover {
-      transform: scale(1.1)
-    }
-  }
-}
-
-
-// *** HOMEPAGE ***
-
-.home-main {
-  background-image: url(../assets/monstera-unsplash.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  height: calc(100vh - 60px);
-
-  .empty {
-    height: 1px;
-  }
-
-  .home-container {
-    flex-direction: column;
-    // transform: translate(10vw, 20vh);
-    font-size: 2vw;
-    font-weight: bolder;
-    // margin-top: 50px;
-  }
-
-  .home-forms-container {
-    flex-direction: column;
-    height: calc(100vh - 60px);
-  }
-
-  .home-title-container {
-    flex-direction: column;
-    margin-left: 150px;
-    margin-top: 150px;
-  }
-
-  .home-title {
-    margin-bottom: 20px;
-    font-size: 2.5vw;
-  }
-
-  .home-action-container {
-    margin-bottom: 20px;
-  }
-
-  .home-start-message {
-    margin-top: 20px;
-  }
-
-  select {
-    margin-left: 3px;
-    border-bottom: 2px solid $primary;
-    background-color: rgba(0, 0, 0, 0);
-    font-size: 2vw;
-    font-weight: bolder;
-    color: $primary;
-
-    &:focus {
-      outline: none;
-    }
-  }
-
-  button {
-    margin-top: 30px;
-    background-color: lighten($primary, 10%);
-
-    &:hover {
-      background-color: $primary;
-    }
-  }
-
-  .home-select-container {
-    margin-left: 150px;
-  }
-
-  .home-location-container,
-  .home-sunlight-container,
-  .home-height-container,
-  .home-beginner-container,
-  .home-toxic-container,
-  .home-category-container,
-  .home-tag-container {
-    align-items: center;
-  }
-
-  .chakra-container {
-    font-size: 25px;
-    margin: 0 auto;
-    // margin-left: 10%;
-    // margin-top: 30vh;
-    margin-bottom: 200px;
-
-    .chakra-text {
-      text-align: center;
-      margin-bottom: 10px;
-    }
-
-    .chakra-heading {
-      text-align: center;
-      margin-top: 10px;
-      font-family: $body-font;
-    }
-
-    .chakra-image {
-      transition: transform .5s;
-
-      &:hover {
-        transform: scale(1.1)
-      }
-    }
-  }
-
-  .home-results-message {
-    padding-top: 60px;
-    padding-bottom: 40px;
-    color: $primary;
-    font-size: 40px;
-    font-family: $header-font;
-  }
-}
-
-
-// *** PROFILE PAGE ***
-
 .profile-link-flex {
   display: flex;
   justify-content: flex-start;
@@ -795,6 +543,61 @@ body {
   color: $primary;
   font-weight: bold;
 }
+
+
+// *** HOMEPAGE *** //
+
+
+
+.home-main {
+  background-image: url(../assets/monstera-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: calc(100vh - 60px);
+
+  .home-container {
+    flex-direction: column;
+    transform: translate(3vw, 4vh);
+    font-size: 18px;
+    font-weight: bolder;
+  }
+
+  .home-title {
+    margin-bottom: 20px;
+    font-size: 30px;
+  }
+
+  .home-action-container {
+    margin-bottom: 15px;
+  }
+
+  .home-start-message {
+    margin-top: 20px;
+  }
+
+  select {
+    margin-left: 3px;
+    border-bottom: 2px solid $primary;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 18px;
+    font-weight: bolder;
+    color: $primary;
+  }
+
+  button {
+    margin-top: 20px;
+    background-color: lighten($primary, 10%);
+
+    &:hover {
+      background-color: $primary;
+    }
+  }
+}
+
+
+// **** MEDIA QUERIES **** //
+
 
 @media only screen and (max-width: 600px) {
   .profile-page-wrapper {
@@ -814,15 +617,91 @@ body {
   }
 }
 
+@media only screen and (max-width: 800px) {
+
+
+  .login-page-wrapper {
+    display: flex;
+    min-height: 100vh;
+    width: 100vw;
+    align-items: top;
+    justify-content: center;
+    padding-top: 100px;
+    background-color: $secondary;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  // Form Page
+  .form-page {
+    width: 100%;
+    text-align: center;
+    margin-top: 0;
+
+    .btn-main {
+      background-color: darken(#467A43, 15%);
+      color: white;
+      width: 33%;
+      border-radius: 5px;
+      height: 2em;
+      margin-top: 1em;
+
+      &:hover {
+        background-color: darken(#467A43, 20%);
+      }
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-bottom: 20px;
+      color: #467A43;
+    }
+
+    form {
+      background: $secondary;
+      padding: 40px;
+      border-radius: 18px;
+      width: 70%;
+      display: inline-block;
+      border: 2px solid $primary;
+
+      label {
+        font-size: 0.9rem;
+      }
+
+      input {
+        width: 100%;
+        margin-bottom: 15px;
+        border: none;
+        padding: 5px;
+      }
+
+      small {
+        display: block;
+        margin-bottom: 15px;
+      }
+    }
+  }
+}
+
+
+
+// **** ABOUT US **** //
+
+
 .special-margin {
   margin-left: 62px;
 }
 
 .about-us-flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   font-size: 1.5em;
   list-style: none;
   align-items: left;
-  margin-top: 40px;
+  margin-top: 70px;
   margin-left: 30px;
   margin-bottom: 30px;
   height: 50vh;
@@ -830,30 +709,35 @@ body {
 
   h3 {
     text-decoration: underline;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
   }
 }
 
 .about-us-flex {
-  height: 20vh;
+  display: flex;
   width: 25vw;
-  padding-left: 0px;
+  margin-left: 50px;
   margin-right: 0;
-  padding-right: 0;
+  justify-content: space-between;
 
 }
 
 .fa-github {
-
-  padding-right: 0;
+  margin-left: 50px;
 }
 
 .fa-linkedin {
   color: #0a66c2;
-  margin-left: 20px;
+  margin-left: 50px;
   margin-right: 0;
-  padding-right: 0;
 }
+
+
+
+// **** NOT FOUND PAGE **** //
+
+
+
 
 .not-found {
   display: flex;
@@ -869,7 +753,14 @@ body {
   background-size: cover;
   width: 100vw;
   opacity: 0.7;
+  padding-top: 100px;
 }
+
+
+
+// **** COMMENTS **** //
+
+
 
 .review-flex {
   margin-top: 10px;
@@ -931,4 +822,8 @@ body {
   font-weight: bold;
   font-size: 1.5em;
   margin-top: 10px;
+}
+
+.amazon-btn {
+  align-items: center;
 }
