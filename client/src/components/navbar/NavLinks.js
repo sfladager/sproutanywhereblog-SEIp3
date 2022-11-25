@@ -9,6 +9,7 @@ const NavLinks = (open, isOpen, closeDropdown) => {
       <ul className="nav-drop-ul slide-in-top slide-out-elliptic-top-bck">
         <Link to="/" onClick={() => isOpen && closeDropdown} className="nav-drop-link">plants<ChevronDownIcon /></Link>
         <Link to="/blogs" className="nav-drop-link">blog</Link>
+        <Link to="/plants" className="nav-drop-link">plants</Link>
         <Link to="/aboutus" className="nav-drop-link">about us</Link>
         {isAuthenticated() ?
           <>

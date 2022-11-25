@@ -97,14 +97,16 @@ const PlantsIndex = () => {
         <Container className="plant-container">
           {plant ?
             <>
-              <h1><strong>{plant.name}</strong></h1>
-              <img src={plant.thumbnail} alt={plant.name} />
-              <p>{plant.mainDescription}</p>
-              <Button className='amazon-btn' bg="rgba(255,153,0,1)"
-                _hover={{ backgroundColor: 'rgba(255,130,0,1)' }}
-                boxShadow="xl"
-                leftIcon={<FaAmazon />}
-                onClick={amazonClick}>Buy on Amazon</Button>
+              <h1 className="plant-name"><strong>{plant.name}</strong></h1>
+              <img className="plant-img" src={plant.thumbnail} alt={plant.name} />
+              <p className="plant-main-description">{plant.mainDescription}</p>
+              <Flex className='amazon-btn-div'>
+                <Button className='amazon-btn' bg="rgba(255,153,0,1)"
+                  _hover={{ backgroundColor: 'rgba(255,130,0,1)' }}
+                  boxShadow="xl"
+                  leftIcon={<FaAmazon />}
+                  onClick={amazonClick}>Buy on Amazon</Button>
+              </Flex>
               <Flex className="plant-info-guide-title-container">
                 <p className="plant-info-guide-title">{plant.name} Care &amp; Info Guide</p>
               </Flex>

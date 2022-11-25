@@ -61,7 +61,7 @@ const NavbarDesktop = () => {
         <Flex className="navbar-links">
           <Link to="/plants" className="nav-link">plants</Link>
           <Link to="/blogs" className="nav-link">blog</Link>
-          <Link to="/about" className="nav-link">about us</Link>
+          <Link to="/aboutus" className="nav-link">about us</Link>
         </Flex>
       </Flex>
       <Spacer />
