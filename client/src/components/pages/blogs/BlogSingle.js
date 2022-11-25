@@ -12,7 +12,7 @@ import whatsAppLogo from '../../../assets/whatsapp.svg'
 import moment from 'moment'
 
 // Chakra imports
-import { Container, Box, Image, Button, ButtonGroup, Flex } from '@chakra-ui/react'
+import { Container, Box, Image, Button, ButtonGroup } from '@chakra-ui/react'
 
 const BlogSingle = () => {
   // ! State
