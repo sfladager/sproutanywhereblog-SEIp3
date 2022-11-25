@@ -76,7 +76,7 @@ const PlantForm = ({ handleSubmit, formFields, setFormFields, errors, setErrors,
   return (
     <Container w={[350, 500, 768, 997]} m={2} maxW="997px">
       <Box className="plant-add-title">
-        <Link to={'/plants'}>
+        <Link to={'/profile'}>
           <Button variant="ghost" _hover="ghost" m="0" p="1">Back</Button>
         </Link>
         <h1>{formName}</h1>

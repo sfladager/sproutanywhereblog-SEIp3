@@ -9,7 +9,8 @@ const PlantsCheckBox = ({ filters, handleFilter }) => {
   const sizeOptions = ['small', 'medium', 'large']
 
   return (
-    <>
+    <Flex className="plants-filter-container">
+      <h2 className="plants-filter-title">Filter</h2>
       <Accordion allowMultiple>
         <AccordionItem className="filter-type-wrapper">
           <AccordionButton>
@@ -123,7 +124,7 @@ const PlantsCheckBox = ({ filters, handleFilter }) => {
           <label>Children and pet friendly</label>
         </Flex>
       </Flex>
-    </>
+    </Flex>
   )  
 }
 
