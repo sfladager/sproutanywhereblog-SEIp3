@@ -393,5 +393,3 @@ const Home = () => {
 }
 
 export default Home
-
-// { _id, title, thumbnail, matches }
