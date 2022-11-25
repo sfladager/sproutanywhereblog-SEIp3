@@ -3,7 +3,7 @@ import mongoose from 'mongoose'
 import router from './config/router.js'
 // import { port, dbURI } from './config/environment.js'
 
-import { } from 'dotenv/config'
+
 
 // Deoployment imports
 import 'dotenv/config' // only needs to be added if it doesn't already exist
