@@ -123,11 +123,11 @@ body {
   position: absolute;
   background-color: rgba(241, 234, 234, 0.8);
   width: 375px;
-  z-index: 1000;
+  z-index: 10;
   .search-list-input{
     width: 100%;
     border-bottom: 2px solid $primary;
-    padding-left: 5px;
+    padding-left: 10px;
   }
   .search-list {
     border-bottom: 2px solid $primary;
@@ -628,7 +628,7 @@ body {
   border: 2px solid $primary;
   border-radius: 10px;
   box-shadow: 5px 5px #467A43;
-
+  transition: transform 0.3s;
   &:hover {
     transform: scale(1.1);
   }
@@ -879,6 +879,8 @@ body {
   .home-results-message{
     padding-top: 60px;
     padding-bottom: 40px;
+    color: $primary;
+    font-size: 2rem;
   }
 }
 
@@ -970,6 +972,11 @@ body {
       }
     }
   }
+  .about-us-flex {
+    width: 80vw;
+    margin-right: 0;
+    font-size: 0.7rem;
+  }
 }
 
 
@@ -1002,10 +1009,8 @@ body {
 
 .about-us-flex {
   display: flex;
-  width: 25vw;
-  margin-left: 50px;
-  margin-right: 0;
-  justify-content: space-between;
+  width: 100vw;
+  justify-content: flex-start;
 
 }
 
@@ -1018,7 +1023,13 @@ body {
   margin-left: 50px;
   margin-right: 0;
 }
+#loksze-links {
+  margin-right: 12px;
+}
 
+#gael-links {
+  margin-right: 8px;
+}
 
 
 // **** NOT FOUND PAGE **** //
