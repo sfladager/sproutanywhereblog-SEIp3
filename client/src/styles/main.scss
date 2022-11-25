@@ -662,8 +662,8 @@ body {
   }
   .home-title-container{
     flex-direction: column;
-    margin-left: 140px;
-    margin-top: 110px;
+    margin-left: 150px;
+    margin-top: 150px;
   }
   .home-title{
     margin-bottom: 20px;
@@ -694,7 +694,7 @@ body {
       }
   }
   .home-select-container{
-    margin-left: 140px;
+    margin-left: 150px;
   }
   .home-location-container,
   .home-sunlight-container,
@@ -730,6 +730,9 @@ body {
   .home-results-message{
     padding-top: 60px;
     padding-bottom: 40px;
+    color: $primary;
+    font-size: 40px;
+    font-family: $header-font;
   }
 }
 
@@ -885,5 +888,3 @@ body {
   font-size: 1.5em;
   margin-top: 10px;
 }
-
-
