@@ -81,7 +81,10 @@ const NavbarMobile = () => {
           justify="center"
         >
           <NavSearch />
-          <VscAccount className="account-icon" w={30} h={30} />
+          
+          <Link to="/profile" className="account-icon-link">
+            <VscAccount className="account-icon" w={30} h={30} />
+          </Link>
         </Flex>
       </Flex>
     </Flex>
