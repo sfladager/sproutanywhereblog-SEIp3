@@ -102,13 +102,13 @@ const PlantsIndex = () => {
   return (
     <>
       <main className="plants-index">
-        <PlantsCheckBox filters={filters} handleFilter={handleFilter} />
+        <PlantsCheckBox className="plants-filters" filters={filters} handleFilter={handleFilter} />
         {filterPlants.length > 0 ?
           <Container m={2} maxW="997px">
             <SimpleGrid minChildWidth="250px" spacing='30px'>
               {filterPlants.map(({ _id, name, thumbnail }) => 
                 <Link key={_id} to={`/plants/${_id}`}>
-                  <Card className="plants-index-cards">
+                  <Card className="plants-index-cards" variant="unstyled">
                     <CardBody>
                       <Image src={thumbnail} alt={name} />
                       <Heading mt="2" size='md'>{name}</Heading>
@@ -119,7 +119,7 @@ const PlantsIndex = () => {
             </SimpleGrid>  
           </Container>
           :
-          <h2>No results</h2>
+          <div className="no-results">No results</div>
         }
       </main>
     </>

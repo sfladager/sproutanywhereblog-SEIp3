@@ -56,7 +56,7 @@ const NavbarMobile = () => {
         </Flex>
         <Flex w={18}></Flex>
         <Flex>
-          {open && <NavLinks className="nav-menu-drop" closeDropdown={closeDropdown}/>}
+          {open && <NavLinks className="nav-menu-drop"/>}
         </Flex>
       </Flex>
 
