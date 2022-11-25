@@ -972,6 +972,11 @@ body {
       }
     }
   }
+  .about-us-flex {
+    width: 80vw;
+    margin-right: 0;
+    font-size: 0.7rem;
+  }
 }
 
 
@@ -1004,10 +1009,8 @@ body {
 
 .about-us-flex {
   display: flex;
-  width: 25vw;
-  margin-left: 50px;
-  margin-right: 0;
-  justify-content: space-between;
+  width: 100vw;
+  justify-content: flex-start;
 
 }
 
@@ -1020,7 +1023,13 @@ body {
   margin-left: 50px;
   margin-right: 0;
 }
+#loksze-links {
+  margin-right: 12px;
+}
 
+#gael-links {
+  margin-right: 8px;
+}
 
 
 // **** NOT FOUND PAGE **** //

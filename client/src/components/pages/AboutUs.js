@@ -12,13 +12,13 @@ const AboutUs = () => {
       </div>
       <hr></hr>
       <div className='about-us-flex'>
-        <p>Lok Sze Chung</p>
+        <p id="loksze-links">Lok Sze Chung</p>
         <a href="https://github.com/lokszechung" target="blank"><i className="fa-brands fa-github"></i></a>
         <a href="https://www.linkedin.com/in/lokszechung" target="blank"><i className="fa-brands fa-linkedin"></i></a>
       </div>
       <hr></hr>
       <div className='about-us-flex'>
-        <p>Gael Duchesne</p>
+        <p id="gael-links">Gael Duchesne</p>
         <a href="https://github.com/gael37" target="blank"><i className="fa-brands fa-github"></i></a>
         <a href="https://www.linkedin.com/in/gael-duchesne-285858256/" target="blank"><i className="fa-brands fa-linkedin"></i></a>
       </div>
