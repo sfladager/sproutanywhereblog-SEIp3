@@ -34,7 +34,7 @@ const Login = () => {
       console.log(data)
       console.log(data.token)
       setToken(data.token)
-      navigate('/home')
+      navigate('/')
     } catch (err) {
       console.log(err)
       setError(err.response.data.message)

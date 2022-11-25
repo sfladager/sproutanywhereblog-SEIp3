@@ -153,24 +153,46 @@ body {
 
 // **** plants **** //
 
-
+// *** PLANT SINGLE ***
 
 .plant-single {
   font-family: $body-font;
-
+  margin-top: 20px;
   h1 {
     font-family: $header-font;
     font-size: 1.4rem;
   }
 
+  .plant-name{
+    text-align: center;
+    border-bottom: 1px solid #9CB42F;
+  }
+
   .plant-info-guide-title-container {
-    border-bottom: 0.5px solid #818181;
+    border-bottom: 1px solid #9CB42F;
   }
 
   .plant-info-guide-title {
     font-weight: bolder;
     font-size: 1.2rem;
     margin: 10px auto 0 auto;
+  }
+
+  .chakra-container{
+    max-width: 700px;
+  }
+  .plant-img{
+    height: 500px;
+    margin: 0 auto;
+  }
+  .plant-main-description{
+    margin-bottom: 20px;
+  }
+  .amazon-btn-div{
+    justify-content: center;
+  }
+  .plant-info-guide-title-container{
+    margin-top: 20px;
   }
 }
 
@@ -179,6 +201,8 @@ body {
 
   .plant-info {
     flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 10px;
 
     img {
       width: 60px;
@@ -320,8 +344,34 @@ body {
     margin: 5px 0px 5px 5px;
   }
 }
+
+// *** PLANT FORM PAGE ***
+
+.plant-add-page{
+  .plant-add-form{
+    form{
+      margin-top: 30px;
+    }
+  }
+  .chakra-input, .chakra-select, .plant-add-location-checkbox{
+    margin-bottom: 10px;
+    label{
+      margin-left: 3px;
+      margin-right: 15px;
+    }
+  }
+  .btn-green {
+    background-color: $primary;
+    color: $secondary;
+    &:hover {
+      background-color: $accent;
+    }
+  }
+
+}
+
 // Blog form page styling
-.blog-form-page {
+.blog-form-page, .plant-add-page {
   display: flex;
   justify-content: center;
   .blog-form-input,
@@ -390,7 +440,7 @@ body {
     }
 }
 
-.blog-form-title {
+.blog-form-title, .plant-add-title {
   font-family: $header-font;
   display: flex;
   justify-content: space-between;
@@ -658,54 +708,176 @@ body {
   font-weight: bold;
 }
 
+// *** CHECKBOX *** 
 
-// *** HOMEPAGE *** //
+.plants-filter-container{
+  min-width: 195px;
+  flex-direction: column;
+  margin-top: 30px;
+  margin-left: 10px;;
+  .plants-filter-title{
+    margin-left: 15px;
+    font-size: 20px;
+    font-weight: bolder;
+  }
+  .filters-type, 
+  .filters-location,
+  .filters-sunlight,
+  .filters-height{
+    flex-direction: column;
+    label{
+      margin-left: 5px;
+    }
+  }
+  .filters-beginner,
+  .filters-safe{
+    margin-top: 10px;
+    margin-left: 15px;
+    label{
+      margin-left: 5px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .plants-filter-container{
+    width: 90vw; 
+  }
+
+  .plants-index{
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+    .chakra-container{
+      transform: translateY(30px);
+    }
+  }
+}
 
 
+// *** PLANTS INDEX *** 
 
-.home-main {
+.plants-index{
+  display: flex;
+  margin-top: 2.5%;
+  .no-results{
+    margin: 30px auto;
+    padding-top: 100px;
+    font-size: 30px;
+  }
+  .chakra-container{
+    margin: 5px auto;
+  }
+}
+
+.plants-index-cards{
+  margin-bottom: 40px;
+  .chakra-heading{
+    text-align: center;
+    margin-top: 10px;
+    font-family: $body-font;
+  }
+  .chakra-image{
+    transition: transform .5s;
+    &:hover{
+      transform: scale(1.1)
+    }
+  }
+}
+
+
+// *** HOMEPAGE ***
+
+.home-main{
   background-image: url(../assets/monstera-unsplash.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   height: calc(100vh - 60px);
-
-  .home-container {
+  .empty{
+    height: 1px;
+  }
+  .home-container{
     flex-direction: column;
-    transform: translate(3vw, 4vh);
-    font-size: 18px;
+    // transform: translate(10vw, 20vh);
+    font-size: 2vw;
     font-weight: bolder;
+    // margin-top: 50px;
   }
-
-  .home-title {
+  .home-forms-container{
+    flex-direction: column;
+    height: calc(100vh - 60px);
+  }
+  .home-title-container{
+    flex-direction: column;
+    margin-left: 140px;
+    margin-top: 110px;
+  }
+  .home-title{
     margin-bottom: 20px;
-    font-size: 30px;
+    font-size: 2.5vw;
   }
-
-  .home-action-container {
-    margin-bottom: 15px;
+  .home-action-container{
+    margin-bottom: 20px;
   }
-
-  .home-start-message {
+  .home-start-message{
     margin-top: 20px;
   }
-
-  select {
+  select{
     margin-left: 3px;
     border-bottom: 2px solid $primary;
-    background-color: rgba(0, 0, 0, 0);
-    font-size: 18px;
+    background-color: rgba(0,0,0,0);
+    font-size: 2vw;
     font-weight: bolder;
     color: $primary;
-  }
-
-  button {
-    margin-top: 20px;
-    background-color: lighten($primary, 10%);
-
-    &:hover {
-      background-color: $primary;
+    &:focus{
+      outline: none;
     }
+  }
+  button{
+    margin-top: 30px;
+    background-color: lighten($primary, 10%);
+      &:hover{
+        background-color: $primary;
+      }
+  }
+  .home-select-container{
+    margin-left: 140px;
+  }
+  .home-location-container,
+  .home-sunlight-container,
+  .home-height-container,
+  .home-beginner-container,
+  .home-toxic-container,
+  .home-category-container, 
+  .home-tag-container{
+    align-items: center;
+  }
+  .chakra-container{
+    font-size: 25px;
+    margin: 0 auto;
+    // margin-left: 10%;
+    // margin-top: 30vh;
+    margin-bottom: 200px;
+    .chakra-text{
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .chakra-heading{
+      text-align: center;
+      margin-top: 10px;
+      font-family: $body-font;
+    }
+    .chakra-image{
+      transition: transform .5s;
+      &:hover{
+        transform: scale(1.1)
+      }
+    }
+  }
+  .home-results-message{
+    padding-top: 60px;
+    padding-bottom: 40px;
   }
 }
 
