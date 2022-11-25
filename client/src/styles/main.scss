@@ -123,38 +123,36 @@ body {
   position: absolute;
   background-color: rgba(241, 234, 234, 0.8);
   width: 375px;
+  z-index: 10;
 
   .search-list-input {
-    z-index: 10;
-
-    .search-list-input {
-      width: 100%;
-      border-bottom: 2px solid $primary;
-      padding-left: 10px;
-    }
-
-    .search-list {
-      border-bottom: 2px solid $primary;
-      padding-left: 5px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .search-img {
-      height: 48px;
-      width: 48px;
-
-    }
-
-    .search-title {
-      font-family: $header-font;
-      color: $primary;
-      font-size: 1.2rem;
-      padding-left: 10px;
-      flex-basis: 75%;
-    }
+    width: 100%;
+    border-bottom: 2px solid $primary;
+    padding-left: 10px;
   }
+
+  .search-list {
+    border-bottom: 2px solid $primary;
+    padding-left: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .search-img {
+    height: 48px;
+    width: 48px;
+
+  }
+
+  .search-title {
+    font-family: $header-font;
+    color: $primary;
+    font-size: 1.2rem;
+    padding-left: 10px;
+    flex-basis: 75%;
+  }
+
 }
 
 
@@ -1050,11 +1048,8 @@ body {
   .about-us-flex {
     width: 80vw;
     margin-right: 0;
-    font-size: 0.7em;
+    font-size: 0.7rem;
   }
-
-
-
 }
 
 
@@ -1089,6 +1084,7 @@ body {
   display: flex;
   width: 100vw;
   justify-content: flex-start;
+
 }
 
 .fa-github {
