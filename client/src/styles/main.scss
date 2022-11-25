@@ -619,6 +619,11 @@ body {
 
 @media only screen and (max-width: 800px) {
 
+  .about-us-flex {
+    p {
+      font-size: 0.5em;
+    }
+  }
 
   .login-page-wrapper {
     display: flex;
@@ -695,9 +700,6 @@ body {
 }
 
 .about-us-flex-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   font-size: 1.5em;
   list-style: none;
   align-items: left;
@@ -714,21 +716,18 @@ body {
 }
 
 .about-us-flex {
-  display: flex;
   width: 25vw;
-  margin-left: 50px;
+  margin-left: 0px;
   margin-right: 0;
   justify-content: space-between;
 
 }
 
-.fa-github {
-  margin-left: 50px;
-}
+.fa-github {}
 
 .fa-linkedin {
   color: #0a66c2;
-  margin-left: 50px;
+  margin-left: 20px;
   margin-right: 0;
 }
 
