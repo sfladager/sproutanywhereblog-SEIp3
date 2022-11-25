@@ -123,6 +123,7 @@ body {
   position: absolute;
   background-color: rgba(241, 234, 234, 0.8);
   width: 375px;
+  z-index: 1000;
   .search-list-input{
     width: 100%;
     border-bottom: 2px solid $primary;
