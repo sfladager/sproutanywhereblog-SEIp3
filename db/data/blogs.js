@@ -32,10 +32,10 @@ export default [
     article: 'You will ultimately run out of window space if you try to fill every inch of your home with succulents. That is when the fat plants will start to overtake interior rooms that do not get enough sunlight. We have done the legwork for you and compiled a list of some of the best succulents for indoors that do not require sunlight. But first, lets discuss low light succulents and what they need to survive.',
   },
   {
-    title: '10+ Best Low Light Indoor Succulents',
+    title: '10+ Best house plants',
     category: 'house-plants',
     tags: 'science',
-    description: 'Bring some holiday spirit this season with your succulents!',
+    description: 'Bring some pothos into your life',
     thumbnail: 'https://res.cloudinary.com/dubrvgdmq/image/upload/v1669329061/SPROUT_ANYWHERE_BLOG/o2ttpkxozbisqboaiajm.jpg',
     article: 'Pothos are unquestionably among the easiest and most popular houseplants to maintain. They flourish inside and can tolerate a variety of lighting settings. They are also excellent vining plants, making them popular for hanging baskets and pots.',
   },
