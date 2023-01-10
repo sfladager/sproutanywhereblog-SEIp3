@@ -24,7 +24,7 @@ export default [
     article: 'This fun holiday project combines two of my favorite things: living Christmas trees and succulents. There is a whole lot to love about both. For starters, living Christmas trees are better for the environment, and succulents are super forgiving plants, perfect for those who tend to kill every green thing they touch. What you may end up with is a lovely miniature succulent Christmas “tree” that will thrive all year round with very little care required. <h2>How to Make a Succulent Christmas Tree</h2> Things You Will Need: Chicken wire, Long nose pliers with cutter, Protective work gloves, Sphagnum moss, pre-moistened, Assorted succulent cuttings of various species/sizes, Floral greening pins, Pot with drainage holes (weighted with stones or another heavy material) and saucer, Mini Christmas tree ornaments (optional). Step 1: Make a Chicken Wire Topiary Cone Form. If you’ve never worked with chicken wire before, it may take some practice to shape it to your liking. (If you don’t want to go through this step, see the tip below.) Put on gloves to protect your hands from the severed wires, then cut out a symmetrical triangle whose size depend on how tall and broad you want your tree to be. My triangle has a bottom width of 16 inches and a point 14 inches from the base. Of course, as you may recall from geometry class, a 2D triangle linked edge to edge does not make a 3D symmetrical cone; instead, a disc with a wedge cut out (like in Pac-man) does. But making a Pac-Man out of chicken wire is a lot more labor! Instead, I overlapping the edges of my triangle and shaped the cone to achieve the desired symmetrical shape. Step 2: Pack Your Chicken Wire Form With Moss. Take your moistened sphagnum moss and stuff it tightly into your cone. Your succulent clippings should thrive in this medium. Make sure to purchase the long-fibered kind. Step 3: Put Tree Form Into Your Pot. Insert your shape into your pot, which is now weighted down with stones (or some other material that will give your base stability). When you water your tree, the stones will also aid ensure that the moss drains properly. Choose a pot that is slightly smaller in circle than your cone, so that it fits snugly. Step 4: Insert Succulent Cuttings Into Form.',
   },
   {
-    title: '10+ Best Low Light Indoor Succulents',
+    title: '11+ Best Low Light Indoor Succulents',
     category: 'succulents',
     tags: 'plant-health',
     description: 'Bring some holiday spirit this season with your succulents!',
@@ -32,7 +32,7 @@ export default [
     article: 'You will ultimately run out of window space if you try to fill every inch of your home with succulents. That is when the fat plants will start to overtake interior rooms that do not get enough sunlight. We have done the legwork for you and compiled a list of some of the best succulents for indoors that do not require sunlight. But first, lets discuss low light succulents and what they need to survive.',
   },
   {
-    title: '10+ Best Low Light Indoor Succulents',
+    title: '12+ Best Low Light Indoor Succulents',
     category: 'house-plants',
     tags: 'science',
     description: 'Bring some holiday spirit this season with your succulents!',
