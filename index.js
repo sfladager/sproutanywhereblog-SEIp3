@@ -3,12 +3,17 @@ import mongoose from 'mongoose'
 import router from './config/router.js'
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 19f85e07bc7ce7638741b3510bceb9df304fcdbb
 
 // Deoployment imports
 import 'dotenv/config' // only needs to be added if it doesn't already exist
 import path, { dirname } from 'path'
 import { fileURLToPath } from 'url'
+
+import {} from 'dotenv/config'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -35,6 +40,12 @@ const startServer = async () => {
 
     // * Router
     app.use('/api', router)
+    // ** New lines **
+    app.use(express.static(path.join(__dirname, 'client', 'build')))
+
+    app.get('*', (req, res) => {
+      res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
+    })
 
     app.use(express.static(path.join(__dirname, 'client', 'build')))
 
