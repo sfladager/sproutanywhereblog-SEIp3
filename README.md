@@ -320,6 +320,6 @@ return (
 - First thing I want to do is fix a few small bugs. The Nav search bar should close when you click anywhere outside of the search container, but it does not. The blog index filter has an issue after you use the tag filter and then go back to use the category filter. The category filter takes over and ignores the tags
 - I want to do more research on editors and find one that is more user friendly
 - I also will improve the comments section to add reviews for products and improve the visuals with the comments section. I also want to add an upvote downvote system for comments
-- My plan with this project is to use this as a live website to replace my current wordpress site sproutanywhere.com. In order to do this I need to add permissions to the user model to have admin users who can post/edit blogs and products. Initially I will use affiliate links to generate some revenue from products
+- My plan with this project is to use this as a live website to replace my current wordpress site [Sprout Anywhere]([https://](https://sproutanywhere.com). In order to do this I need to add permissions to the user model to have admin users who can post/edit blogs and products. Initially I will use affiliate links to generate some revenue from products
 - The next step is to build a better product manager and implement payments. I realize this is a large undertaking. I would need to be able to manage inventory, adjust pricing, and create a cart where people can add/ remove products and checkout. Most likely I’ll start with packages to expedite the process
 
