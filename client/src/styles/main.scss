@@ -124,11 +124,13 @@ body {
   background-color: rgba(241, 234, 234, 0.8);
   width: 375px;
   z-index: 10;
-  .search-list-input{
+
+  .search-list-input {
     width: 100%;
     border-bottom: 2px solid $primary;
     padding-left: 10px;
   }
+
   .search-list {
     border-bottom: 2px solid $primary;
     padding-left: 5px;
@@ -136,11 +138,13 @@ body {
     flex-wrap: wrap;
     align-items: center;
   }
+
   .search-img {
     height: 48px;
     width: 48px;
-    
+
   }
+
   .search-title {
     font-family: $header-font;
     color: $primary;
@@ -159,12 +163,13 @@ body {
 .plant-single {
   font-family: $body-font;
   margin-top: 20px;
+
   h1 {
     font-family: $header-font;
     font-size: 1.4rem;
   }
 
-  .plant-name{
+  .plant-name {
     text-align: center;
     border-bottom: 1px solid #9CB42F;
   }
@@ -179,20 +184,24 @@ body {
     margin: 10px auto 0 auto;
   }
 
-  .chakra-container{
+  .chakra-container {
     max-width: 700px;
   }
-  .plant-img{
+
+  .plant-img {
     height: 500px;
     margin: 0 auto;
   }
-  .plant-main-description{
+
+  .plant-main-description {
     margin-bottom: 20px;
   }
-  .amazon-btn-div{
+
+  .amazon-btn-div {
     justify-content: center;
   }
-  .plant-info-guide-title-container{
+
+  .plant-info-guide-title-container {
     margin-top: 20px;
   }
 }
@@ -220,15 +229,18 @@ body {
 // Blogs All index page
 .blogs-all-index {
   margin-top: 20px;
+
   .blog-index-card-container {
     display: flex;
     flex-direction: column;
     max-width: 300px;
+
     &:hover {
       border: 1px solid $accent;
       box-shadow: 5px 5px 5px #818181;
     }
   }
+
   .blog-index-card-title {
     font-size: 1.5rem;
     font-weight: bold;
@@ -236,13 +248,16 @@ body {
     font-family: $header-font;
     margin-top: 5px;
     padding: 0 5px;
+
     &:hover {
       color: $accent;
     }
   }
+
   .blog-index-card-description {
     padding: 0 5px;
   }
+
   .blog-index-card-img {
     max-height: 300px;
   }
@@ -251,27 +266,32 @@ body {
 // Blog category index page
 .blog-index-filter-box {
   text-align: center;
+
   select {
     text-align: right;
     font-weight: bold;
     padding-left: 5px;
   }
 }
+
 .blog-index-filter-p {
   font-size: 1.3rem;
   color: $primary;
 }
+
 .filter-blog-dropdown {
   text-decoration: underline;
   font-size: 1.5rem;
 }
+
 // .blog-index-filter-selector {
 //   font-size: 1.5rem;
 // }
 
 // Centers the following pages
 .succulents-blog-index,
-.single-blog, .blogs-all-index  {
+.single-blog,
+.blogs-all-index {
   display: flex;
   justify-content: center;
 }
@@ -283,6 +303,7 @@ body {
     font-family: $header-font;
     margin-top: 5px;
   }
+
   .blog-card-p {
     font-size: 0.8rem;
     color: #98999a;
@@ -306,6 +327,7 @@ body {
   //   }
   // }
 }
+
 // Single blog page
 .single-blog {
   h1 {
@@ -314,18 +336,22 @@ body {
     color: $primary;
     text-align: center;
   }
+
   .blog-single-created-by {
     text-align: center;
     font-size: 1.1rem;
     margin-bottom: 10px;
   }
+
   img {
     max-height: 800px;
     margin: 0 auto;
   }
+
   .blog-article {
     font-size: 1.1rem;
   }
+
   .btn-green {
     background-color: $primary;
     color: $secondary;
@@ -334,11 +360,13 @@ body {
       background-color: $accent;
     }
   }
+
   .social-icons {
     display: flex;
     justify-content: flex-end;
   }
-  .social-imgs{
+
+  .social-imgs {
     height: 32px;
     width: 32px;
     display: inline-block;
@@ -348,22 +376,28 @@ body {
 
 // *** PLANT FORM PAGE ***
 
-.plant-add-page{
-  .plant-add-form{
-    form{
+.plant-add-page {
+  .plant-add-form {
+    form {
       margin-top: 30px;
     }
   }
-  .chakra-input, .chakra-select, .plant-add-location-checkbox{
+
+  .chakra-input,
+  .chakra-select,
+  .plant-add-location-checkbox {
     margin-bottom: 10px;
-    label{
+
+    label {
       margin-left: 3px;
       margin-right: 15px;
     }
   }
+
   .btn-green {
     background-color: $primary;
     color: $secondary;
+
     &:hover {
       background-color: $accent;
     }
@@ -372,76 +406,82 @@ body {
 }
 
 // Blog form page styling
-.blog-form-page, .plant-add-page {
+.blog-form-page,
+.plant-add-page {
   display: flex;
   justify-content: center;
+
   .blog-form-input,
-    select {
-      width: 100%;
-      padding: 5px;
-      margin-bottom: 15px;
-      border: 1px solid $accent;
-      border-radius: 5px;
-      font-family: $body-font;
+  select {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 15px;
+    border: 1px solid $accent;
+    border-radius: 5px;
+    font-family: $body-font;
+  }
+
+  .btn-green {
+    background-color: $primary;
+    color: $secondary;
+
+    &:hover {
+      background-color: $accent;
+    }
+  }
+
+  .blog-form {
+    margin-top: 20px;
+
+    .required {
+      color: red;
     }
 
-    .btn-green {
-      background-color: $primary;
-      color: $secondary;
-
-      &:hover {
-        background-color: $accent;
-      }
+    label {
+      font-family: $header-font;
+      font-size: 1.2rem;
     }
-    .blog-form {
-      margin-top: 20px;
-    
-      .required {
-        color: red;
-      }
-    
-      label {
-        font-family: $header-font;
-        font-size: 1.2rem;
-      }
-    }
+  }
 
-    // Drop Zone styling
-    .thumbsContainer {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      margin-top: 16px;
-      .thumb {
-        display: inline-flex;
-        border-radius: 2px;
-        border: 1px solid #eaeaea;
-        margin-bottom: 8px;
-        margin-right: 8px;
-        width: 100px;
-        height: 100px;
-        padding: 4px;
-      }
-      .thumb-img {
-        width: auto;
-        max-height: 150px;
-      }
+  // Drop Zone styling
+  .thumbsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 16px;
+
+    .thumb {
+      display: inline-flex;
+      border-radius: 2px;
+      border: 1px solid #eaeaea;
+      margin-bottom: 8px;
+      margin-right: 8px;
+      width: 100px;
+      height: 100px;
+      padding: 4px;
     }
 
-    // editor on blog forms
-    .rdw-editor-wrapper {
-      border: 1px solid $accent;
-      margin-bottom: 15px;
-      border-radius: 5px;
+    .thumb-img {
+      width: auto;
+      max-height: 150px;
     }
+  }
 
-    .blog-form-select {
-      border-color: $accent;
-      background-color: $primary;
-    }
+  // editor on blog forms
+  .rdw-editor-wrapper {
+    border: 1px solid $accent;
+    margin-bottom: 15px;
+    border-radius: 5px;
+  }
+
+  .blog-form-select {
+    border-color: $accent;
+    background-color: $primary;
+  }
 }
 
-.blog-form-title, .plant-add-title {
+.blog-form-title,
+.plant-add-title {
   font-family: $header-font;
   display: flex;
   justify-content: space-between;
@@ -629,6 +669,7 @@ body {
   border-radius: 10px;
   box-shadow: 5px 5px #467A43;
   transition: transform 0.3s;
+
   &:hover {
     transform: scale(1.1);
   }
@@ -711,45 +752,52 @@ body {
 
 // *** CHECKBOX *** 
 
-.plants-filter-container{
+.plants-filter-container {
   min-width: 195px;
   flex-direction: column;
   margin-top: 30px;
-  margin-left: 10px;;
-  .plants-filter-title{
+  margin-left: 10px;
+  ;
+
+  .plants-filter-title {
     margin-left: 15px;
     font-size: 20px;
     font-weight: bolder;
   }
-  .filters-type, 
+
+  .filters-type,
   .filters-location,
   .filters-sunlight,
-  .filters-height{
+  .filters-height {
     flex-direction: column;
-    label{
+
+    label {
       margin-left: 5px;
     }
   }
+
   .filters-beginner,
-  .filters-safe{
+  .filters-safe {
     margin-top: 10px;
     margin-left: 15px;
-    label{
+
+    label {
       margin-left: 5px;
     }
   }
 }
 
 @media screen and (max-width: 768px) {
-  .plants-filter-container{
-    width: 90vw; 
+  .plants-filter-container {
+    width: 90vw;
   }
 
-  .plants-index{
+  .plants-index {
     display: flex;
     flex-direction: column;
     margin-top: 0;
-    .chakra-container{
+
+    .chakra-container {
       transform: translateY(30px);
     }
   }
@@ -758,29 +806,34 @@ body {
 
 // *** PLANTS INDEX *** 
 
-.plants-index{
+.plants-index {
   display: flex;
   margin-top: 2.5%;
-  .no-results{
+
+  .no-results {
     margin: 30px auto;
     padding-top: 100px;
     font-size: 30px;
   }
-  .chakra-container{
+
+  .chakra-container {
     margin: 5px auto;
   }
 }
 
-.plants-index-cards{
+.plants-index-cards {
   margin-bottom: 40px;
-  .chakra-heading{
+
+  .chakra-heading {
     text-align: center;
     margin-top: 10px;
     font-family: $body-font;
   }
-  .chakra-image{
+
+  .chakra-image {
     transition: transform .5s;
-    &:hover{
+
+    &:hover {
       transform: scale(1.1)
     }
   }
@@ -789,94 +842,113 @@ body {
 
 // *** HOMEPAGE ***
 
-.home-main{
+.home-main {
   background-image: url(../assets/monstera-unsplash.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   height: calc(100vh - 60px);
-  .empty{
+
+  .empty {
     height: 1px;
   }
-  .home-container{
+
+  .home-container {
     flex-direction: column;
     // transform: translate(10vw, 20vh);
     font-size: 2vw;
     font-weight: bolder;
     // margin-top: 50px;
   }
-  .home-forms-container{
+
+  .home-forms-container {
     flex-direction: column;
     height: calc(100vh - 60px);
   }
-  .home-title-container{
+
+  .home-title-container {
     flex-direction: column;
     margin-left: 140px;
     margin-top: 110px;
   }
-  .home-title{
+
+  .home-title {
     margin-bottom: 20px;
     font-size: 2.5vw;
   }
-  .home-action-container{
+
+  .home-action-container {
     margin-bottom: 20px;
   }
-  .home-start-message{
+
+  .home-start-message {
     margin-top: 20px;
   }
-  select{
+
+  select {
     margin-left: 3px;
     border-bottom: 2px solid $primary;
-    background-color: rgba(0,0,0,0);
+    background-color: rgba(0, 0, 0, 0);
     font-size: 2vw;
     font-weight: bolder;
     color: $primary;
-    &:focus{
+
+    &:focus {
       outline: none;
     }
   }
-  button{
+
+  button {
     margin-top: 30px;
     background-color: lighten($primary, 10%);
-      &:hover{
-        background-color: $primary;
-      }
+
+    &:hover {
+      background-color: $primary;
+    }
   }
-  .home-select-container{
+
+  .home-select-container {
     margin-left: 140px;
   }
+
   .home-location-container,
   .home-sunlight-container,
   .home-height-container,
   .home-beginner-container,
   .home-toxic-container,
-  .home-category-container, 
-  .home-tag-container{
+  .home-category-container,
+  .home-tag-container {
     align-items: center;
   }
-  .chakra-container{
+
+  .chakra-container {
     font-size: 25px;
     margin: 0 auto;
     // margin-left: 10%;
     // margin-top: 30vh;
     margin-bottom: 200px;
-    .chakra-text{
+
+    .chakra-text {
       text-align: center;
       margin-bottom: 10px;
     }
-    .chakra-heading{
+
+    .chakra-heading {
       text-align: center;
       margin-top: 10px;
       font-family: $body-font;
     }
-    .chakra-image{
+
+    .chakra-image {
       transition: transform .5s;
-      &:hover{
+
+      &:hover {
         transform: scale(1.1)
       }
     }
   }
-  .home-results-message{
+
+  .home-results-message {
     padding-top: 60px;
     padding-bottom: 40px;
     color: $primary;
@@ -972,6 +1044,7 @@ body {
       }
     }
   }
+
   .about-us-flex {
     width: 80vw;
     margin-right: 0;
@@ -1023,6 +1096,7 @@ body {
   margin-left: 50px;
   margin-right: 0;
 }
+
 #loksze-links {
   margin-right: 12px;
 }
