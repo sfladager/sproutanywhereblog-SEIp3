@@ -53,7 +53,7 @@ const BlogsAll = () => {
     const selectedTags = filteredCategories.filter(blog => {
       return (e.target.value === blog.tags || e.target.value === 'all')
     })
-    console.log(selectedTags)
+    // console.log(selectedTags)
     setFilteredBlogs(selectedTags)
   }
 

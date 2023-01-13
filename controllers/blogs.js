@@ -18,7 +18,6 @@ export const getAllBlogs = async (req, res) => {
     sendErrors(res, err)
   }
 }
-
 // * Blog category Index route
 // Method: GET
 // Endpoint: /blogs/category/:category
@@ -33,7 +32,6 @@ export const getBlogsCategory = async (req, res) => {
     sendErrors(res, err)
   }
 }
-
 // * Blog category Index route
 // Method: GET
 // Endpoint: /blogs/category/:category/:tags

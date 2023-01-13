@@ -15,7 +15,7 @@ const NavSearch = () => {
   const [ search, setSearch ] = useState([])
  
   const handleSearchClick = () => {
-    console.log('search clicked')
+    // console.log('search clicked')
     setOpen(!open)
   }
 
@@ -56,7 +56,6 @@ const NavSearch = () => {
   const clearSearch = (e) => {
     setFilteredPlants([])
   }
-
 
   useEffect(() => {
     filterByName()
