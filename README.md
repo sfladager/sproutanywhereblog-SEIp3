@@ -4,7 +4,7 @@ The third project of the SEI General Assembly course was a 8 day full stack proj
 
 ![home-page](/screenshots/sprout-home.png)
 
-Check out the website here → [Demo](https://project-sproutanywhere.herokuapp.com/)
+Check out the website here → [Demo](https://sproutanywhere.herokuapp.com/)
 
 # Brief
 - Build a full-stack application by making your own back-end and front-end
